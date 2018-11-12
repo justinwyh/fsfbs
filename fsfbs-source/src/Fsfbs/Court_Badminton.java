@@ -1,8 +1,8 @@
 package Fsfbs;
 
-public class BadmintonCourt extends Facilities {
+public class Court_Badminton extends Facilities {
 
-    public BadmintonCourt(int facilityId, int facilityNum){
+    public Court_Badminton(int facilityId, int facilityNum){
         super(facilityId,facilityNum);
     }
 
