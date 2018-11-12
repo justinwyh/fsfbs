@@ -10,6 +10,14 @@ public class Main {
 
      //Step 2:User Login
 
+
+
+
+
+
+
+
+
      //Step 3: Show the recommendation algorithm and all functions available for users (or admin)
 
 	 User user = new User();

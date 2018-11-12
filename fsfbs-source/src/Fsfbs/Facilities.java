@@ -3,17 +3,17 @@ package Fsfbs;
 import java.util.ArrayList;
 
 public abstract class Facilities {
-        private int facilityId; //court num can be consist of district, sport centre and facility number
+        private String facilityId; //court num can be consist of district, sport centre and facility number
         private int facilityNum;
         private ArrayList<Booking> facilityBookingList;
 
-        public Facilities(int facilityId, int facilityNum) {
+        public Facilities(String facilityId) {
             this.facilityId = facilityId;
-            this.facilityNum = facilityNum;
+            this.facilityNum = Integer.parseInt(facilityId.substring(3));
             facilityBookingList = new ArrayList<>();
         }
 
-    public int getFacilityId() {
+    public String getFacilityId() {
         return facilityId;
     }
 

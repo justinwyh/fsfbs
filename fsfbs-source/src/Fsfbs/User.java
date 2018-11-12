@@ -37,11 +37,8 @@ public String getUserName() {
 	return userName;
 }
 
-<<<<<<< HEAD
-public void setUserName(String userName)  {
-=======
+
 private void setUserName(String userName) throws IOException {
->>>>>>> b6542893f2304b40ff2edbd277146864c898220a
 	this.userName = userName;
 }
 
