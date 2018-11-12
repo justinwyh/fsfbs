@@ -3,7 +3,7 @@ package Fsfbs;
 import java.util.ArrayList;
 
 public abstract class Facilities {
-        private int facilityId; //court num can be consist of district, sport centre and court number
+        private int facilityId; //court num can be consist of district, sport centre and facility number
         private int facilityNum;
         private ArrayList<Booking> facilityBookingList;
 

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class User {
-<<<<<<< HEAD
 private String userName;
 private String userID;
 private String userPassword;
@@ -22,7 +21,7 @@ public void setUpAC() throws IOException {
 	//setAc
 	System.out.println("Please enter your preferred userID");	
 	String ac = in.nextLine();
-	while(existedAC(ac)==true)
+	while(existedAC(ac))
 	{
 		System.out.println("Account already exist. Please input again.");
 		ac=in.nextLine();
@@ -37,7 +36,7 @@ public String getUserName() {
 	return userName;
 }
 
-public void setUserName(String userName) throws IOException {
+public void setUserName(String userName)  {
 	this.userName = userName;
 }
 
@@ -64,7 +63,7 @@ public void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
 }
 //validate account
-private static boolean existedAC(String account) throws IOException {
+private static boolean existedAC(String account) throws IOException, NullPointerException {
 	 File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
      File[] files = file.listFiles();
      for(File f: files){
@@ -74,7 +73,4 @@ private static boolean existedAC(String account) throws IOException {
      }
 	return false;
 }
-=======
-	
->>>>>>> 1574d3a365722868571b7d40286c387436875848
 }
