@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class User {
-<<<<<<< HEAD
 private String userName;
 private String userID;
 private String userPassword;
@@ -30,6 +29,7 @@ public void setUpAC() throws IOException {
 	this.setUserName(ac);
 	
 	//setPw
+	System.out.println("");
 	this.setUserPassword(in.next());
 }
 //getter setter
@@ -37,7 +37,7 @@ public String getUserName() {
 	return userName;
 }
 
-public void setUserName(String userName) throws IOException {
+private void setUserName(String userName) throws IOException {
 	this.userName = userName;
 }
 
@@ -45,7 +45,7 @@ public String getUserID() {
 	return userID;
 }
 
-public void setUserID(String userID) {
+private void setUserID(String userID) {
 	this.userID = userID;
 }
 
@@ -53,14 +53,14 @@ public Membership getMembership() {
 	return membership;
 }
 
-public void setMembership(Membership membership) {
+private void setMembership(Membership membership) {
 	this.membership = membership;
 }
 public String getUserPassword() {
 	return userPassword;
 }
 
-public void setUserPassword(String userPassword) {
+private void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
 }
 //validate account
@@ -74,7 +74,4 @@ private static boolean existedAC(String account) throws IOException {
      }
 	return false;
 }
-=======
-	
->>>>>>> 1574d3a365722868571b7d40286c387436875848
 }
