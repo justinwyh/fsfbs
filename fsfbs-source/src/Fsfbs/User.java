@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class User {
+<<<<<<< HEAD
 private String userName;
 private String userID;
 private String userPassword;
@@ -73,4 +74,7 @@ private static boolean existedAC(String account) throws IOException {
      }
 	return false;
 }
+=======
+	
+>>>>>>> 1574d3a365722868571b7d40286c387436875848
 }
