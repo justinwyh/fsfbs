@@ -18,7 +18,8 @@ public User() {
 
 public void setUpAC() throws IOException {
 	Scanner in = new Scanner(System.in);	
-	//setAc
+	
+	//User account set up
 	System.out.println("Please enter your preferred userID");	
 	String ac = in.nextLine();
 	while(existedAC(ac))
@@ -28,20 +29,28 @@ public void setUpAC() throws IOException {
 	}
 	this.setUserName(ac);
 	
-	//setPw
-	System.out.println("");
-	this.setUserPassword(in.next());
+	//User password set up
+	while(true) {
+	System.out.println("Please enter your password");
+	String password = in.next();
+	System.out.println("Please enter your password again");
+	if(password.equals(in.next()))
+	{
+		this.setUserPassword(in.next());
+		break;
+	}
+	}
+	
+	
 }
+
+
 //getter setter
 public String getUserName() {
 	return userName;
 }
 
-<<<<<<< HEAD
-public void setUserName(String userName)  {
-=======
 private void setUserName(String userName) throws IOException {
->>>>>>> b6542893f2304b40ff2edbd277146864c898220a
 	this.userName = userName;
 }
 
