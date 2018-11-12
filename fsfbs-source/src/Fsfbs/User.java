@@ -57,7 +57,6 @@ public Membership getMembership() {
 	return membership;
 }
 
-public void setMembership(Membership membership) {
 private void setMembership(Membership membership) {
 	this.membership = membership;
 }
