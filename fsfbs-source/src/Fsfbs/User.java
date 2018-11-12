@@ -29,6 +29,7 @@ public void setUpAC() throws IOException {
 	this.setUserName(ac);
 	
 	//setPw
+	System.out.println("");
 	this.setUserPassword(in.next());
 }
 //getter setter
@@ -36,7 +37,11 @@ public String getUserName() {
 	return userName;
 }
 
+<<<<<<< HEAD
 public void setUserName(String userName)  {
+=======
+private void setUserName(String userName) throws IOException {
+>>>>>>> b6542893f2304b40ff2edbd277146864c898220a
 	this.userName = userName;
 }
 
@@ -44,7 +49,7 @@ public String getUserID() {
 	return userID;
 }
 
-public void setUserID(String userID) {
+private void setUserID(String userID) {
 	this.userID = userID;
 }
 
@@ -53,13 +58,14 @@ public Membership getMembership() {
 }
 
 public void setMembership(Membership membership) {
+private void setMembership(Membership membership) {
 	this.membership = membership;
 }
 public String getUserPassword() {
 	return userPassword;
 }
 
-public void setUserPassword(String userPassword) {
+private void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
 }
 //validate account
