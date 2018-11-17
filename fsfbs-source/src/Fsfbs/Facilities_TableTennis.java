@@ -2,8 +2,8 @@ package Fsfbs;
 
 public class Facilities_TableTennis extends Facilities {
 
-    public Facilities_TableTennis(int courtId, int courtNum){
-        super(courtId,courtNum);
+    public Facilities_TableTennis(String courtId){
+        super(courtId);
     }
 
     @Override
