@@ -11,8 +11,8 @@ public class Controller {
 	private Controller() {
 		//import 
 	}
-	public User getUserbyID(String userid) {
-		return userList.get(userid);
+	public User getUserbyID(String userName) {
+		return userList.get(userName);
 	}
 
 	public Facilities getFacilitybyID(String facid) {

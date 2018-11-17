@@ -2,14 +2,14 @@ package Fsfbs;
 
 public class Booking {
 
-	private String userID;
+	private String userName;
 	private String bookingID;
 	private int bookingTime;
 	private String facilitiesID;
 
-	public Booking (String userID, int bookingTime, String facilitiesID){
+	public Booking (String userName, int bookingTime, String facilitiesID){
 
-	    this.userID = userID;
+	    this.userName = userName;
 	    this.bookingID = createBookingID(bookingTime,facilitiesID);
 	    this.bookingTime = bookingTime;
 	    this.facilitiesID = facilitiesID;
@@ -25,8 +25,8 @@ public class Booking {
         return bookingID;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getuserName() {
+        return userName;
     }
 
     public String getFacilitiesID() {
