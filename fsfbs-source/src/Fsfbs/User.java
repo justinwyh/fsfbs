@@ -9,11 +9,51 @@ private String userName;
 private String userID;
 private String userPassword;
 private Membership  membership= null;
-//private District preferDistrict;
 //private SportCenter preferSportCenter;
 //private ArrayList<Booking> bookingHistory
 
 public User() {
+}
+
+public static void Login() throws NullPointerException, IOException {
+	//variable initialization
+	String username,password;
+	Scanner in = new Scanner(System.in); //user input
+
+	
+	
+	//login procedure
+	while(true) {
+		System.out.println("Please enter user name:");
+		username = in.next();
+		if(existedAC(username)) 
+			break;
+		else 
+			System.out.println("Invalid username. Please enter again :");
+		
+		}
+	//get Password
+	//read file
+			String filepath = UtilsLoadconfig.getConfig("membershipFilePath")+username+".txt";
+			File file = new File(filepath);
+			Scanner inFile = new Scanner(file);
+			String ac = inFile.next();
+			String correctpass = inFile.next();
+		
+	while(true) {		
+		//user input
+		System.out.println("Your username: "+ac);
+		System.out.println("Please enter password:");
+		password = in.next();
+		if(password.equals(correctpass))
+		{
+			System.out.println("Login Success.");
+			break;
+		}
+		else
+			System.out.println("Invalid password. Please enter again.");
+		}	
+	
 }
 
 public void setUpAC() throws IOException {
@@ -50,10 +90,6 @@ public String getUserName() {
 	return userName;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 888adbfcf02423c5827561fbb5861cb16b2f5a6c
 private void setUserName(String userName) throws IOException {
 	this.userName = userName;
 }
