@@ -1,5 +1,6 @@
 package Fsfbs;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -44,17 +45,12 @@ public void setUpAC() throws IOException {
 	
 }
 
-
 //getter setter
 public String getUserName() {
 	return userName;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 888adbfcf02423c5827561fbb5861cb16b2f5a6c
-private void setUserName(String userName) throws IOException {
+private void setUserName(String userName) {
 	this.userName = userName;
 }
 
