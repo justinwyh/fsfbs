@@ -6,9 +6,10 @@ public class Booking {
 	private String bookingID;
 	private int bookingTime;
 	private String facilitiesID;
-	private
+	
 
 	public Booking (String userID, int bookingTime, String facilitiesID){
+
 	    this.userID = userID;
 	    this.bookingID = createBookingID(bookingID,facilitiesID);
 	    this.bookingTime = bookingTime;

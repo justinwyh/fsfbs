@@ -3,6 +3,7 @@ package Fsfbs;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class User {
 private String userName;
@@ -10,9 +11,13 @@ private String userID;
 private String userPassword;
 private Membership  membership= null;
 //private SportCenter preferSportCenter;
-//private ArrayList<Booking> bookingHistory
+private ArrayList<Booking> todayBooking = new ArrayList<>();
 
-public User() {
+public User(String userName, String userID, String userPassword, Membership membership) {
+	this.userName = userName;
+	this.userID = userID;
+	this.userPassword = userPassword;
+	this.membership = membership;
 }
 
 public static void Login() throws NullPointerException, IOException {
@@ -124,5 +129,25 @@ private static boolean existedAC(String account) throws IOException, NullPointer
     		 return true;
      }
 	return false;
+	}
+
+
+private void addBooking(SportCentre sc, Facilities f, int t) {
+	sc.addFacilitiestoSC(f.getFacilityId(), f);
+	//check booking user < 3 
+	boolean todayBkBelow3 = todayBooking.size()<3;
+	if(todayBkBelow3) {
+		 boolean canBook = f.canBook(t);
+		 Booking booking = new Booking(userID, t, f.getFacilityId());
+		 f.addToTimeTable(t, booking.getBookingID());
+	}
+	
 }
+
+
+
+
+
 }
+
+
