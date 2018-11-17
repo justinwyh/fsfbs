@@ -6,17 +6,17 @@ public class Booking {
 	private String bookingID;
 	private int bookingTime;
 	private String facilitiesID;
-	private
 
 	public Booking (String userID, int bookingTime, String facilitiesID){
 	    this.userID = userID;
-	    this.bookingID = createBookingID(bookingID,facilitiesID);
+	    this.bookingID = createBookingID(bookingTime,facilitiesID);
 	    this.bookingTime = bookingTime;
 	    this.facilitiesID = facilitiesID;
     }
 
-    private String createBookingID(String bookingID, String facilitiesID){
-	    return (bookingID + facilitiesID);
+    private String createBookingID(int bookingTime, String facilitiesID){
+	    UtilTime utilTime = UtilTime.getTimeInstance();
+	    return (utilTime.getCurrentDate() + facilitiesID + bookingTime);
     }
 
 
