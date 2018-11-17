@@ -225,17 +225,33 @@ private Membership getMembershipbyAge() {
 }
 
 
-private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist{
-	UtilValidation utilValidation = UtilValidation.getValidationInstance();
-    Controller controller =  Controller.getInstance();
-    SportCentre sc = getSportCentreById(inputSCId);
+private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist, ExFacilityIdNotExist, ExFullBooking{
+    //Step 1: Validate Input
+    SportCentre sc;
+    Facility facility;
+     sc = getSportCentreById(inputSCId);
     if (sc == null){
         throw new ExSportCentreNotExist();
     }
     else{
-
+        facility = getFacility(sc,inputFacilitiesId);
+        if (facility == null){
+            throw new ExFacilityIdNotExist();
+        }
     }
-
+    //Step 2: check if user exceed the maximum booking limit
+    boolean todayBkBelow3 = todayBooking.size()<3;
+    //Step 3:
+    if(todayBkBelow3) {
+        boolean canBook = facility.canBook(time);
+        if (canBook) {
+            Booking booking = new Booking(userName, time, facility.getFacilityId());
+            facility.addToTimeTable(time, booking.getBookingID());
+        }
+        else {
+            throw new ExFullBooking(sc.getScName(),facility.getFacilityType(),time);
+        }
+    }
 
     /*sc.addFacilitiestoSC(f.getFacilityId(), f);
 	//check booking user < 3
@@ -253,5 +269,9 @@ private SportCentre getSportCentreById(String inputSCId){
     return controller.getSportCentrebyID(inputSCId);
 }
 
+private Facility getFacility(SportCentre sc, String inputFacilitiesId){
+    Controller controller =  Controller.getInstance();
+    return controller.getFacility(sc,inputFacilitiesId);
+}
 
 }

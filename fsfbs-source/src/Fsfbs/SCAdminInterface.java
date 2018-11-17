@@ -1,6 +1,6 @@
 package Fsfbs;
 
 public interface SCAdminInterface {
-    void addFacilitiestoSC(String facilitiesId, Facility facility);
-    void removeFacilitiesFromSC(String facilitiesId);
+    void addFacilitytoSC(String facilitiesId, Facility facility);
+    void removeFacilityFromSC(String facilitiesId);
 }

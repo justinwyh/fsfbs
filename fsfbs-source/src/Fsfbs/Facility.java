@@ -6,6 +6,7 @@ import java.util.Map;
 public abstract class Facility {
         private String facilityId; //court num can be consist of district, sport centre and facility number
         private int facilityNum;
+        private String facilityType;
         private Map<Integer, String> timetableMap; // time, bookingID
 
         public Facility(String facilityId) {
@@ -31,10 +32,12 @@ public abstract class Facility {
     }
 
     public abstract double getPrice();
+
+    public abstract String getFacilityType();
     
-    public boolean canBook(int t) {
+    public boolean canBook(int timeslot) {
     	for (Integer key : timetableMap.keySet()) {
-            if(key==t)
+            if(key==timeslot)
             	return false;
         }
     	return true;

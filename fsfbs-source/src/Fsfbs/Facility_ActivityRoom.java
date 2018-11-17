@@ -10,4 +10,9 @@ public class Facility_ActivityRoom extends Facility {
     public double getPrice() {
         return 99;
     }
+
+    @Override
+    public String getFacilityType() {
+        return "activity room";
+    }
 }
