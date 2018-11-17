@@ -145,9 +145,10 @@ private static boolean existedAC(String account) throws IOException, NullPointer
 	}
 
 
-private void addBooking(String inputSC, String inputFacilities, int t) {
+private void addBooking(String inputSCId, String inputFacilitiesId, int t) {
 
-	/*sc.addFacilitiestoSC(f.getFacilityId(), f);
+
+    /*sc.addFacilitiestoSC(f.getFacilityId(), f);
 	//check booking user < 3
 	boolean todayBkBelow3 = todayBooking.size()<3;
 	if(todayBkBelow3) {
