@@ -83,7 +83,7 @@ public void setUpAC() throws IOException {
 	//User account set up
 	System.out.println("Please enter your preferred userName");
 	String ac = in.nextLine();
-	while(UtilValidation.existedAC(ac))
+	while(UtilValidation.getValidationInstance().existedAC(ac))
 	{
 		System.out.println("Account already exist. Please input again.");
 		ac=in.nextLine();
@@ -97,12 +97,16 @@ public void setUpAC() throws IOException {
 	//set membership
 	this.setMembership(this.getMembershipbyAge());
 	
-	
-	while(true) {
+	//set SportCentre
+	Controller.getInstance().printAllFacilities();
+		while(true) {
 		System.out.println("Please enter your prefer Sport Centre");
 		sc=in.next();
-		if(sc.equals(""))
-		break;
+		if(UtilValidation.getValidationInstance().validateSportCentreById(sc))
+		{
+			this.setPreferSportCentre(sc);
+			break;
+		}
 	}
 	
 	while(true) {
@@ -143,6 +147,21 @@ public String getUserPassword() {
 
 private void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
+}
+public String getPreferSportCentre() {
+	return preferSportCentre;
+}
+
+public void setPreferSportCentre(String preferSportCentre) {
+	this.preferSportCentre = preferSportCentre;
+}
+
+public String getPreferFacilities() {
+	return preferFacilities;
+}
+
+public void setPreferFacilities(String preferFacilities) {
+	this.preferFacilities = preferFacilities;
 }
 
 //-----------------validate User Pw-------------------

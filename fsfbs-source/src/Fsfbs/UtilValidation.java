@@ -4,14 +4,12 @@ import java.io.File;
 import java.io.IOException;
 
 public class UtilValidation {
-<<<<<<< HEAD
+	private static UtilValidation validationInstance= new UtilValidation();
+    public static UtilValidation getValidationInstance() {return validationInstance;}
 	
-    public static boolean validateSportCenter() {
-		
-    	return true;   	
-    }
+
   //validate account ----------------------------------------------------------------------------------------
-    public static boolean existedAC(String account) throws IOException, NullPointerException {
+    public boolean existedAC(String account) throws IOException, NullPointerException {
     	 File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
          File[] files = file.listFiles();
          for(File f: files){
@@ -21,14 +19,7 @@ public class UtilValidation {
          }
     	return false;
     	}
-    
-    //validate if sportcentre existed
-    public static boolean existedSportCenre(String sportcentre) {
-    }
-}
-=======
-    private static UtilValidation validationInstance= new UtilValidation();
-    public static UtilValidation getValidationInstance() {return validationInstance;}
+
 
     public boolean validateSportCentreById(String inputSCId){
      Controller controller =  Controller.getInstance();
@@ -48,4 +39,3 @@ public class UtilValidation {
         return true;
     }
 }
->>>>>>> 55a07d03a32035ee90a4db5ce71367fe05a84860

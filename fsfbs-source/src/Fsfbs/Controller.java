@@ -14,12 +14,18 @@ public class Controller {
 	public User getUserbyID(String userName) {
 		return userList.get(userName);
 	}
-
+	
 	public SportCentre getSportCentrebyID(String scid) {
 		return sportCentreList.get(scid);
 	}
 	public void printAllFacilities() {
-		
+		System.out.println("Please enter the key for selecting Sport Centre");
+		for (String key: sportCentreList.keySet()) {
+		    System.out.println("key : " + key);
+		    System.out.println("Name : " + sportCentreList.get(key).getScName());
+		    System.out.println("Address : " + sportCentreList.get(key).getScAddress());
+		    System.out.println("Tel : "+sportCentreList.get(key).getScTel());
+		}
 	}
 	public static Controller getInstance() {
 		if(instance == null)
