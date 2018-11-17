@@ -6,6 +6,7 @@ public class Booking {
 	private String bookingID;
 	private int bookingTime;
 	private String facilitiesID;
+	private
 
 	public Booking (String userID, int bookingTime, String facilitiesID){
 	    this.userID = userID;
@@ -15,8 +16,7 @@ public class Booking {
     }
 
     private String createBookingID(String bookingID, String facilitiesID){
-	    UtilTime utiltime = UtilTime.getTimeInstance();
-	    return (utiltime.getCurrentDate() + bookingID + facilitiesID);
+	    return (bookingID + facilitiesID);
     }
 
 
