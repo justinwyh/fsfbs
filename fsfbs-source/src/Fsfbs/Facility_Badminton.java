@@ -1,8 +1,8 @@
 package Fsfbs;
 
-public class Facilities_Badminton extends Facilities {
+public class Facility_Badminton extends Facility {
 
-    public Facilities_Badminton(String facilityId){
+    public Facility_Badminton(String facilityId){
         super(facilityId);
     }
 

@@ -40,7 +40,7 @@ public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
     private String scName;
     private String scTel;
     private String scAddress;
-    private Map<String,Facilities> facilitiesMap;
+    private Map<String, Facility> facilitiesMap;
 
 
     public SportCentre(String scId, String scName, String scTel, String scAddress){
@@ -51,15 +51,15 @@ public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
         facilitiesMap = new HashMap<>();
     }
 
-    public void addFacilitytoSC(String facilitiesId,Facilities facilities) {
-        facilitiesMap.putIfAbsent(facilitiesId,facilities);
+    public void addFacilitytoSC(String facilitiesId, Facility facility) {
+        facilitiesMap.putIfAbsent(facilitiesId, facility);
     }
 
     public void removeFacilityFromSC(String facilityId){
         facilitiesMap.remove(facilityId);
     }
 
-    public Facilities getFacilityByID(String facilityId) {
+    public Facility getFacilityByID(String facilityId) {
         facilitiesMap.get(facilityId);
     }
 }

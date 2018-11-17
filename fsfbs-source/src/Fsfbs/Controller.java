@@ -34,7 +34,7 @@ public class Controller {
 		return instance;
 	}
 
-	public Facilities getFacilities(SportCentre sc, String facilitiesId){
+	public Facility getFacilities(SportCentre sc, String facilitiesId){
 	    return sc.getFacilityByID(facilitiesId);
     }
 }

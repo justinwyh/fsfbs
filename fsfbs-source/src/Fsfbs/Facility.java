@@ -3,12 +3,12 @@ package Fsfbs;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Facilities {
+public abstract class Facility {
         private String facilityId; //court num can be consist of district, sport centre and facility number
         private int facilityNum;
         private Map<Integer, String> timetableMap; // time, bookingID
 
-        public Facilities(String facilityId) {
+        public Facility(String facilityId) {
             this.facilityId = facilityId;
             this.facilityNum = Integer.parseInt(facilityId.substring(3));
             timetableMap = new HashMap<>();
