@@ -7,17 +7,13 @@ import java.util.ArrayList;
 
 public class User {
 private String userName;
-private String userID;
 private String userPassword;
 private Membership  membership= null;
 //private SportCenter preferSportCenter;
 private ArrayList<Booking> todayBooking = new ArrayList<>();
 
-public User(String userName, String userID, String userPassword, Membership membership) {
-	this.userName = userName;
-	this.userID = userID;
-	this.userPassword = userPassword;
-	this.membership = membership;
+public User() {
+
 }
 
 //login----------------------------------------------------------------------------------------
@@ -26,17 +22,15 @@ public static String Login() throws NullPointerException, IOException {
 	String username,password;
 	Scanner in = new Scanner(System.in); //user input
 
-	
-	
 	//login procedure
 	while(true) {
 		System.out.println("Please enter user name:");
 		username = in.next();
-		if(existedAC(username)) 
+		if(existedAC(username))
 			break;
-		else 
+		else
 			System.out.println("Invalid username. Please enter again :");
-		
+
 		}
 	//get Password
 	//read file
@@ -45,8 +39,8 @@ public static String Login() throws NullPointerException, IOException {
 			Scanner inFile = new Scanner(file);
 			String ac = inFile.next();
 			String correctpass = inFile.next();
-		
-	while(true) {		
+
+	while(true) {
 		//user input
 		System.out.println("Your username: "+ac);
 		System.out.println("Please enter password:");
@@ -58,18 +52,19 @@ public static String Login() throws NullPointerException, IOException {
 		}
 		else
 			System.out.println("Invalid password. Please enter again.");
-		}	
-	
+		}
+
 }
 
 //Setup Account ----------------------------------------------------------------------------------------
 public void setUpAC() throws IOException {
-	Scanner in = new Scanner(System.in);	
-	String[] temp = new String[2];
+	Scanner in = new Scanner(System.in);
+	String[] temp = new String[4];
+	int age;
 	String password;
-	
+
 	//User account set up
-	System.out.println("Please enter your preferred userID");	
+	System.out.println("Please enter your preferred userID");
 	String ac = in.nextLine();
 	while(existedAC(ac))
 	{
@@ -77,7 +72,7 @@ public void setUpAC() throws IOException {
 		ac=in.nextLine();
 	}
 	this.setUserName(ac);
-	
+
 	//User password set up
 	while(true) {
 	System.out.println("Please enter your password");
@@ -89,14 +84,26 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
-	System.out.println(ac+password);
+	//age setup
+	while(true) {
+	System.out.println("Please enter your age");
+	age = in.nextInt();
+	if(age > 0)
+	{
+		this.setage();
+		break;
+	}
+	else
+		System.out.println("Invalid input entered. Please enter a number.");
+	}
+	if(age<)
 	temp[0]=ac;
 	temp[1]=password;
+	temp[2]=
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
-
 }
-//getter setter----------------------------------------------------------------------------------------
+//getter and setter...-----------------------------------------------------------------------------------
 public String getUserName() {
 	return userName;
 }
@@ -105,13 +112,6 @@ private void setUserName(String userName) throws IOException {
 	this.userName = userName;
 }
 
-public String getUserID() {
-	return userID;
-}
-
-private void setUserID(String userID) {
-	this.userID = userID;
-}
 
 public Membership getMembership() {
 	return membership;
@@ -143,20 +143,18 @@ private static boolean existedAC(String account) throws IOException, NullPointer
 private void addBooking(String inputSC, String inputFacilities, int t) {
 
 	sc.addFacilitiestoSC(f.getFacilityId(), f);
-	//check booking user < 3 
+	//check booking user < 3
 	boolean todayBkBelow3 = todayBooking.size()<3;
 	if(todayBkBelow3) {
 		 boolean canBook = f.canBook(t);
 		 Booking booking = new Booking(userID, t, f.getFacilityId());
 		 f.addToTimeTable(t, booking.getBookingID());
 	}
-	
-}
-
-
-
-
 
 }
 
 
+
+
+
+}

@@ -26,5 +26,4 @@ public class SportCentre implements SCAdminInterface, SCUserInterface {
     public void removeFacilitiesFromSC(String facilitiesId){
         facilitiesMap.remove(facilitiesId);
     }
-
 }
