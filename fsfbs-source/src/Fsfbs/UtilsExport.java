@@ -1,5 +1,8 @@
 package Fsfbs;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -19,5 +22,12 @@ public static void printToFile(String filepath, String input[]) {
 	} catch (UnsupportedEncodingException e) {
 		e.printStackTrace();
 	}
+}
+
+public static void appendToFile(String filepath, String input) throws IOException {
+	 File file = new File(filepath);
+	 FileWriter fr = new FileWriter(file, true);
+	 fr.write(input);
+	 fr.close();
 }
 }

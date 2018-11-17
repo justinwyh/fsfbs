@@ -1,9 +1,12 @@
 package Fsfbs;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
 private String userName;
@@ -11,7 +14,7 @@ private String userPassword;
 private Membership  membership= null;
 private String preferSportCentre = null;
 private String preferFacilities = null;
-private ArrayList<Booking> todayBooking = new ArrayList<>();
+private Map <String,Booking> todayBooking;
 public User() {
 
 }
@@ -29,6 +32,7 @@ public User(String userName,String userPassword, String mem, String preferSportC
 	
 	this.preferSportCentre=preferSportCentre;
 	this.preferFacilities=preferFacilities;
+	todayBooking = new HashMap();
 }
 
 //login----------------------------------------------------------------------------------------
@@ -272,6 +276,28 @@ private SportCentre getSportCentreById(String inputSCId) throws IOException{
 private Facility getFacility(SportCentre sc, String inputFacilitiesId)throws IOException{
     Controller controller =  Controller.getInstance();
     return controller.getFacility(sc,inputFacilitiesId);
+}
+
+public void exportBooking() throws IOException {
+	for(String key: todayBooking.keySet()) {
+		 UtilsExport.appendToFile(UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt", todayBooking.get(key).getBookingID());
+	}
+}
+public void importBooking() throws IOException{
+	String filepath = UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt";
+	File file = new File(filepath);
+	Scanner in = new Scanner(file);
+	if(file.exists()){
+	while(in.hasNext()){
+		String input = in.next();
+		System.out.println(Integer.parseInt(input.substring(12,16)));
+		System.out.println(input.substring(8,12));
+		Booking temp = new Booking(this.getUserName(),Integer.parseInt(input.substring(12,16)),input.substring(8,12));
+		System.out.println("Booking ID "+temp.getBookingID());
+		System.out.println("Booking Time: "+temp.getBookingTime());
+		todayBooking.put(temp.getBookingID(),temp);
+		}
+	}
 }
 
 }
