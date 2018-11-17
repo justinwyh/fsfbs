@@ -19,11 +19,15 @@ public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
         facilitiesMap = new HashMap<>();
     }
 
-    public void addFacilitiestoSC(String facilitiesId,Facilities facilities) {
+    public void addFacilitytoSC(String facilitiesId,Facilities facilities) {
         facilitiesMap.putIfAbsent(facilitiesId,facilities);
     }
 
-    public void removeFacilitiesFromSC(String facilitiesId){
-        facilitiesMap.remove(facilitiesId);
+    public void removeFacilityFromSC(String facilityId){
+        facilitiesMap.remove(facilityId);
+    }
+
+    public Facilities getFacilityByID(String facilityId) {
+        facilitiesMap.get(facilityId);
     }
 }

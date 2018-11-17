@@ -11,6 +11,7 @@ public class Controller {
 	private Controller() {
 		//import 
 	}
+
 	public User getUserbyID(String userName) {
 		return userList.get(userName);
 	}
@@ -26,4 +27,8 @@ public class Controller {
 			instance = new Controller();
 		return instance;
 	}
+
+	public Facilities getFacilities(SportCentre sc, String facilitiesId){
+	    return sc.getFacilityByID(facilitiesId);
+    }
 }

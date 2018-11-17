@@ -180,7 +180,17 @@ private static boolean existedAC(String account) throws IOException, NullPointer
 	}
 
 
-private void addBooking(String inputSCId, String inputFacilitiesId, int t) {
+
+private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist{
+	UtilValidation utilValidation = UtilValidation.getValidationInstance();
+    Controller controller =  Controller.getInstance();
+    SportCentre sc = getSportCentreById(inputSCId);
+    if (sc == null){
+        throw new ExSportCentreNotExist();
+    }
+    else{
+
+    }
 
 
     /*sc.addFacilitiestoSC(f.getFacilityId(), f);
@@ -194,8 +204,10 @@ private void addBooking(String inputSCId, String inputFacilitiesId, int t) {
 
 }
 
-
-
+private SportCentre getSportCentreById(String inputSCId){
+    Controller controller =  Controller.getInstance();
+    return controller.getSportCentrebyID(inputSCId);
+}
 
 
 }
