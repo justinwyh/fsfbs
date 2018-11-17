@@ -80,8 +80,6 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
-	
-	
 }
 
 
