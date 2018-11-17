@@ -21,7 +21,7 @@ public class UtilValidation {
     	}
 
 
-    public boolean validateSportCentreById(String inputSCId){
+    public boolean validateSportCentreById(String inputSCId) throws IOException{
      Controller controller =  Controller.getInstance();
      SportCentre sc = controller.getSportCentrebyID(inputSCId);
      if (sc == null){
@@ -30,7 +30,7 @@ public class UtilValidation {
      return true;
     }
 
-    public boolean validateUserByName(String inputUserName){
+    public boolean validateUserByName(String inputUserName)throws IOException{
         Controller controller =  Controller.getInstance();
         User user = controller.getUserbyID(inputUserName);
         if (user == null){

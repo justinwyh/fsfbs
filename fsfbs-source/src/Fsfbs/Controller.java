@@ -12,9 +12,10 @@ public class Controller {
 	private static Map<String, SportCentre> sportCentreList = new HashMap<>();
 	private static Controller instance=null;
 	
-	private Controller() {
+	private Controller() throws IOException {
 		//import membership
-		
+		this.importAllMember();
+		this.importAllSportFacility();
 	}
 
 	public User getUserbyID(String userName) {
@@ -33,7 +34,7 @@ public class Controller {
 		    System.out.println("Tel : "+sportCentreList.get(key).getScTel());
 		}
 	}
-	public static Controller getInstance() {
+	public static Controller getInstance() throws IOException {
 		if(instance == null)
 			instance = new Controller();
 		return instance;
@@ -71,10 +72,19 @@ public class Controller {
 		 for(File f: files){
 	       	 Scanner inFile = new Scanner(f);
 	       	 SportCentre temp = new SportCentre(inFile.nextLine(),inFile.nextLine(),inFile.nextLine(),inFile.nextLine());
-	       	 temp.addFacilitytoSC(facilitiesId, facility);
-	         sportCentreList.put(f.getName().substring(0,f.getName().length()-4),new ); 
-	         System.out.println(f.getName()+"...created");
+	       	 while(inFile.hasNext()) {
+	       		 String fid = inFile.next();
+	       		 System.out.println(fid+"...created and added to "+temp.getScId());
+	       		 if(fid.charAt(3)=='B')
+	       			 temp.addFacilitytoSC(fid, new Facility_Badminton(fid));
+	       		 else if(fid.charAt(3)=='A')
+	       			 temp.addFacilitytoSC(fid, new Facility_ActivityRoom(fid));
+	       		 else if(fid.charAt(3)=='T')
+	       			 temp.addFacilitytoSC(fid, new Facility_TableTennis(fid));
+	       	 }
+	     	sportCentreList.put(temp.getScId(), temp); 
+	     	System.out.println("Added "+temp.getScId());
 	        }
-		 
+	
 	}
 }

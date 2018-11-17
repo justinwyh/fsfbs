@@ -225,7 +225,7 @@ private Membership getMembershipbyAge() {
 }
 
 
-private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist, ExFacilityIdNotExist, ExFullBooking{
+private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist, ExFacilityIdNotExist, ExFullBooking, IOException{
     //Step 1: Validate Input
     SportCentre sc;
     Facility facility;
@@ -264,12 +264,12 @@ private void addBooking(String inputSCId, String inputFacilitiesId, int time) th
 
 }
 
-private SportCentre getSportCentreById(String inputSCId){
+private SportCentre getSportCentreById(String inputSCId) throws IOException{
     Controller controller =  Controller.getInstance();
     return controller.getSportCentrebyID(inputSCId);
 }
 
-private Facility getFacility(SportCentre sc, String inputFacilitiesId){
+private Facility getFacility(SportCentre sc, String inputFacilitiesId)throws IOException{
     Controller controller =  Controller.getInstance();
     return controller.getFacility(sc,inputFacilitiesId);
 }
