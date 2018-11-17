@@ -11,7 +11,6 @@ private String userPassword;
 private Membership  membership= null;
 //private SportCenter preferSportCenter;
 private ArrayList<Booking> todayBooking = new ArrayList<>();
-
 public User() {
 
 }

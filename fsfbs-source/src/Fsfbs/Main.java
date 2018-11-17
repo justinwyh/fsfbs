@@ -15,23 +15,38 @@ public class Main {
      // for each courts on the current day and all booking history of users automatically.
 	 
 	 Scanner in = new Scanner(System.in);
-	 System.out.println("<=============Welcome to our Fast Sports Facility Booking System!=============>");
-	 System.out.print("Do you have an User Account? (Y/N)");
+
+	 System.out.println("+-------------------------------------------------------------------+");
+	 System.out.println("|-------------------------------------------------------------------|");
+	 System.out.println("||                                                                 ||");
+	 System.out.println("||                                                                 ||");
+	 System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
+	 System.out.println("||  |      | |      |      |       |     |  | +--+ |  |        ||  ||");
+	 System.out.println("||  |  +   | +---+  |      |       |     |  |  ++  |  +---+    ++  ||");
+	 System.out.println("||  |  |   | |      |      |       |     |  |      |  |            ||");
+	 System.out.println("||  +--+---+ +----+ +----+ +-----+ +-----+  +      +  +----+   ++  ||");
+	 System.out.println("||                                                                 ||");
+	 System.out.println("||        Welcome to Fast Sports Facility Booking System!          ||");
+	 System.out.println("|-------------------------------------------------------------------|");
+	 System.out.println("+-------------------------------------------------------------------+");
+	 System.out.println("=================Do you have an User Account? (Y/N)==================");
 	 userinput = in.next();
 	 while(true) {
-		if(userinput.equals("Y"))
+	 	try {
+			if (userinput.equals("Y"))
 			//Step 2:User Login		
-		{
-			user = Controller.getInstance().getUserbyID(User.Login());
-			break;
+			{
+				user = Controller.getInstance().getUserbyID(User.Login());
+				break;
+			} else if (userinput.equals("N")) {
+				user.setUpAC();
+				break;
+			} else
+				System.out.println("Invalid input. Input should be Y or N");
 		}
-		 else if(userinput.equals("N"))
-		 {
-			user.setUpAC();
-			break;
-		 }
-		 else 
-			 System.out.println("Invalid input. Input should be Y or N");
+		catch(Exception e){
+	 		System.out.println(e.getMessage());
+		}
 	 }
      
 
