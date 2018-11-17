@@ -84,11 +84,14 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
+<<<<<<< HEAD
 	System.out.println(ac+password);
 	temp[0]=ac;
 	temp[1]=password;
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
+=======
+>>>>>>> e2c3acc61709da41a9cdff4dc794865da49db9d4
 }
 //getter setter----------------------------------------------------------------------------------------
 public String getUserName() {
