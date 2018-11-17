@@ -9,11 +9,27 @@ public class User {
 private String userName;
 private String userPassword;
 private Membership  membership= null;
-//private SportCenter preferSportCenter;
+private String preferSportCentre = null;
+private String preferFacilities = null;
 private ArrayList<Booking> todayBooking = new ArrayList<>();
 
 public User() {
 
+}
+
+public User(String userName,String userPassword, String mem, String preferSportCentre, String preferFacilities) {
+	this.userName=userName;
+	this.userPassword=userPassword;
+	
+	if(mem.equals("Membership_Adult"))
+			this.membership=Membership_Adult.getInstance();
+	else if(mem.equals("Membership_Student"))
+			this.membership=Membership_Student.getInstance();
+	else if(mem.equals("Membership_Senior"))
+		this.membership=Membership_Senior.getInstance();
+	
+	this.preferSportCentre=preferSportCentre;
+	this.preferFacilities=preferFacilities;
 }
 
 //login----------------------------------------------------------------------------------------
@@ -59,9 +75,11 @@ public static String Login() throws NullPointerException, IOException {
 //Setup Account ----------------------------------------------------------------------------------------
 public void setUpAC() throws IOException {
 	Scanner in = new Scanner(System.in);
-	String[] temp = new String[4];
+	String[] temp = new String[5];
 	int age;
 	String password;
+	String sc;
+	String type;
 
 	//User account set up
 	System.out.println("Please enter your preferred userName");
@@ -83,6 +101,7 @@ public void setUpAC() throws IOException {
 		this.setUserPassword(password);
 		break;
 	}
+	else System.out.println("Your password does not match with what you previously entered. Please enter again!");
 	}
 	
 	//User age setup
@@ -102,9 +121,26 @@ public void setUpAC() throws IOException {
 	else
 		System.out.println("Invalid input entered. Please enter a number.");
 	}
+	
+	while(true) {
+		System.out.println("Please enter your prefer Sport Centre");
+		sc=in.next();
+		if(sc.equals(""))
+		break;
+	}
+	
+	while(true) {
+		System.out.println("Please enter your prefer Facilities");
+		sc=in.next();
+		if(sc.equals(""))
+		break;
+	}
+	
+	//User Profile setup
 	temp[0]=ac;
 	temp[1]=password;
-	temp[2]=this.membership.getClass().toString();
+	temp[2]=this.membership.getClass().getSimpleName();
+	
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
 }

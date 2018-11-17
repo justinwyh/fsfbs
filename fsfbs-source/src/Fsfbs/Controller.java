@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Controller {
 	private static Map<String, User> userList = new HashMap<>();
-	private static Map<String, Facilities> facilitiesList = new HashMap<>();
+	private static Map<String, SportCentre> sportCentreList = new HashMap<>();
 	private static Controller instance=null;
 	
 	private Controller() {
@@ -15,10 +15,12 @@ public class Controller {
 		return userList.get(userName);
 	}
 
-	public Facilities getFacilitybyID(String facid) {
-		return facilitiesList.get(facid);
+	public SportCentre getSportCentrebyID(String scid) {
+		return sportCentreList.get(scid);
 	}
-	
+	public void printAllFacilities() {
+		
+	}
 	public static Controller getInstance() {
 		if(instance == null)
 			instance = new Controller();
