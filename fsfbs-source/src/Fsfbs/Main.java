@@ -5,18 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
- public static void main(String[] args) throws IOException{
+ public static void main(String[] args) throws IOException, ExFullBooking{
 	 Controller.getInstance();
 	 //variable
 	 /*
 	 String userinput;
 	 User user = new User();
-	 
-	 
+
+
      //Step 1: Scan all csv including user.csv, sport_facilities.csv, booking.csv
-	 
+
      // for each courts on the current day and all booking history of users automatically.
-	 
+
 	 Scanner in = new Scanner(System.in);
 
 	 System.out.println("+-------------------------------------------------------------------+");
@@ -37,7 +37,7 @@ public class Main {
 	 while(true) {
 	 	try {
 			if (userinput.equals("Y"))
-			//Step 2:User Login		
+			//Step 2:User Login
 			{
 				user = Controller.getInstance().getUserbyID(User.Login());
 				break;
@@ -51,13 +51,14 @@ public class Main {
 	 		System.out.println(e.getMessage());
 		}
 	 }
-     
+
 
      //Step 3: Show the recommendation algorithm and all functions available for users (or admin)
       * */
-	 //User user =Controller.getInstance().getUserbyID("Ada");
-	 //user.importBooking();
-	 Booking test = new Booking("Ada",Integer.parseInt("1112"),"E1B1");
+
+	 User user =Controller.getInstance().getUserbyID("Ada");
+	 user.importBooking();
+	 user.addBooking("E1A1", 1112);
 
  }
 }

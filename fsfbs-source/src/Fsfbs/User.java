@@ -279,4 +279,26 @@ public Booking searchBookingById(String bookingId) throws ExBookingNotExist {
     }
     return booking;
 }
+public void exportBooking() throws IOException {
+	for(String key: todayBooking.keySet()) {
+		 UtilsExport.appendToFile(UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt", todayBooking.get(key).getBookingID());
+	}
+}
+public void importBooking() throws IOException{
+	String filepath = UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt";
+	File file = new File(filepath);
+	Scanner in = new Scanner(file);
+	if(file.exists()){
+	while(in.hasNext()){
+		String input = in.next();
+		System.out.println(Integer.parseInt(input.substring(12,16)));
+		System.out.println(input.substring(8,12));
+		Booking temp = new Booking(this.getUserName(),Integer.parseInt(input.substring(12,16)),input.substring(8,12));
+		System.out.println("Booking ID "+temp.getBookingID());
+		System.out.println("Booking Time: "+temp.getBookingTime());
+		todayBooking.put(temp.getBookingID(),temp);
+		}
+	}
+}
+
 }
