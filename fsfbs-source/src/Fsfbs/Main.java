@@ -5,7 +5,9 @@ import java.io.IOException;
 
 public class Main {
  public static void main(String[] args) throws IOException{
+	 Controller.getInstance().importAllMember();
 	 //variable
+	 /*
 	 String userinput;
 	 User user = new User();
 	 
@@ -51,5 +53,7 @@ public class Main {
      
 
      //Step 3: Show the recommendation algorithm and all functions available for users (or admin)
+      * */
+      
  }
 }

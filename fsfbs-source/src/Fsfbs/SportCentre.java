@@ -3,7 +3,7 @@ package Fsfbs;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
+public class SportCentre implements SCAdminInterface, SCUserInterface{
     public String getScId() {
 		return scId;
 	}
@@ -60,6 +60,7 @@ public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
     }
 
     public Facility getFacilityByID(String facilityId) {
-        facilitiesMap.get(facilityId);
+        return facilitiesMap.get(facilityId);
     }
+
 }
