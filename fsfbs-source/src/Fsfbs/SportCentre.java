@@ -23,11 +23,7 @@ public class SportCentre implements SCAdminInterface {
         facilitiesMap.putIfAbsent(facilitiesId,facilities);
     }
 
-<<<<<<< HEAD
- //   public void removeFacilitiesFromSC 
-=======
     public void removeFacilitiesFromSC(String facilitiesId){
         facilitiesMap.remove(facilitiesId);
     }
->>>>>>> e2c3acc61709da41a9cdff4dc794865da49db9d4
 }

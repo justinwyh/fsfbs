@@ -8,7 +8,7 @@ public class Membership_Senior implements Membership{
 		
 	}
 
-	public Membership_Senior getInstance() {
+	public static Membership_Senior getInstance() {
 		return instance;
 	}
 	public double getDiscount() {

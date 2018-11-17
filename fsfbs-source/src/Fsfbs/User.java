@@ -7,26 +7,20 @@ import java.util.ArrayList;
 
 public class User {
 private String userName;
-private String userID;
 private String userPassword;
 private Membership  membership= null;
 //private SportCenter preferSportCenter;
 private ArrayList<Booking> todayBooking = new ArrayList<>();
 
-public User(String userName, String userID, String userPassword, Membership membership) {
-	this.userName = userName;
-	this.userID = userID;
-	this.userPassword = userPassword;
-	this.membership = membership;
+public User() {
+
 }
 
 //login----------------------------------------------------------------------------------------
 public static String Login() throws NullPointerException, IOException {
 	//variable initialization
 	String username,password;
-	Scanner in = new Scanner(System.in); //user input
-
-	
+	Scanner in = new Scanner(System.in); //user input	
 	
 	//login procedure
 	while(true) {
@@ -65,7 +59,8 @@ public static String Login() throws NullPointerException, IOException {
 //Setup Account ----------------------------------------------------------------------------------------
 public void setUpAC() throws IOException {
 	Scanner in = new Scanner(System.in);	
-	String[] temp = new String[2];
+	String[] temp = new String[4];
+	int age;
 	String password;
 	
 	//User account set up
@@ -89,16 +84,26 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
-<<<<<<< HEAD
-	System.out.println(ac+password);
+	//age setup
+	while(true) {
+	System.out.println("Please enter your age");
+	age = in.nextInt();
+	if(age > 0)
+	{
+		this.setage();
+		break;
+	}
+	else 
+		System.out.println("Invalid input entered. Please enter a number.");
+	}
+	if(age<)
 	temp[0]=ac;
 	temp[1]=password;
+	temp[2]=
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
-=======
->>>>>>> e2c3acc61709da41a9cdff4dc794865da49db9d4
 }
-//getter setter----------------------------------------------------------------------------------------
+//getter and setter...-----------------------------------------------------------------------------------
 public String getUserName() {
 	return userName;
 }
@@ -107,13 +112,6 @@ private void setUserName(String userName) throws IOException {
 	this.userName = userName;
 }
 
-public String getUserID() {
-	return userID;
-}
-
-private void setUserID(String userID) {
-	this.userID = userID;
-}
 
 public Membership getMembership() {
 	return membership;

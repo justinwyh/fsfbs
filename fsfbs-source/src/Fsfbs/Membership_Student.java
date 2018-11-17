@@ -8,7 +8,7 @@ public class Membership_Student implements Membership{
 		
 	}
 
-	public Membership_Student getInstance() {
+	public static Membership_Student getInstance() {
 		return instance;
 	}
 	

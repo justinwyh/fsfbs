@@ -8,7 +8,7 @@ private Membership_Adult() {
 	
 }
 
-public Membership_Adult getInstance() {
+public static Membership_Adult getInstance() {
 	return instance;
 }
 
