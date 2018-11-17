@@ -20,7 +20,8 @@ public User(String userName, String userID, String userPassword, Membership memb
 	this.membership = membership;
 }
 
-public static void Login() throws NullPointerException, IOException {
+//login----------------------------------------------------------------------------------------
+public static String Login() throws NullPointerException, IOException {
 	//variable initialization
 	String username,password;
 	Scanner in = new Scanner(System.in); //user input
@@ -53,7 +54,7 @@ public static void Login() throws NullPointerException, IOException {
 		if(password.equals(correctpass))
 		{
 			System.out.println("Login Success.");
-			break;
+			return ac;
 		}
 		else
 			System.out.println("Invalid password. Please enter again.");
@@ -61,8 +62,11 @@ public static void Login() throws NullPointerException, IOException {
 	
 }
 
+//Setup Account ----------------------------------------------------------------------------------------
 public void setUpAC() throws IOException {
 	Scanner in = new Scanner(System.in);	
+	String[] temp = new String[2];
+	String password;
 	
 	//User account set up
 	System.out.println("Please enter your preferred userID");	
@@ -77,18 +81,24 @@ public void setUpAC() throws IOException {
 	//User password set up
 	while(true) {
 	System.out.println("Please enter your password");
-	String password = in.next();
+	password = in.next();
 	System.out.println("Please enter your password again");
 	if(password.equals(in.next()))
 	{
-		this.setUserPassword(in.next());
+		this.setUserPassword(password);
 		break;
 	}
 	}
+<<<<<<< HEAD
+	System.out.println(ac+password);
+	temp[0]=ac;
+	temp[1]=password;
+	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
+	System.out.println("Create User Success. Log In Success!");
+=======
+>>>>>>> e2c3acc61709da41a9cdff4dc794865da49db9d4
 }
-
-
-//getter setter
+//getter setter----------------------------------------------------------------------------------------
 public String getUserName() {
 	return userName;
 }
@@ -119,7 +129,7 @@ public String getUserPassword() {
 private void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
 }
-//validate account
+//validate account ----------------------------------------------------------------------------------------
 private static boolean existedAC(String account) throws IOException, NullPointerException {
 	 File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
      File[] files = file.listFiles();
