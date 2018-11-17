@@ -3,7 +3,7 @@ package Fsfbs;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SportCentre implements SCAdminInterface {
+public class SportCentre implements SCAdminInterface, SCUserInterface {
     private String scId;
     private String scName;
     private String scTel;
