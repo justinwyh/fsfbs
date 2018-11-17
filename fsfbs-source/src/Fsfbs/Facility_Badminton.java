@@ -10,4 +10,9 @@ public class Facility_Badminton extends Facility {
     public double getPrice() {
         return 59;
     }
+
+    @Override
+    public String getFacilityType() {
+        return "badminton court";
+    }
 }
