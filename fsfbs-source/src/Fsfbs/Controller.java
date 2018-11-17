@@ -87,11 +87,11 @@ public class Controller {
 	       	 while(inFile.hasNext()) {
 	       		 String fid = inFile.next();
 	       		 System.out.println(fid+"...created and added to "+temp.getScId());
-	       		 if(fid.charAt(3)=='B')
+	       		 if(fid.charAt(2)=='B')
 	       			 temp.addFacilitytoSC(fid, new Facility_Badminton(fid));
-	       		 else if(fid.charAt(3)=='A')
+	       		 else if(fid.charAt(2)=='A')
 	       			 temp.addFacilitytoSC(fid, new Facility_ActivityRoom(fid));
-	       		 else if(fid.charAt(3)=='T')
+	       		 else if(fid.charAt(2)=='T')
 	       			 temp.addFacilitytoSC(fid, new Facility_TableTennis(fid));
 	       	 }
 	     	sportCentreList.put(temp.getScId(), temp); 

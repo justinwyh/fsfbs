@@ -58,5 +58,6 @@ public class Main {
 	 //User user =Controller.getInstance().getUserbyID("Ada");
 	 //user.importBooking();
 	 Booking test = new Booking("Ada",Integer.parseInt("1112"),"E1B1");
+
  }
 }
