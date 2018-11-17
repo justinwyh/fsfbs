@@ -14,9 +14,9 @@ public class UtilTime {
     }
 
     public String getCurrentDate(){
-        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate localDate = LocalDate.now();
-        return (dateFormat.format(localDate));
+        return (dtf.format(localDate));
     }
 
     public String getCurrentTime(){
