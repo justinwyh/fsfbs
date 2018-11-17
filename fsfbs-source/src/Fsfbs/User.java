@@ -41,7 +41,7 @@ public static String Login() throws NullPointerException, IOException {
 	while(true) {
 		System.out.println("Please enter user name:");
 		username = in.next();
-		if(UtilValidation.existedAC(username))
+		if(UtilValidation.getValidationInstance().existedAC(username))
 			break;
 		else
 			System.out.println("Invalid username. Please enter again :");
@@ -109,10 +109,26 @@ public void setUpAC() throws IOException {
 		}
 	}
 	
+	//set Facilities
 	while(true) {
 		System.out.println("Please enter your prefer Facilities");
-		sc=in.next();
-		if(sc.equals(""))
+		System.out.println("B: Badminton, A: ActivityRoom, T:TableTennis");
+		type = in.next();
+		if(type.equals("B"))
+		{
+			this.setPreferFacilities("Facilities_Badmintion");
+			break;
+		}
+		else if(type.equals("A"))
+		{
+			this.setPreferFacilities("Facilities_ActivityRoom");
+			break;
+		}
+		else if(type.equals("T"))
+		{
+			this.setPreferFacilities("Facilities_TableTennis");
+			break;
+		}
 		break;
 	}
 	
@@ -120,6 +136,8 @@ public void setUpAC() throws IOException {
 	temp[0]=ac;
 	temp[1]=password;
 	temp[2]=this.membership.getClass().getSimpleName();
+	temp[3]=sc;
+	temp[4]=type;
 	
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
