@@ -4,7 +4,39 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SportCentre implements SCAdminInterface/*, SCUserInterface*/{
-    private String scId;
+    public String getScId() {
+		return scId;
+	}
+
+	public void setScId(String scId) {
+		this.scId = scId;
+	}
+
+	public String getScName() {
+		return scName;
+	}
+
+	public void setScName(String scName) {
+		this.scName = scName;
+	}
+
+	public String getScTel() {
+		return scTel;
+	}
+
+	public void setScTel(String scTel) {
+		this.scTel = scTel;
+	}
+
+	public String getScAddress() {
+		return scAddress;
+	}
+
+	public void setScAddress(String scAddress) {
+		this.scAddress = scAddress;
+	}
+
+	private String scId;
     private String scName;
     private String scTel;
     private String scAddress;

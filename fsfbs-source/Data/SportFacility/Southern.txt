@@ -1,0 +1,11 @@
+S1
+Name: Aberdeen Sports Centre
+Tel: 2555 8909
+Address: 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong
+3,2,1
+
+S2
+Name: Stanley Sports Centre
+Tel: 2813 5106
+Address: UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong
+2,2,2

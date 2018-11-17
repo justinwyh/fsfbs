@@ -41,7 +41,7 @@ public static String Login() throws NullPointerException, IOException {
 	while(true) {
 		System.out.println("Please enter user name:");
 		username = in.next();
-		if(existedAC(username))
+		if(UtilValidation.getValidationInstance().existedAC(username))
 			break;
 		else
 			System.out.println("Invalid username. Please enter again :");
@@ -83,55 +83,52 @@ public void setUpAC() throws IOException {
 	//User account set up
 	System.out.println("Please enter your preferred userName");
 	String ac = in.nextLine();
-	while(existedAC(ac))
+	while(UtilValidation.getValidationInstance().existedAC(ac))
 	{
 		System.out.println("Account already exist. Please input again.");
 		ac=in.nextLine();
 	}
 	this.setUserName(ac);
 
-	//User password set up
-	while(true) {
-	System.out.println("Please enter your password");
-	password = in.next();
-	System.out.println("Please enter your password again");
-	if(password.equals(in.next()))
-	{
-		this.setUserPassword(password);
-		break;
-	}
-	else System.out.println("Your password does not match with what you previously entered. Please enter again!");
-	}
+
+	//User password
+	password = this.validatePassword();
+
+	//set membership
+	this.setMembership(this.getMembershipbyAge());
 	
-	//User age setup
-	while(true) {
-	System.out.println("Please enter your age");
-	age = in.nextInt();
-	if(age > 0)
-	{
-		if(age <= 18)
-			this.setMembership(Membership_Student.getInstance());
-			else if(age <= 60)
-				this.setMembership(Membership_Adult.getInstance());
-					else if(age > 60)
-						this.setMembership(Membership_Senior.getInstance());
-		break;
-	}
-	else
-		System.out.println("Invalid input entered. Please enter a number.");
-	}
-	
-	while(true) {
+	//set SportCentre
+	Controller.getInstance().printAllFacilities();
+		while(true) {
 		System.out.println("Please enter your prefer Sport Centre");
 		sc=in.next();
-		if(sc.equals(""))
-		break;
+		if(UtilValidation.getValidationInstance().validateSportCentreById(sc))
+		{
+			this.setPreferSportCentre(sc);
+			break;
+		}
 	}
 	
+	//set Facilities
 	while(true) {
 		System.out.println("Please enter your prefer Facilities");
-		sc=in.next();
-		if(sc.equals(""))
+		System.out.println("B: Badminton, A: ActivityRoom, T:TableTennis");
+		type = in.next();
+		if(type.equals("B"))
+		{
+			this.setPreferFacilities("Facilities_Badmintion");
+			break;
+		}
+		else if(type.equals("A"))
+		{
+			this.setPreferFacilities("Facilities_ActivityRoom");
+			break;
+		}
+		else if(type.equals("T"))
+		{
+			this.setPreferFacilities("Facilities_TableTennis");
+			break;
+		}
 		break;
 	}
 	
@@ -139,6 +136,8 @@ public void setUpAC() throws IOException {
 	temp[0]=ac;
 	temp[1]=password;
 	temp[2]=this.membership.getClass().getSimpleName();
+	temp[3]=sc;
+	temp[4]=type;
 	
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
@@ -167,18 +166,63 @@ public String getUserPassword() {
 private void setUserPassword(String userPassword) {
 	this.userPassword = userPassword;
 }
-//validate account ----------------------------------------------------------------------------------------
-private static boolean existedAC(String account) throws IOException, NullPointerException {
-	 File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
-     File[] files = file.listFiles();
-     for(File f: files){
-    	 String filename = f.getName().substring(0,f.getName().length()-4);
-    	 if(filename.equals(account))
-    		 return true;
-     }
-	return false;
-	}
+public String getPreferSportCentre() {
+	return preferSportCentre;
+}
 
+public void setPreferSportCentre(String preferSportCentre) {
+	this.preferSportCentre = preferSportCentre;
+}
+
+public String getPreferFacilities() {
+	return preferFacilities;
+}
+
+public void setPreferFacilities(String preferFacilities) {
+	this.preferFacilities = preferFacilities;
+}
+
+//-----------------validate User Pw-------------------
+private String validatePassword() {
+	Scanner in = new Scanner(System.in);
+	String password;
+	//User password set up
+		while(true) {
+		System.out.println("Please enter your password");
+		password = in.next();
+		System.out.println("Please enter your password again");
+		if(password.equals(in.next()))
+		{
+			this.setUserPassword(password);
+			break;
+		}
+		else System.out.println("Your password does not match with what you previously entered. Please enter again!");
+		}
+		return password;
+}
+//-----------------validate User Age-------------------
+
+private Membership getMembershipbyAge() {
+	Scanner in = new Scanner(System.in);
+	int age;
+	while(true) {
+	System.out.println("Please enter your age");
+	age = in.nextInt();
+	if(age > 0)
+	{
+		if(age <= 18)
+			return (Membership_Student.getInstance());
+			else if(age <= 60)
+				return (Membership_Adult.getInstance());
+					else if(age > 60)
+						return (Membership_Senior.getInstance());
+		break;
+	}
+	else
+		System.out.println("Invalid input entered. Please enter a number.");
+	}
+	return membership;
+}
 
 
 private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist{
