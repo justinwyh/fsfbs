@@ -31,4 +31,12 @@ public abstract class Facilities {
     }
 
     public abstract double getPrice();
+    
+    public boolean canBook(int t) {
+    	for (Integer key : timetableMap.keySet()) {
+            if(key==t)
+            	return false;
+        }
+    	return true;
+    }
 }

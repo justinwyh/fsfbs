@@ -1,13 +1,14 @@
 package Fsfbs;
 
 public class Booking {
-	
+
 	private String userID;
 	private String bookingID;
 	private int bookingTime;
 	private String facilitiesID;
 
 	public Booking (String userID, int bookingTime, String facilitiesID){
+
 	    this.userID = userID;
 	    this.bookingID = createBookingID(bookingTime,facilitiesID);
 	    this.bookingTime = bookingTime;
