@@ -2,8 +2,9 @@ package Fsfbs;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class User {
 private String userName;
@@ -11,7 +12,7 @@ private String userPassword;
 private Membership  membership= null;
 private String preferSportCentre = null;
 private String preferFacilities = null;
-private ArrayList<Booking> todayBooking = new ArrayList<>();
+private Map <String,Booking> todayBooking;
 public User() {
 
 }
@@ -19,16 +20,17 @@ public User() {
 public User(String userName,String userPassword, String mem, String preferSportCentre, String preferFacilities) {
 	this.userName=userName;
 	this.userPassword=userPassword;
-	
+
 	if(mem.equals("Membership_Adult"))
 			this.membership=Membership_Adult.getInstance();
 	else if(mem.equals("Membership_Student"))
 			this.membership=Membership_Student.getInstance();
 	else if(mem.equals("Membership_Senior"))
 		this.membership=Membership_Senior.getInstance();
-	
+
 	this.preferSportCentre=preferSportCentre;
 	this.preferFacilities=preferFacilities;
+	todayBooking = new HashMap<>();
 }
 
 //login----------------------------------------------------------------------------------------
@@ -96,7 +98,7 @@ public void setUpAC() throws IOException {
 
 	//set membership
 	this.setMembership(this.getMembershipbyAge());
-	
+
 	//set SportCentre
 	Controller.getInstance().printAllFacilities();
 		while(true) {
@@ -108,7 +110,7 @@ public void setUpAC() throws IOException {
 			break;
 		}
 	}
-	
+
 	//set Facilities
 	while(true) {
 		System.out.println("Please enter your prefer Facilities");
@@ -131,14 +133,14 @@ public void setUpAC() throws IOException {
 		}
 		break;
 	}
-	
+
 	//User Profile setup
 	temp[0]=ac;
 	temp[1]=password;
 	temp[2]=this.membership.getClass().getSimpleName();
 	temp[3]=sc;
 	temp[4]=type;
-	
+
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
 }
@@ -225,53 +227,55 @@ private Membership getMembershipbyAge() {
 }
 
 
-private void addBooking(String inputSCId, String inputFacilitiesId, int time) throws ExSportCentreNotExist, ExFacilityIdNotExist, ExFullBooking{
-    //Step 1: Validate Input
-    SportCentre sc;
-    Facility facility;
-     sc = getSportCentreById(inputSCId);
-    if (sc == null){
-        throw new ExSportCentreNotExist();
-    }
-    else{
-        facility = getFacility(sc,inputFacilitiesId);
-        if (facility == null){
-            throw new ExFacilityIdNotExist();
+public void addBooking(String inputFacilitiesId, int time) throws ExFullBooking {
+    try {
+        Controller controller = Controller.getInstance();
+        //Step 1: Validate Input
+        SportCentre sc;
+        Facility facility;
+        sc = controller.searchSportCentre(inputFacilitiesId.substring(0, 2));
+        facility = controller.searchFacility(inputFacilitiesId);
+        //Step 2: check if user exceed the maximum booking limit
+        boolean todayBkBelow3 = todayBooking.size() < 3;
+        //Step 3:
+        if (todayBkBelow3) {
+            boolean canBook = facility.canBook(time);
+            if (canBook) {
+                Booking booking = new Booking(userName, time, facility.getFacilityId());
+                facility.addToTimeTable(time, booking.getBookingID());
+                todayBooking.putIfAbsent(booking.getBookingID(), booking);
+            } else {
+                throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
+            }
         }
     }
-    //Step 2: check if user exceed the maximum booking limit
-    boolean todayBkBelow3 = todayBooking.size()<3;
-    //Step 3:
-    if(todayBkBelow3) {
-        boolean canBook = facility.canBook(time);
-        if (canBook) {
-            Booking booking = new Booking(userName, time, facility.getFacilityId());
-            facility.addToTimeTable(time, booking.getBookingID());
-        }
-        else {
-            throw new ExFullBooking(sc.getScName(),facility.getFacilityType(),time);
+    catch (Exception e){
+        System.out.println(e.getMessage());
+    }
+}
+
+public void deleteBooking(String bookingId){
+    try {
+        Controller controller = Controller.getInstance();
+        Booking booking = searchBookingById(bookingId);
+        SportCentre sc;
+        Facility facility;
+        if (booking != null) {
+            todayBooking.remove(bookingId);
+            facility = controller.searchFacility(booking.getFacilitiesID());
+            facility.removeFromTimeTable(booking.getBookingTime());
+            System.out.println("Booking with id: " + bookingId + " has been deleted.");
         }
     }
-
-    /*sc.addFacilitiestoSC(f.getFacilityId(), f);
-	//check booking user < 3
-	boolean todayBkBelow3 = todayBooking.size()<3;
-	if(todayBkBelow3) {
-		 boolean canBook = f.canBook(t);
-		 Booking booking = new Booking(userName, t, f.getFacilityId());
-		 f.addToTimeTable(t, booking.getBookingID());
-	}*/
-
+    catch(Exception e){
+        System.out.println(e.getMessage());
+    }
 }
-
-private SportCentre getSportCentreById(String inputSCId){
-    Controller controller =  Controller.getInstance();
-    return controller.getSportCentrebyID(inputSCId);
+public Booking searchBookingById(String bookingId) throws ExBookingNotExist {
+    Booking booking = todayBooking.get(bookingId);
+    if (booking == null) {
+        throw new ExBookingNotExist();
+    }
+    return booking;
 }
-
-private Facility getFacility(SportCentre sc, String inputFacilitiesId){
-    Controller controller =  Controller.getInstance();
-    return controller.getFacility(sc,inputFacilitiesId);
-}
-
 }

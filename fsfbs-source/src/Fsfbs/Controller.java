@@ -34,7 +34,19 @@ public class Controller {
 		return instance;
 	}
 
-	public Facility getFacility(SportCentre sc, String facilitiesId){
-	    return sc.getFacilityByID(facilitiesId);
+    public SportCentre searchSportCentre (String inputSCId) throws ExSportCentreNotExist{
+	    SportCentre sc = getSportCentrebyID(inputSCId);
+        if (sc == null){
+            throw new ExSportCentreNotExist();
+        }
+        return sc;
+    }
+    public Facility searchFacility (String facilityId) throws ExFacilityIdNotExist,ExSportCentreNotExist {
+            SportCentre sc;
+            Facility facility;
+            String scId = facilityId.substring(0, 2);
+            sc = searchSportCentre(scId);
+            facility = sc.findFacilityByID(facilityId);
+            return facility;
     }
 }

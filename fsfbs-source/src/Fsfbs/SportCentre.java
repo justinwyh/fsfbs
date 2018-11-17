@@ -59,7 +59,12 @@ public class SportCentre implements SCAdminInterface, SCUserInterface{
         facilitiesMap.remove(facilityId);
     }
 
-    public Facility getFacilityByID(String facilityId) {
-        return facilitiesMap.get(facilityId);
+
+    public Facility findFacilityByID(String facilityId) throws ExFacilityIdNotExist{
+        Facility facility = facilitiesMap.get(facilityId);
+        if (facility == null){
+            throw new ExFacilityIdNotExist();
+        }
+        return facility;
     }
 }
