@@ -84,22 +84,27 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
-	//age setup
+	
+	//User age setup
 	while(true) {
 	System.out.println("Please enter your age");
 	age = in.nextInt();
 	if(age > 0)
 	{
-		this.setage();
+		if(age <= 18)
+			this.setMembership(Membership_Student.getInstance());
+			else if(age <= 60)
+				this.setMembership(Membership_Adult.getInstance());
+					else if(age > 60)
+						this.setMembership(Membership_Senior.getInstance());
 		break;
 	}
 	else 
 		System.out.println("Invalid input entered. Please enter a number.");
 	}
-	if(age<)
 	temp[0]=ac;
 	temp[1]=password;
-	temp[2]=
+	temp[2]=this.membership.getClass().toString();
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
 }
@@ -146,7 +151,7 @@ private void addBooking(SportCentre sc, Facilities f, int t) {
 	boolean todayBkBelow3 = todayBooking.size()<3;
 	if(todayBkBelow3) {
 		 boolean canBook = f.canBook(t);
-		 Booking booking = new Booking(userID, t, f.getFacilityId());
+		 Booking booking = new Booking(userName, t, f.getFacilityId());
 		 f.addToTimeTable(t, booking.getBookingID());
 	}
 	
