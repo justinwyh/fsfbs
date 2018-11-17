@@ -89,14 +89,12 @@ public void setUpAC() throws IOException {
 		break;
 	}
 	}
-<<<<<<< HEAD
 	System.out.println(ac+password);
 	temp[0]=ac;
 	temp[1]=password;
 	UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath")+ac+".txt",temp);
 	System.out.println("Create User Success. Log In Success!");
-=======
->>>>>>> e2c3acc61709da41a9cdff4dc794865da49db9d4
+
 }
 //getter setter----------------------------------------------------------------------------------------
 public String getUserName() {
@@ -142,7 +140,8 @@ private static boolean existedAC(String account) throws IOException, NullPointer
 	}
 
 
-private void addBooking(SportCentre sc, Facilities f, int t) {
+private void addBooking(String inputSC, String inputFacilities, int t) {
+
 	sc.addFacilitiestoSC(f.getFacilityId(), f);
 	//check booking user < 3 
 	boolean todayBkBelow3 = todayBooking.size()<3;
