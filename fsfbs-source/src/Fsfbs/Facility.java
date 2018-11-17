@@ -35,9 +35,9 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int t) {
+    public boolean canBook(int timeslot) {
     	for (Integer key : timetableMap.keySet()) {
-            if(key==t)
+            if(key==timeslot)
             	return false;
         }
     	return true;
