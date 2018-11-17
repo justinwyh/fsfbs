@@ -15,3 +15,5 @@ Source/.DS_Store
 .DS_Store
 .DS_Store
 fsfbs-source/.idea/workspace.xml
+*.bak_000f
+*.lck
