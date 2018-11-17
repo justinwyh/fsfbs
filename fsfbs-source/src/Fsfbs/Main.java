@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
- public static void main(String[] args) throws IOException{
+ public static void main(String[] args) throws IOException, ExFullBooking{
 	 Controller.getInstance();
 	 //variable
 	 /*
@@ -55,8 +55,10 @@ public class Main {
 
      //Step 3: Show the recommendation algorithm and all functions available for users (or admin)
       * */
-	 //User user =Controller.getInstance().getUserbyID("Ada");
-	 //user.importBooking();
-	 Booking test = new Booking("Ada",Integer.parseInt("1112"),"E1B1");
+	 
+	 User user =Controller.getInstance().getUserbyID("Ada");
+	 user.importBooking();
+	 user.addBooking("E1A1", 1112);
+	 
  }
 }
