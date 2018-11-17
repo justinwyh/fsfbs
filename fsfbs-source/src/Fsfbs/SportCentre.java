@@ -3,7 +3,7 @@ package Fsfbs;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SportCentre implements SCAdminInterface {
+public class SportCentre {
     private String scId;
     private String scName;
     private String scTel;
@@ -20,12 +20,8 @@ public class SportCentre implements SCAdminInterface {
     }
 
     public void addFacilitiestoSC(String facilitiesId,Facilities facilities) {
-        facilitiesMap.putIfAbsent(facilitiesId,facilities);
+        facilitiesMap.put(facilitiesId,facilities);
     }
 
-    public void removeFacilitiesFromSC(String facilitiesId) {
-        facilitiesMap.remove(facilitiesId);
-    }
-
-
+    public void removeFacilitiesFromSC 
 }
