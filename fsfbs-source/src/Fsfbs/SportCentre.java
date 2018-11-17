@@ -23,5 +23,5 @@ public class SportCentre {
         facilitiesMap.put(facilitiesId,facilities);
     }
 
-    public void removeFacilitiesFromSC 
+ //   public void removeFacilitiesFromSC 
 }
