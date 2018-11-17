@@ -9,14 +9,7 @@ public class Main {
      // for each courts on the current day and all booking history of users automatically.
 
      //Step 2:User Login
-
-
-
-
-
-
-
-
+	 User.Login();
 
      //Step 3: Show the recommendation algorithm and all functions available for users (or admin)
 
