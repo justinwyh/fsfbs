@@ -64,7 +64,7 @@ public void setUpAC() throws IOException {
 	String password;
 
 	//User account set up
-	System.out.println("Please enter your preferred userID");
+	System.out.println("Please enter your preferred userName");
 	String ac = in.nextLine();
 	while(existedAC(ac))
 	{
@@ -142,14 +142,14 @@ private static boolean existedAC(String account) throws IOException, NullPointer
 
 private void addBooking(String inputSC, String inputFacilities, int t) {
 
-	sc.addFacilitiestoSC(f.getFacilityId(), f);
+	/*sc.addFacilitiestoSC(f.getFacilityId(), f);
 	//check booking user < 3
 	boolean todayBkBelow3 = todayBooking.size()<3;
 	if(todayBkBelow3) {
 		 boolean canBook = f.canBook(t);
-		 Booking booking = new Booking(userID, t, f.getFacilityId());
+		 Booking booking = new Booking(userName, t, f.getFacilityId());
 		 f.addToTimeTable(t, booking.getBookingID());
-	}
+	}*/
 
 }
 
