@@ -1,16 +1,17 @@
 package Fsfbs;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Facilities {
         private String facilityId; //court num can be consist of district, sport centre and facility number
         private int facilityNum;
-        private ArrayList<Booking> facilityBookingList;
+        private Map<Integer, String> timetableMap; // time, bookingID
 
         public Facilities(String facilityId) {
             this.facilityId = facilityId;
             this.facilityNum = Integer.parseInt(facilityId.substring(3));
-            facilityBookingList = new ArrayList<>();
+            timetableMap = new HashMap<>();
         }
 
     public String getFacilityId() {
@@ -21,8 +22,12 @@ public abstract class Facilities {
         return facilityNum;
     }
 
-    public void setTodayBookingList(ArrayList<Booking> bookingArrayList){
-        facilityBookingList = bookingArrayList;
+    public void addToTimeTable(int time, String bookingID) {   	
+    	timetableMap.putIfAbsent(time, bookingID);
+    }
+    
+    public void removeFromTimeTable(int time) {
+    	timetableMap.remove(time);
     }
 
     public abstract double getPrice();
