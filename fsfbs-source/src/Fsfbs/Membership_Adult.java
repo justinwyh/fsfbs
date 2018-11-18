@@ -15,4 +15,6 @@ public static Membership_Adult getInstance() {
 public double getDiscount() {
 	return discount;
 }
+
+public String getMembershipName() { return "Membership_Adult"; }
 }

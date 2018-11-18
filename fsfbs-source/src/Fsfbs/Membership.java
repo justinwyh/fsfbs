@@ -1,5 +1,6 @@
 package Fsfbs;
 
 public interface Membership {
-public double getDiscount();
+double getDiscount();
+String getMembershipName();
 }

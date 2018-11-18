@@ -15,5 +15,7 @@ public class Membership_Student implements Membership{
 	public double getDiscount() {
 		return discount;
 	}
+
+	public String getMembershipName() { return "Membership_Student"; }
 	}
 

@@ -14,4 +14,5 @@ public class Membership_Senior implements Membership{
 	public double getDiscount() {
 		return discount;
 	}
+	public String getMembershipName() { return "Membership_Senior"; }
 }
