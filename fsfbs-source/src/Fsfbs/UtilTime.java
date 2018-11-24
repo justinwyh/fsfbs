@@ -26,22 +26,14 @@ public class UtilTime {
     }
 
     public boolean isTimeLaterThanCurrentTime(String inputTime) {
-        int currentHour, currentMin, currentSec;
-        int inputHour, inputMin, inputSec;
+        int currentHour;
+        int inputHour;
         String currentTime = getCurrentTime();
         currentHour = Integer.parseInt(currentTime.substring(0, 2));
-        currentMin = Integer.parseInt(currentTime.substring(3, 5));
-        currentSec = Integer.parseInt(currentTime.substring(6, 8));
         inputHour = Integer.parseInt(inputTime.substring(0, 2));
-        inputMin = Integer.parseInt(inputTime.substring(3, 5));
-        inputSec = Integer.parseInt(inputTime.substring(6, 8));
 
         //checking
         if (currentHour > inputHour) {
-            return false;
-        } else if (currentMin > inputMin) {
-            return false;
-        } else if (currentSec > inputSec) {
             return false;
         } else {
             return true;
