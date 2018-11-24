@@ -18,10 +18,8 @@ public class Main {
          System.out.println("=================Do you have an User Account? (Y/N)==================");
          
          //Step 2: Choose either login or create user
-        //loginOrCreateUser();
-        //User.Login();
-
-         User user = Controller.getInstance().getUserbyID("Ada");
+         loginOrCreateUser();
+         User user = User.Login();
          user.searchVacancies("E1","badminton");
      }
      catch (Exception e){

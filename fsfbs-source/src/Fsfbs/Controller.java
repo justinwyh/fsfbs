@@ -85,6 +85,7 @@ public class Controller {
     public ArrayList<Facility> searchFacilitiesByType(String scId, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
         ArrayList<Facility> facilitiesList = new ArrayList<>();
 	    SportCentre sc = searchSportCentre(scId);
+	    System.out.println("\nSport Centre: " + sc.getScName()+ "\n");
 	    String type = null;
         switch (sfType) {
             case "badminton":

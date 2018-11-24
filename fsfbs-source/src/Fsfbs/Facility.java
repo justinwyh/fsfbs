@@ -122,6 +122,7 @@ public abstract class Facility {
         for(int keys :vaccanciesMap.keySet()){
             System.out.println(keys + " : " + vaccanciesMap.get(keys));
         }
+        System.out.println();
     }
 
 

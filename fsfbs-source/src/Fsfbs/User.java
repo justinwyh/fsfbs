@@ -34,7 +34,7 @@ public class User {
     }
 
     //login----------------------------------------------------------------------------------------
-    public static boolean Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+    public static User Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
         try {
             //variable initialization
             String username, password;
@@ -58,30 +58,50 @@ public class User {
             }
             //get Password
             //read file
-            String filepath = UtilsLoadconfig.getConfig("membershipFilePath") + username + ".txt";
-            File file = new File(filepath);
-            Scanner inFile = new Scanner(file);
-            String ac = inFile.next();
-            String correctpass = inFile.next();
+        /*
+        String filepath = UtilsLoadconfig.getConfig("membershipFilePath") + username + ".txt";
+        File file = new File(filepath);
+        Scanner inFile = new Scanner(file);
+        String ac = inFile.next();
+        String correctpass = inFile.next();
 
+        while (true) {
+            //user input
+            System.out.println("Your username: " + ac);
+            System.out.println("Please enter password:");
+            password = in.next();
+            if (password.equals(correctpass)) {
+                System.out.println("Login Success.");
+                return true;
+            } else
+                System.out.println("Invalid password. Please enter again.");
+                failureCount+=1;
+                if (failureCount >= 3){
+                    throw new ExMaxFailLogin();
+                }
+        }
+        */
+            User user = Controller.getInstance().getUserbyID(username);
             while (true) {
                 //user input
-                System.out.println("Your username: " + ac);
+                System.out.println("Your username: " + user.getUserName());
                 System.out.println("Please enter password:");
                 password = in.next();
-                if (password.equals(correctpass)) {
+                if (password.equals(user.getUserPassword())) {
                     System.out.println("Login Success.");
-                    return true;
+                    return user;
                 } else
                     System.out.println("Invalid password. Please enter again.");
-                failureCount += 1;
-                if (failureCount >= 3) {
+                failureCount+=1;
+                if (failureCount >= 3){
                     throw new ExMaxFailLogin();
                 }
             }
-        } catch (FileNotFoundException fe) {
+        }
+        catch(FileNotFoundException fe){
             throw new ExMemberShipFilePathNotExist();
-        } catch (IOException ioe) {
+        }
+        catch(IOException ioe){
             throw new ExIOErrorinGetConfig();
         }
     }
@@ -287,9 +307,9 @@ public class User {
             Controller controller = Controller.getInstance();
             ArrayList<Facility> facilityList =controller.searchFacilitiesByType(scId,sfType);
             for (Facility fac: facilityList){
+                System.out.println("Facility Code: " + fac.getFacilityId());
                 fac.showVaccancies();
             }
-
         }
         catch (Exception e){
             System.out.println(e.getMessage());
