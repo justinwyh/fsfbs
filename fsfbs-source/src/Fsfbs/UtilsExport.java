@@ -24,12 +24,12 @@ public static void printToFile(String filepath, String input[]) {
 			e.printStackTrace();
 		}
 }
-
 	public static void appendToFile(String filepath, String input) throws IOException {
 		 File file = new File(filepath);
 		 FileWriter fr = new FileWriter(file, true);
-		 fr.write(input);
+		 fr.write(input+"\n");
 		 fr.close();
 	}
+
 
 }
