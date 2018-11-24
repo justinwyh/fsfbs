@@ -2,6 +2,7 @@ package Fsfbs;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class Facility {
         private String facilityId; //court num can be consist of district, sport centre and facility number
@@ -18,8 +19,22 @@ public abstract class Facility {
     public String getFacilityId() {
         return facilityId;
     }
+    public String getBookingIdbyTime(Integer time) {
+    	return timetableMap.get(time);
+    }
 
-    public int getFacilityNum() {
+    public Set<Integer> getkeyset() {
+    	return timetableMap.keySet();
+    }
+    public Map<Integer, String> getTimetableMap() {
+		return timetableMap;
+	}
+
+	public void setTimetableMap(Map<Integer, String> timetableMap) {
+		this.timetableMap = timetableMap;
+	}
+
+	public int getFacilityNum() {
         return facilityNum;
     }
 
@@ -35,14 +50,56 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot) {
+    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime {
         UtilTime utilTime = UtilTime.getTimeInstance();
+        int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
+            switch (timeRangeResult) {
+                case -1:
+                    throw new ExTimeRangeNotCurrent();
+                case -2:
+                    throw new ExAllowToBookOneHourOnly();
+                case 0:
+                    break;
+            }
+
         String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
-        if (utilTime.isTimeLaterThanCurrentTime(startTime))
-    	for (Integer key : timetableMap.keySet()) {
-            if(key==timeslot)
-            	return false;
+        if (utilTime.isTimeLaterThanCurrentTime(startTime)) {
+            for (Integer key : timetableMap.keySet()) {
+                if (key == timeslot)
+                    return false;
+            }
+            return true;
         }
-    	return true;
+        else{
+            throw new ExInputTimeEarlierThanCurrentTime();
+        }
+    }
+
+    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime {
+        UtilTime utilTime = UtilTime.getTimeInstance();
+        int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
+        switch (timeRangeResult) {
+            case -1:
+                throw new ExTimeRangeNotCurrent();
+            case -2:
+                throw new ExAllowToDeleteOneHourOnly();
+            case 0:
+                break;
+        }
+
+        String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
+        if (utilTime.isTimeLaterThanCurrentTime(startTime)) {
+            for (Integer key : timetableMap.keySet()) {
+                if (key == timeslot)
+                    return false;
+            }
+            return true;
+        }
+        else{
+            throw new ExInputTimeEarlierThanCurrentTime();
+        }
+    }
+    public void exportTimeschedule() {
+    	
     }
 }
