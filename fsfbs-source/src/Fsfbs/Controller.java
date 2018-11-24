@@ -177,8 +177,8 @@ public class Controller {
         });
         for (File f : files) {
             Scanner inFile = new Scanner(f);
-            SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,3));
-            System.out.println("INSIDE "+f.getName().substring(0,3));
+            SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
+            System.out.println("INSIDE "+f.getName().substring(0,2));
             String fcid = inFile.next();
             Facility fc = sc.findFacilityByID(fcid);
             System.out.println(fcid);

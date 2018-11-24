@@ -51,11 +51,14 @@ public class UtilTime {
     public int isTimeRangeExceed(int timeslot){
         int startTime = timeslot/100;
         int endTime = timeslot%100;
-        if (startTime - endTime <= 0){
+        if (startTime - endTime <= 0 && startTime > 23 && endTime > 24){
             return -1; //incorrect time range
         }
-        else if (startTime - endTime > 1){
-            return -2; //each booking can
+        else if (startTime - endTime > 1) {
+            return -2; //each booking can not bookmore than an hour
+        }
+        else if(startTime < 10){
+            return -3; //sport centres open from 10am to 12am
         }
         else {
             return 0;
