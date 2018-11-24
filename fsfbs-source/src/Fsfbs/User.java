@@ -339,4 +339,8 @@ public class User {
         }
     }
 
+	public int getTodayBookingNum() {
+		return todayBooking.size();
+	}
+
 }
