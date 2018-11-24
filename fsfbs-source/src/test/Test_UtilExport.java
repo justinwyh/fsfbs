@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 class Test_UtilExport {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void test_printToFile1() {
+		
 	}
 
 }
