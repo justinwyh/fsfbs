@@ -151,13 +151,15 @@ public class Controller {
 			
 			for(String fackey:tempsc.getKeySet()) {							//loop each Facilities in Facility list
 					Facility tempfac = tempsc.getFacilitiesMap().get(fackey);
-					UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt", tempsc.getScId());
+					if(!tempfac.getTimetableMap().isEmpty())
+					{
+					UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt", tempfac.getFacilityId());
 					
 					for(Integer timekey: tempfac.getkeyset()) {								//loop each timeslot
 						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",timekey.toString());
 						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",tempfac.getBookingIdbyTime(timekey));
 					} 
-					
+			}
 				} 
 			}
 		}
@@ -177,15 +179,18 @@ public class Controller {
         });
         for (File f : files) {
             Scanner inFile = new Scanner(f);
-            SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,3));
-            System.out.println("INSIDE "+f.getName().substring(0,3));
+            SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
+            System.out.println("Inside "+f.getName().substring(0,2));            
             String fcid = inFile.next();
+            System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
             System.out.println(fcid);
+            while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
             System.out.println("time = "+time+", bkid: "+bkid);
             fc.addToTimeTable(time,bkid);
+        }
         }
 		}
 		catch (IOException e) {

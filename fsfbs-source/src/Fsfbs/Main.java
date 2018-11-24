@@ -38,6 +38,7 @@ public class Main {
      }
      */
 	 Controller.getInstance().importData();
+	 Controller.getInstance().exportAllSchedule();
  }
 
  public static void loginOrCreateUser() {
