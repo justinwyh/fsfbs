@@ -11,7 +11,7 @@ public class UtilsExport {
 
 public static void printToFile(String filepath, String input[]) {
 		//
-		try {	
+		try {
 			PrintWriter writer;
 			writer = new PrintWriter(filepath, "UTF-8");
 			for(String s: input)
@@ -28,7 +28,7 @@ public static void printToFile(String filepath, String input[]) {
 
 public static void printToFile(String filepath, String input) {		//overwrite
 	//
-	try {	
+	try {
 		PrintWriter writer;
 		writer = new PrintWriter(filepath, "UTF-8");
 			writer.print(input);
