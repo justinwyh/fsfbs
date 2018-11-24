@@ -117,7 +117,7 @@ public abstract class Facility {
         TreeMap<Integer,String> vaccanciesMap = new TreeMap<>();
         int [] timeRange = {1011,1112,1213,1314,1516,1718,1819,1920,2021,2122,2223,2324};
         for (int i = 0; i < 14; i++){
-                vaccanciesMap.putIfAbsent(timeRange[0],getBookingStatus(timeRange[0]));
+                vaccanciesMap.putIfAbsent(timeRange[i],getBookingStatus(timeRange[i]));
         }
     }
 }
