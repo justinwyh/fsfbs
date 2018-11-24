@@ -2,13 +2,15 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import Fsfbs.*;
+
 import org.junit.jupiter.api.Test;
 
 class test_login {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void UtilTime() {
+		UtilTime time = new UtilTime();
 	}
 
 }
