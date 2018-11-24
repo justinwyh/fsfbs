@@ -43,7 +43,7 @@ public class UtilTime {
     public int isTimeRangeExceed(int timeslot){
         int startTime = timeslot/100;
         int endTime = timeslot%100;
-        if (endTime - startTime <= 0 && startTime > 23 && endTime > 24){
+        if (endTime - startTime <= 0 || startTime > 23 || endTime > 24){
             return -1; //incorrect time range
         }
         else if (startTime - endTime > 1) {
