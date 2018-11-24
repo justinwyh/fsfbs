@@ -9,7 +9,6 @@ import java.io.UnsupportedEncodingException;
 
 public class UtilsExport {
 
-<<<<<<< HEAD
 public static void printToFile(String filepath, String input[]) {
 		//
 		try {
@@ -25,25 +24,8 @@ public static void printToFile(String filepath, String input[]) {
 			e.printStackTrace();
 		}
 }
-=======
-    public static void printToFile(String filepath, String input[]) {
-        //
-        try {
-            PrintWriter writer;
-            writer = new PrintWriter(filepath, "UTF-8");
-            for (String s : input)
-                writer.println(s);
-            if (writer != null)
-                writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
->>>>>>> 6739ea8241a08525a4fb5309f651f9aae1e070b3
 
-    public static void printToFile(String filepath, String input) {
+    public static void printToFile(String filepath, String input){
         try {
             PrintWriter writer;
             writer = new PrintWriter(filepath, "UTF-8");
@@ -56,20 +38,11 @@ public static void printToFile(String filepath, String input[]) {
         }
     }
 
-<<<<<<< HEAD
 	public static void appendToFile(String filepath, String input) throws IOException {
 		 File file = new File(filepath);
 		 FileWriter fr = new FileWriter(file, true);
 		 fr.write(input+"\n");
 		 fr.close();
 	}
-=======
-    public static void appendToFile(String filepath, String input) throws IOException {
-        File file = new File(filepath);
-        FileWriter fr = new FileWriter(file, true);
-        fr.write(input);
-        fr.close();
-    }
->>>>>>> 6739ea8241a08525a4fb5309f651f9aae1e070b3
 
 }
