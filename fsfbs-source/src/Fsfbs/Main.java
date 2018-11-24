@@ -16,7 +16,7 @@ public class Main {
          System.out.println("||        Welcome to Fast Sports Facility Booking System!          ||");
          System.out.println("+-------------------------------------------------------------------+");
          System.out.println("=================Do you have an User Account? (Y/N)==================");
-         
+
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();

@@ -63,7 +63,7 @@ public class User {
         File file = new File(filepath);
         Scanner inFile = new Scanner(file);
         String ac = inFile.next();
-        String correctpass = inFile.next();
+        String correctpass = inFile.next(); 
 
         while (true) {
             //user input
