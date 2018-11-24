@@ -24,6 +24,18 @@ public static void printToFile(String filepath, String input[]) {
 			e.printStackTrace();
 		}
 }
+public static void printToFile(String filepath, String input) {
+	//
+	try {
+		PrintWriter writer;
+		writer = new PrintWriter(filepath, "UTF-8");
+		writer.print(input);
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+}
 	public static void appendToFile(String filepath, String input) throws IOException {
 		 File file = new File(filepath);
 		 FileWriter fr = new FileWriter(file, true);
