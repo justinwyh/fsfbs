@@ -35,9 +35,6 @@ class Test_UtilLoadConfig {
 	public void test_time() throws IOException {
 		String result = UtilsLoadconfig.getConfig("timeScheduleFilePath");
 		String str = "./Data/TimeSchedule/";
-		boolean strEqual = result.equals(str);
-		System.out.println("The reulst string is:"+result);
-		System.out.println(strEqual);
 		assertEquals(str, result);
 	}
 
