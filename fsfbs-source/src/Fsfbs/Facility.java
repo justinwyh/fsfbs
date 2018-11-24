@@ -115,8 +115,8 @@ public abstract class Facility {
 
     public void showVaccancies(){
         TreeMap<Integer,String> vaccanciesMap = new TreeMap<>();
-        int [] timeRange = {1011,1112,1213,1314,1516,1718,1819,1920,2021,2122,2223,2324};
-        for (int i = 0; i < 12; i++){
+        int [] timeRange = {1011,1112,1213,1314,1415,1516,1617,1718,1819,1920,2021,2122,2223,2324};
+        for (int i = 0; i < 14; i++){
                 vaccanciesMap.putIfAbsent(timeRange[i],getBookingStatus(timeRange[i]));
         }
         for(int keys :vaccanciesMap.keySet()){
