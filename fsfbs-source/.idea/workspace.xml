@@ -12,6 +12,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilExport.ic" NAME="Test_UtilExport Coverage Results" MODIFIED="1543052042685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="35" />
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-475032769">
       <usages-collector id="statistics.lifecycle.project">
@@ -63,30 +71,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="24" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="28" />
+          <entry key="patch" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="24" />
+          <entry key="JAVA" value="28" />
+          <entry key="PATCH" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="784" />
+          <entry key="java" value="868" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="784" />
+          <entry key="JAVA" value="868" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40271816">
+    <splitter split-orientation="horizontal" split-proportion="0.44206008">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
@@ -114,7 +126,7 @@
             <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilTime.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="193">
-                  <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+                  <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -122,8 +134,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsExport.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="57">
-                  <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+                <state relative-caret-position="29">
+                  <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -135,8 +150,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="651">
-                  <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+                <state relative-caret-position="324">
+                  <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -147,7 +162,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
+                <state relative-caret-position="408">
                   <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
                 </state>
               </provider>
@@ -407,6 +422,12 @@
             <path>
               <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
               <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="Membership" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -434,7 +455,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/Main.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543048739861" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543052041351" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -457,10 +478,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/caches/identified-project-coordinates.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments.gen</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Fsfbs/User.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/Test_UtilExport.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Fsfbs/UtilsExport.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -468,16 +487,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.fdt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.fdx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.fnm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.frq</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.nrm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.prx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.tii</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_1.tis</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments_2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/Test_validation.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/added_untilsExport_testcase1.patch</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -485,15 +495,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.fdt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.fdx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.fnm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.frq</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.nrm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.prx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.tii</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_0.tis</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments_1</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/Test_User.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -587,7 +589,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Test_UtilExport">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Fsfbs.Main" />
       <module name="fsfbs-source" />
@@ -601,8 +603,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_UtilExport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fsfbs-source" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_UtilExport" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.Test_UtilExport" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Test_UtilExport" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -650,8 +671,28 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Test_UtilExport - 2018.11.24 at 16h 57m 30s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_UtilExport - 2018.11.24 at 17h 26m 52s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_UtilExport - 2018.11.24 at 17h 29m 02s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_UtilExport - 2018.11.24 at 17h 29m 09s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_UtilExport - 2018.11.24 at 17h 29m 45s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_UtilExport - 2018.11.24 at 17h 32m 28s.xml">
+      <configuration name="Test_UtilExport" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17132000" />
+    <option name="totallyTimeSpent" value="19489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -666,7 +707,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21530758" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32546496" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -674,8 +715,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292232" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3292232" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3280098" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32678133" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -684,7 +725,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50429183" side_tool="true" weight="0.2113022" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49570817" weight="0.2113022" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3859433" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.18796068" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.15665236" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -820,35 +862,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_TableTennis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_Badminton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_ActivityRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_TableTennis.java" />
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_Badminton.java" />
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities_ActivityRoom.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/District.java" />
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsConversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsConversion.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/SportCentre.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -870,13 +888,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facilities.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -921,21 +933,7 @@
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilTime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
-          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2256">
-          <caret line="149" column="66" selection-start-line="149" selection-start-column="66" selection-end-line="149" selection-end-column="66" />
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -960,17 +958,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="149" column="66" lean-forward="true" selection-start-line="149" selection-start-column="66" selection-end-line="149" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/added_untilsExport_testcase1.patch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1626" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsExport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="29">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        <state relative-caret-position="324">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
