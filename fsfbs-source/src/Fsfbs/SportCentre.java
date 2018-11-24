@@ -2,6 +2,7 @@ package Fsfbs;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class SportCentre implements SCAdminInterface, SCUserInterface{
     public String getScId() {
@@ -40,10 +41,20 @@ public class SportCentre implements SCAdminInterface, SCUserInterface{
     private String scName;
     private String scTel;
     private String scAddress;
-    private Map<String, Facility> facilitiesMap;
+    private Map<String, Facility> facilitiesMap;		//facility id, Facility Obj
 
 
-    public SportCentre(String scId, String scName, String scTel, String scAddress){
+    public Map<String, Facility> getFacilitiesMap() {
+		return facilitiesMap;
+	}
+    public Set<String> getKeySet() {
+    	return facilitiesMap.keySet();
+    }
+	public void setFacilitiesMap(Map<String, Facility> facilitiesMap) {
+		this.facilitiesMap = facilitiesMap;
+	}
+
+	public SportCentre(String scId, String scName, String scTel, String scAddress){
         this.scId = scId;
         this.scName = scName;
         this.scTel = scTel;

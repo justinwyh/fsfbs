@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 
 public class UtilsExport {
 	
-public static void printToFile(String filepath, String input[]) {
+public static void printToFile(String filepath, String input[]) {		//overwrite
 	//
 	try {	
 		PrintWriter writer;
@@ -24,7 +24,21 @@ public static void printToFile(String filepath, String input[]) {
 	}
 }
 
-public static void appendToFile(String filepath, String input) throws IOException {
+public static void printToFile(String filepath, String input) {		//overwrite
+	//
+	try {	
+		PrintWriter writer;
+		writer = new PrintWriter(filepath, "UTF-8");
+			writer.println(input);
+			writer.close();
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+}
+
+public static void appendToFile(String filepath, String input) throws IOException {		//append
 	 File file = new File(filepath);
 	 FileWriter fr = new FileWriter(file, true);
 	 fr.write(input);
