@@ -38,13 +38,27 @@ public class UtilTime {
 
         //checking
         if (currentHour > inputHour) {
-            return true;
-        } else if (currentMin > inputMin) {
-            return true;
-        } else if (currentSec > inputSec) {
-            return true;
-        } else {
             return false;
+        } else if (currentMin > inputMin) {
+            return false;
+        } else if (currentSec > inputSec) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int isTimeRangeExceed(int timeslot){
+        int startTime = timeslot/100;
+        int endTime = timeslot%100;
+        if (startTime - endTime <= 0){
+            return -1; //incorrect time range
+        }
+        else if (startTime - endTime > 1){
+            return -2; //each booking can
+        }
+        else {
+            return 0;
         }
     }
 }

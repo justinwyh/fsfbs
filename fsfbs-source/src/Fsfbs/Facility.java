@@ -36,6 +36,9 @@ public abstract class Facility {
     public abstract String getFacilityType();
     
     public boolean canBook(int timeslot) {
+        UtilTime utilTime = UtilTime.getTimeInstance();
+        String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
+        if (utilTime.isTimeLaterThanCurrentTime(startTime))
     	for (Integer key : timetableMap.keySet()) {
             if(key==timeslot)
             	return false;

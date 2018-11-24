@@ -41,9 +41,9 @@ public static boolean Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGe
         UtilValidation utilValidation = UtilValidation.getValidationInstance();
         int failureCount = 0;
 
-        System.out.println(" +-------------------------------------------------------------------+");
-        System.out.println(" |                            LOG IN FSFBS                           |");
-        System.out.println(" +-------------------------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------+");
+        System.out.println("|                            LOG IN FSFBS                           |");
+        System.out.println("+-------------------------------------------------------------------+");
 
         //login procedure
         while (true) {
