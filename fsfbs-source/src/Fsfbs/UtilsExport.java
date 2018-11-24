@@ -24,6 +24,7 @@ public static void printToFile(String filepath, String input[]) {
 			e.printStackTrace();
 		}
 
+}
     public static void printToFile(String filepath, String input){
         try {
             PrintWriter writer;
