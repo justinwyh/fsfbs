@@ -41,9 +41,9 @@ public static boolean Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGe
         UtilValidation utilValidation = UtilValidation.getValidationInstance();
         int failureCount = 0;
 
-        System.out.println(" +-------------------------------------------------------------------+");
-        System.out.println(" |                            LOG IN FSFBS                           |");
-        System.out.println(" +-------------------------------------------------------------------+");
+        System.out.println("+-------------------------------------------------------------------+");
+        System.out.println("|                            LOG IN FSFBS                           |");
+        System.out.println("+-------------------------------------------------------------------+");
 
         //login procedure
         while (true) {
@@ -249,9 +249,10 @@ public void addBooking(String inputFacilitiesId, int time) throws ExFullBooking 
                 Booking booking = new Booking(userName, time, facility.getFacilityId());
                 facility.addToTimeTable(time, booking.getBookingID());
                 todayBooking.putIfAbsent(booking.getBookingID(), booking);
-            } else {
-                throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
             }
+        }
+        else {
+            throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
         }
     }
     catch (Exception e){
@@ -268,8 +269,10 @@ public void deleteBooking(String bookingId){
         if (booking != null) {
             todayBooking.remove(bookingId);
             facility = controller.searchFacility(booking.getFacilitiesID());
-            facility.removeFromTimeTable(booking.getBookingTime());
-            System.out.println("Booking with id: " + bookingId + " has been deleted.");
+            if (facility.canDelete(booking.getBookingTime())) {
+                facility.removeFromTimeTable(booking.getBookingTime());
+                System.out.println("Booking with id: " + bookingId + " has been deleted.");
+            }
         }
     }
     catch(Exception e){
