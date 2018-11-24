@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -79,6 +80,32 @@ public class Controller {
 
     public void addSC(SportCentre newSC){
         sportCentreList.putIfAbsent(newSC.getScId(),newSC);
+    }
+
+    public ArrayList<Facility> searchFacilitiesByType(String scId, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
+        ArrayList<Facility> facilitiesList = new ArrayList<>();
+	    SportCentre sc = searchSportCentre(scId);
+	    System.out.println("\nSport Centre: " + sc.getScName()+ "\n");
+	    String type = null;
+        switch (sfType) {
+            case "badminton":
+                type = "B";
+                break;
+            case "tableTennis":
+                type = "T";
+                break;
+            case "activityRoom":
+                type = "A";
+                break;
+            default:
+                throw new ExFacilityNameNotExist();
+        }
+        for (String key : sc.getKeySet()){
+            if(key.contains(scId + type)){
+                facilitiesList.add(sc.findFacilityByID(key));
+            }
+        }
+        return facilitiesList;
     }
 
 	//import Membership

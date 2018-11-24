@@ -50,9 +50,6 @@ public class SportCentre implements SCAdminInterface, SCUserInterface{
     public Set<String> getKeySet() {
     	return facilitiesMap.keySet();
     }
-	public void setFacilitiesMap(Map<String, Facility> facilitiesMap) {
-		this.facilitiesMap = facilitiesMap;
-	}
 
 	public SportCentre(String scId, String scName, String scTel, String scAddress){
         this.scId = scId;
@@ -78,6 +75,5 @@ public class SportCentre implements SCAdminInterface, SCUserInterface{
         }
         return facility;
     }
-
 
 }

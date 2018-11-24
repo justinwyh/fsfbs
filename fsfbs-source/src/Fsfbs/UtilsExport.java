@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 
 public class UtilsExport {
 
-public static void printToFile(String filepath, String input[]) {
+public static void printToFile(String filepath, String input[]){
 		//
 		try {
 			PrintWriter writer;
@@ -21,7 +21,7 @@ public static void printToFile(String filepath, String input[]) {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();  
+			e.printStackTrace();
 		}
 }
 public static void printToFile(String filepath, String input) {
@@ -36,11 +36,15 @@ public static void printToFile(String filepath, String input) {
 		e.printStackTrace();
 	}
 }
-	public static void appendToFile(String filepath, String input) throws IOException {
+	public static void appendToFile(String filepath, String input){
 		 File file = new File(filepath);
-		 FileWriter fr = new FileWriter(file, true);
-		 fr.write(input+"\n");
-		 fr.close();
+		 try {
+             FileWriter fr = new FileWriter(file, true);
+             fr.write(input + "\n");
+             fr.close();
+         }catch (IOException e){
+		     e.printStackTrace();
+         }
 	}
 
 
