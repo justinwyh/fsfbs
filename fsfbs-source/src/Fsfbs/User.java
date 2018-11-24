@@ -288,7 +288,7 @@ public void exportBooking() throws IOException {
 		 UtilsExport.appendToFile(UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt", todayBooking.get(key).getBookingID());
 	}
 }
-public void importBooking() throws IOException{
+public void importBooking() throws IOException {
 	String filepath = UtilsLoadconfig.getConfig("bookingFilePath")+this.getUserName()+".txt";
 	File file = new File(filepath);
 	Scanner in = new Scanner(file);

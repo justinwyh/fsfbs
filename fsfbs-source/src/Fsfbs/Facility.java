@@ -2,6 +2,7 @@ package Fsfbs;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Set;
 
 public abstract class Facility {
@@ -50,7 +51,7 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime {
+    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour {
         UtilTime utilTime = UtilTime.getTimeInstance();
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
             switch (timeRangeResult) {
@@ -75,7 +76,7 @@ public abstract class Facility {
         }
     }
 
-    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime {
+    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour {
         UtilTime utilTime = UtilTime.getTimeInstance();
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {
@@ -83,8 +84,9 @@ public abstract class Facility {
                 throw new ExTimeRangeNotCurrent();
             case -2:
                 throw new ExAllowToDeleteOneHourOnly();
-            case 0:
-                break;
+            case -3:
+                throw new ExTimeSlotNotInOpeningHour();
+
         }
 
         String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
@@ -99,7 +101,23 @@ public abstract class Facility {
             throw new ExInputTimeEarlierThanCurrentTime();
         }
     }
-    public void exportTimeschedule() {
-    	
+
+    public String getBookingStatus(int timeslot){
+        String bookingID = getBookingIdbyTime(timeslot);
+        if (bookingID == null){
+            return "Available";
+        }
+        else {
+            return "Booked Booking ID: " + bookingID;
+        }
+    }
+
+
+    public void showVaccancies(){
+        TreeMap<Integer,String> vaccanciesMap = new TreeMap<>();
+        int [] timeRange = {1011,1112,1213,1314,1516,1718,1819,1920,2021,2122,2223,2324};
+        for (int i = 0; i < 14; i++){
+                vaccanciesMap.putIfAbsent(timeRange[0],getBookingStatus(timeRange[0]));
+        }
     }
 }

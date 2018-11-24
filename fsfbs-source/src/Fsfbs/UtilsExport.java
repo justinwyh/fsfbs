@@ -1,4 +1,5 @@
 package Fsfbs;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -7,10 +8,10 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 public class UtilsExport {
-	
-	public static void printToFile(String filepath, String input[]) {
+
+public static void printToFile(String filepath, String input[]) {
 		//
-		try {	
+		try {
 			PrintWriter writer;
 			writer = new PrintWriter(filepath, "UTF-8");
 			for(String s: input)
@@ -22,6 +23,18 @@ public class UtilsExport {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+
+public static void printToFile(String filepath, String input) {		//overwrite
+	//
+	try {
+		PrintWriter writer;
+		writer = new PrintWriter(filepath, "UTF-8");
+			writer.print(input);
+			writer.close();
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
 	}
 
 	public static void appendToFile(String filepath, String input) throws IOException {
@@ -30,4 +43,5 @@ public class UtilsExport {
 		 fr.write(input);
 		 fr.close();
 	}
+
 }
