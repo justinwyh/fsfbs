@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 class Test_User {
 	
-
-
 	@Test
 	public void test_addBooking() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
