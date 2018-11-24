@@ -6,8 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
- public static void main(String[] args)
+ public static void main(String[] args) throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist
  {
+	 /*
      try {
          Controller controller = Controller.getInstance();
          //Step 1: Import Data
@@ -21,7 +22,7 @@ public class Main {
          System.out.println("||        Welcome to Fast Sports Facility Booking System!          ||");
          System.out.println("+-------------------------------------------------------------------+");
          System.out.println("=================Do you have an User Account? (Y/N)==================");
-
+         
          //Step 2: Choose either login or create user
         loginOrCreateUser();
         User.Login();
@@ -35,6 +36,8 @@ public class Main {
      finally {
          //Last Step: export to txt file and end the program.
      }
+     */
+	 Controller.getInstance().importData();
  }
 
  public static void loginOrCreateUser() {

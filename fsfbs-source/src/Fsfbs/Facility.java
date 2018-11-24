@@ -2,6 +2,7 @@ package Fsfbs;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class Facility {
         private String facilityId; //court num can be consist of district, sport centre and facility number
@@ -18,8 +19,22 @@ public abstract class Facility {
     public String getFacilityId() {
         return facilityId;
     }
+    public String getBookingIdbyTime(Integer time) {
+    	return timetableMap.get(time);
+    }
 
-    public int getFacilityNum() {
+    public Set<Integer> getkeyset() {
+    	return timetableMap.keySet();
+    }
+    public Map<Integer, String> getTimetableMap() {
+		return timetableMap;
+	}
+
+	public void setTimetableMap(Map<Integer, String> timetableMap) {
+		this.timetableMap = timetableMap;
+	}
+
+	public int getFacilityNum() {
         return facilityNum;
     }
 
@@ -83,5 +98,8 @@ public abstract class Facility {
         else{
             throw new ExInputTimeEarlierThanCurrentTime();
         }
+    }
+    public void exportTimeschedule() {
+    	
     }
 }

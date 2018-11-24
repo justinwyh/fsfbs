@@ -18,10 +18,11 @@ public class Controller {
 	    sportCentreList = new HashMap<>();
 	}
 
-	public void importData() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
+	public void importData() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
         //import membership
         this.importAllMember();
         this.importAllSportFacility();
+        this.importAllSchedule();
     }
 
     public static Controller getInstance() {
@@ -138,5 +139,58 @@ public class Controller {
 	    catch (IOException ioe){
 	        throw new ExIOErrorinGetConfig();
         }
+	}
+	//export all time scheudle
+	public void exportAllSchedule() throws ExIOErrorinGetConfig{
+		String tsfp;
+		try {
+			tsfp = UtilsLoadconfig.getConfig("timeScheduleFilePath");
+			for(String sckey: sportCentreList.keySet()) {			//loop each Sport Centre in Sport Centre list
+			SportCentre tempsc=sportCentreList.get(sckey);
+			UtilsExport.printToFile(tsfp+tempsc.getScId()+".txt","");
+			
+			for(String fackey:tempsc.getKeySet()) {							//loop each Facilities in Facility list
+					Facility tempfac = tempsc.getFacilitiesMap().get(fackey);
+					UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt", tempsc.getScId());
+					
+					for(Integer timekey: tempfac.getkeyset()) {								//loop each timeslot
+						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",timekey.toString());
+						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",tempfac.getBookingIdbyTime(timekey));
+					} 
+					
+				} 
+			}
+		}
+			catch (IOException e) {
+					throw new ExIOErrorinGetConfig();
+				}
+	}
+	
+	public void importAllSchedule() throws ExIOErrorinGetConfig, ExFacilityIdNotExist {
+		try {
+		File file = new File(UtilsLoadconfig.getConfig("timeScheduleFilePath"));
+        File[] files = file.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return !name.equals(".DS_Store");
+            }
+        });
+        for (File f : files) {
+            Scanner inFile = new Scanner(f);
+            SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,3));
+            System.out.println("INSIDE "+f.getName().substring(0,3));
+            String fcid = inFile.next();
+            Facility fc = sc.findFacilityByID(fcid);
+            System.out.println(fcid);
+            int time = inFile.nextInt();
+            String bkid = inFile.next();
+            System.out.println("time = "+time+", bkid: "+bkid);
+            fc.addToTimeTable(time,bkid);
+        }
+		}
+		catch (IOException e) {
+			throw new ExIOErrorinGetConfig();
+		}
+		
 	}
 }
