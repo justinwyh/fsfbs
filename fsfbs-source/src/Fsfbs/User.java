@@ -249,10 +249,9 @@ public void addBooking(String inputFacilitiesId, int time) throws ExFullBooking 
                 Booking booking = new Booking(userName, time, facility.getFacilityId());
                 facility.addToTimeTable(time, booking.getBookingID());
                 todayBooking.putIfAbsent(booking.getBookingID(), booking);
+            } else {
+                throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
             }
-        }
-        else {
-            throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
         }
     }
     catch (Exception e){
@@ -269,10 +268,8 @@ public void deleteBooking(String bookingId){
         if (booking != null) {
             todayBooking.remove(bookingId);
             facility = controller.searchFacility(booking.getFacilitiesID());
-            if (facility.canDelete(booking.getBookingTime())) {
-                facility.removeFromTimeTable(booking.getBookingTime());
-                System.out.println("Booking with id: " + bookingId + " has been deleted.");
-            }
+            facility.removeFromTimeTable(booking.getBookingTime());
+            System.out.println("Booking with id: " + bookingId + " has been deleted.");
         }
     }
     catch(Exception e){
