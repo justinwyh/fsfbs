@@ -15,7 +15,7 @@ class Test_UtilLoadConfig {
 		String result = UtilsLoadconfig.getConfig("membershipFilePath");
 		String str = "./Data/Membership/";
 		assertEquals(str, result);
-	}
+	} 
 	
 	@Test
 	public void test_booking() throws IOException {

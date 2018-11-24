@@ -21,7 +21,7 @@ public static void printToFile(String filepath, String input[]) {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			e.printStackTrace();  
 		}
 }
 public static void printToFile(String filepath, String input) {

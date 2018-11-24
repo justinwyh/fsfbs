@@ -87,7 +87,7 @@ public abstract class Facility {
             case -3:
                 throw new ExTimeSlotNotInOpeningHour();
 
-        }
+        } 
 
         String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
         if (utilTime.isTimeLaterThanCurrentTime(startTime)) {

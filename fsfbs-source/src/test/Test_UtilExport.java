@@ -132,6 +132,9 @@ class Test_UtilExport {
         assertEquals(false, result);
     }
 
-
+    @Test
+    public void testUtilWrite_5() {
+    	
+    }
 
 }
