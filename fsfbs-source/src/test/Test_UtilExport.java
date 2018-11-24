@@ -32,7 +32,7 @@ assertTrue(file.exists());
         boolean result = true;
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/Users/abcd.txt"));
+            reader = new BufferedReader(new FileReader("C:/Users/user/Desktop"));
             String line = reader.readLine();
             int i=0;
             while(line != null){
