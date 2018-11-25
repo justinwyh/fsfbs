@@ -186,7 +186,6 @@ public class User {
         return userName;
     }
 
-
     public Membership getMembership() {
         return membership;
     }
@@ -214,6 +213,11 @@ public class User {
     public void setPreferFacilities(String preferFacilities) {
         this.preferFacilities = preferFacilities;
     }
+    
+    public int getTodayBookingNum() {
+		return todayBooking.size();
+	}
+
 
     //-----------------validate User Pw-------------------
     private static String validatePassword() {
@@ -338,9 +342,5 @@ public class User {
             }
         }
     }
-
-	public int getTodayBookingNum() {
-		return todayBooking.size();
-	}
-
+    
 }
