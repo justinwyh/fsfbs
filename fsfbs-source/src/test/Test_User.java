@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 class Test_User {
 
 	@Test
-	public void test_addBooking() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_searchVacancies() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist  {
+		// user calls each facility to show their vacancy
 		Controller controller = Controller.getInstance();
 		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");

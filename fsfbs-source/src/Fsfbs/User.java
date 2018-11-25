@@ -271,12 +271,15 @@ public class User {
                     Booking booking = new Booking(userName, time, facility.getFacilityId());
                     facility.addToTimeTable(time, booking.getBookingID());
                     todayBooking.putIfAbsent(booking.getBookingID(), booking);
-                    System.out.println("----------------------Confirmation-----------------------");
+                    System.out.println();
+                    System.out.println("-----------------Booking Confirmation--------------------");
                     System.out.println("Booking ID: " + booking.getBookingID());
                     System.out.println("Sport Centre: " + sc.getScName());
                     System.out.println("Facility Type: " + facility.getFacilityType());
                     System.out.println("Facility ID: " + booking.getFacilitiesID());
                     System.out.println("Price: " + getPriceByMembership(facility.getPrice()));
+                    System.out.println("--------------------------End----------------------------");
+                    System.out.println();
                 } else {
                     throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
                 }
@@ -290,13 +293,20 @@ public class User {
         try {
             Controller controller = Controller.getInstance();
             Booking booking = searchBookingById(bookingId);
-            SportCentre sc;
             Facility facility;
             if (booking != null) {
                 todayBooking.remove(bookingId);
                 facility = controller.searchFacility(booking.getFacilitiesID());
                 facility.removeFromTimeTable(booking.getBookingTime());
+                System.out.println();
+                System.out.println("-------------------Delete Confirmation-------------------");
+                System.out.println("User ID: " + booking.getuserName());
+                System.out.println("Booking ID: " + booking.getBookingID());
+                System.out.println("Facility Type: " + facility.getFacilityType());
+                System.out.println("Facility ID: " + booking.getFacilitiesID());
                 System.out.println("Booking with id: " + bookingId + " has been deleted.");
+                System.out.println("--------------------------End----------------------------");
+                System.out.println();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
