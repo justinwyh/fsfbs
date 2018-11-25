@@ -2,6 +2,7 @@ package Fsfbs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.util.HashMap;
@@ -311,6 +312,16 @@ public class User {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void printTodayBookingHistory(){
+        UtilTime utilTime = UtilTime.getTimeInstance();
+        System.out.println("----------------------Booking History-----------------------");
+        for (Booking booking: todayBooking.values()){
+            System.out.println("Booking ID: " + booking.getBookingID()+ " Court ID: " + booking.getFacilitiesID() +" Time:" + utilTime.getTimeWithFormat(booking.getBookingTime()));
+        }
+        System.out.println("----------------------------End-----------------------------");
+
     }
 
     public Booking searchBookingById(String bookingId) throws ExBookingNotExist {

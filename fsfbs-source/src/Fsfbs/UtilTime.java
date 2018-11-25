@@ -59,5 +59,12 @@ public class UtilTime {
             return 0;
         }
     }
+
+    public String getTimeWithFormat(int timeslot){
+        String sTime = Integer.toString(timeslot);
+        String startTime = sTime.substring(0,2) + ":00";
+        String endTime = sTime.substring(0,2) + ":00";
+        return (startTime +" - " + endTime);
+    }
     
 }
