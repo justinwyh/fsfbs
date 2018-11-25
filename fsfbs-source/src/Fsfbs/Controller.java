@@ -122,6 +122,7 @@ public class Controller {
                 Scanner inFile = new Scanner(f);
                 userList.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
                 ;
+                if(SimulationMode.getSimulationMdoe())
                 System.out.println(f.getName() + "...created");
             }
         }
@@ -148,6 +149,7 @@ public class Controller {
                 SportCentre temp = new SportCentre(inFile.nextLine(), inFile.nextLine(), inFile.nextLine(), inFile.nextLine());
                 while (inFile.hasNext()) {
                     String fid = inFile.next();
+                    if(SimulationMode.getSimulationMdoe())
                     System.out.println(fid + "...created and added to " + temp.getScId());
                     if (fid.charAt(2) == 'B')
                         temp.addFacilitytoSC(fid, new Facility_Badminton(fid));
@@ -157,6 +159,7 @@ public class Controller {
                         temp.addFacilitytoSC(fid, new Facility_TableTennis(fid));
                 }
                 sportCentreList.put(temp.getScId(), temp);
+                if(SimulationMode.getSimulationMdoe())
                 System.out.println("Added " + temp.getScId());
             }
         }
@@ -207,14 +210,17 @@ public class Controller {
         for (File f : files) {
             Scanner inFile = new Scanner(f);
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
+            if(SimulationMode.getSimulationMdoe())
             System.out.println("Inside "+f.getName().substring(0,2));
             String fcid = inFile.next();
+            if(SimulationMode.getSimulationMdoe())
             System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
             System.out.println(fcid);
             while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
+            if(SimulationMode.getSimulationMdoe())
             System.out.println("time = "+time+", bkid: "+bkid);
             fc.addToTimeTable(time,bkid);
         }

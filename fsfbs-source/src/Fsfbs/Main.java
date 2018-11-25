@@ -1,4 +1,5 @@
 package Fsfbs;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -9,9 +10,25 @@ public class Main {
      try {
          Controller controller = Controller.getInstance();
          //Step 1: Import Data
+         if(SimulationMode.getSimulationMdoe())
+         {
+        	System.out.println("+---------------------------------------------------+");
+        	System.out.println("+------------------Simulation Mode------------------+");
+        	System.out.println("|Notice:                                            |");
+        	System.out.println("|In this simulation mode, all user output will not  |");
+        	System.out.println("|affect the data. If you want change to production  |");
+            System.out.println("|mode, please change the RunConfigurationMode in the|");
+        	System.out.println("|configuration file to 1.                           |");
+        	System.out.println("|Sorry for causing any inconvenient        Thank you|");
+            System.out.println("+---------------------------------------------------+");
+            System.out.println("+----------------Debug Message Start----------------+");
+
+         }
          controller.importData();
+         if(SimulationMode.getSimulationMdoe())
+         System.out.println("+-------------------Debug Message End----------------+");
          Scanner in = new Scanner(System.in);
-         
+
          //welcome message
          System.out.println("+-------------------------------------------------------------------+");
          System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
@@ -39,48 +56,52 @@ public class Main {
              System.out.println("|                     exit: please enter 'exit'                     |");
              System.out.println("+-------------------------------------------------------------------+");
              String input = in.next();
-             
-        	 if(input.equals("vacancy")) {     		 
+
+        	 if(input.equals("vacancy")) {
         		 controller.printAllFacilities();
-        		 System.out.println("Please enter the key of Sport Centre");
-        		 String sportfacility= in.next();
-        		 while(controller.searchSportCentre(sportfacility)==null) {
-        			 System.out.println("Wrong key entered. Please try again");
-        		 }
-        		 System.out.println("Please enter the type of court you want to book");
+        		 System.out.println("\nPlease enter the key of Sport Centre:");
+        		 String sportCentre= in.next();
+        		 System.out.println("\nPlease enter the type of court you want to book:");
         		 System.out.println("e.g. badminton, tableTennis, activityRoom");
         		 String court=null;
         		 court = in.next();
         		 while(!(court.equals("badminton")||court.equals("tableTennis")||court.equals("activityRoom"))) {
         			 System.out.println("Wrong court information entered.");
-        		 	 System.out.println("Please enter: badminton, tableTennis, activityRoom");
+        		 	 System.out.println("\nPlease enter: badminton, tableTennis, activityRoom");
         		 	 court=in.next();
         		 }
-        		 user.searchVacancies(sportfacility, court);
+        		 user.searchVacancies(sportCentre, court);
         	 }
-        	 
+
         	 else if(input.equals("add")) {
+        		 int time = 0;
         		 System.out.println("Please enter the facility code(e.g. E1B1, E1B2)");
         		 String sportfacility= in.next();
         		 System.out.println("Please enter time range");
-        		 int time= in.nextInt();
-        		 user.addBooking(sportfacility, time);      		      		 
+        		 time= in.nextInt();
+        		 if(time==0) {
+        			 System.out.println("Time in wrong format");
+        		 }
+        		 else
+        			 user.addBooking(sportfacility, time);
         	 }
-        	 
+
         	 else if(input.equals("print"))
         		 controller.printAllFacilities();
         	 else if(input.equals("mybooking"))
         		 user.printTodayBookingHistory();
         	 else if(input.equals("delete")){
-        		 System.out.println("Please enter the booking ID you want to delete");
+        		 System.out.println("\nPlease enter the booking ID you want to delete");
         		 user.printTodayBookingHistory();
         		 user.deleteBooking(in.next());
         	 }
         	 else if(input.equals("exit"))
         		 break;
-        	
+        	 else {
+                 System.out.println("\nCommand is not found.");
+             }
          }
-         
+
      }
      catch (Exception e){
          System.out.println(e.getMessage());
@@ -90,11 +111,8 @@ public class Main {
          //Last Step: export to txt file and end the program.
     	 if(!SimulationMode.getSimulationMdoe())
     		 controller.exportAllSchedule();
- 
-     }
 
-	 //Controller.getInstance().importData();
-	 //Controller.getInstance().exportAllSchedule();
+     }
  }
 
  public static void loginOrCreateUser() {
