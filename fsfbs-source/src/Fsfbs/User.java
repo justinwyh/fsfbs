@@ -271,6 +271,7 @@ public class User {
                     Booking booking = new Booking(userName, time, facility.getFacilityId());
                     facility.addToTimeTable(time, booking.getBookingID());
                     todayBooking.putIfAbsent(booking.getBookingID(), booking);
+                    System.out.println();
                     System.out.println("-----------------Booking Confirmation--------------------");
                     System.out.println("Booking ID: " + booking.getBookingID());
                     System.out.println("Sport Centre: " + sc.getScName());
@@ -278,6 +279,7 @@ public class User {
                     System.out.println("Facility ID: " + booking.getFacilitiesID());
                     System.out.println("Price: " + getPriceByMembership(facility.getPrice()));
                     System.out.println("--------------------------End----------------------------");
+                    System.out.println();
                 } else {
                     throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
                 }
