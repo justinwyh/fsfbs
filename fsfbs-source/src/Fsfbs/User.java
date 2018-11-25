@@ -88,7 +88,7 @@ public class User {
                 System.out.println("Please enter password:");
                 password = in.next();
                 if (password.equals(user.getUserPassword())) {
-                    System.out.println("Login Success.");
+                    System.out.println("Login Success. Loading...");
                     return user;
                 } else
                     System.out.println("Invalid password. Please enter again.");
