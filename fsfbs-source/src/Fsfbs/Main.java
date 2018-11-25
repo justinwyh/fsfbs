@@ -48,12 +48,12 @@ public class Main {
         			 System.out.println("Wrong key entered. Please try again");
         		 }
         		 System.out.println("Please enter the type of court you want to book");
-        		 System.out.println("e.g. baminton, tableTennis, acticityRoom");
+        		 System.out.println("e.g. badminton, tableTennis, activityRoom");
         		 String court=null;
         		 court = in.next();
         		 while(!(court.equals("badminton")||court.equals("tableTennis")||court.equals("activityRoom"))) {
         			 System.out.println("Wrong court information entered.");
-        		 	 System.out.println("Please enter: badminton, tableTennis, acticityRoom");
+        		 	 System.out.println("Please enter: badminton, tableTennis, activityRoom");
         		 	 court=in.next();
         		 }
         		 user.searchVacancies(sportfacility, court);
