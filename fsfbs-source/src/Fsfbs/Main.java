@@ -67,7 +67,7 @@ public class Main {
         		 court = in.next();
         		 while(!(court.equals("badminton")||court.equals("tableTennis")||court.equals("activityRoom"))) {
         			 System.out.println("Wrong court information entered.");
-        		 	 System.out.println("Please enter: badminton, tableTennis, activityRoom");
+        		 	 System.out.println("\nPlease enter: badminton, tableTennis, activityRoom");
         		 	 court=in.next();
         		 }
         		 user.searchVacancies(sportCentre, court);
