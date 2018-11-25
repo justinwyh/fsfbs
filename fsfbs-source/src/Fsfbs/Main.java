@@ -32,6 +32,7 @@ public class Main {
              System.out.println("|                Delete booking: please enter 'delete'              |");
              System.out.println("|           Print all sport centre: please enter 'print'            |");
              System.out.println("|             Search vancancies: please enter 'vacancy'             |");
+             System.out.println("|             Print my booking: please enter 'mybooking'            |");
              System.out.println("|                     exit: please enter 'exit'                     |");
              System.out.println("+-------------------------------------------------------------------+");
              String input = in.next();
@@ -65,10 +66,16 @@ public class Main {
         	 
         	 else if(input.equals("print"))
         		 controller.printAllFacilities();
-        	 
+        	 else if(input.equals("mybooking"))
+        		 user.printTodayBookingHistory();
+        	 else if(input.equals("delete")){
+        		 System.out.println("Please enter the booking ID you want to delete");
+        		 user.printTodayBookingHistory();
+        		 user.deleteBooking(in.next());
+        	 }
         	 else if(input.equals("exit"))
         		 break;
-        
+        	
          }
          
      }
