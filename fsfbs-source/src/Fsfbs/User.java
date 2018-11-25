@@ -316,11 +316,11 @@ public class User {
 
     public void printTodayBookingHistory(){
         UtilTime utilTime = UtilTime.getTimeInstance();
-        System.out.println("----------------------Booking History-----------------------");
+        System.out.println("--------------------------Booking History--------------------------");
         for (Booking booking: todayBooking.values()){
-            System.out.println("Booking ID: " + booking.getBookingID()+ " Court ID: " + booking.getFacilitiesID() +" Time:" + utilTime.getTimeWithFormat(booking.getBookingTime()));
+            System.out.println("  Booking ID: " + booking.getBookingID()+ " Court ID: " + booking.getFacilitiesID() +" Time: " + utilTime.getTimeWithFormat(booking.getBookingTime()));
         }
-        System.out.println("----------------------------End-----------------------------");
+        System.out.println("-------------------------------End---------------------------------");
 
     }
 
