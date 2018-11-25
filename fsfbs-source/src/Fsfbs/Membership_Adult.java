@@ -18,3 +18,4 @@ public double getDiscount() {
 
 public String getMembershipName() { return "Membership_Adult"; }
 }
+ 
