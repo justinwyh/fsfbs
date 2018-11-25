@@ -1,4 +1,5 @@
 package Fsfbs;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -42,12 +43,9 @@ public class Main {
              
         	 if(input.equals("vacancy")) {     		 
         		 controller.printAllFacilities();
-        		 System.out.println("Please enter the key of Sport Centre");
-        		 String sportfacility= in.next();
-        		 while(controller.searchSportCentre(sportfacility)==null) {
-        			 System.out.println("Wrong key entered. Please try again");
-        		 }
-        		 System.out.println("Please enter the type of court you want to book");
+        		 System.out.println("\nPlease enter the key of Sport Centre:");
+        		 String sportCentre= in.next();
+        		 System.out.println("\nPlease enter the type of court you want to book:");
         		 System.out.println("e.g. badminton, tableTennis, activityRoom");
         		 String court=null;
         		 court = in.next();
@@ -56,15 +54,15 @@ public class Main {
         		 	 System.out.println("Please enter: badminton, tableTennis, activityRoom");
         		 	 court=in.next();
         		 }
-        		 user.searchVacancies(sportfacility, court);
+        		 user.searchVacancies(sportCentre, court);
         	 }
         	 
         	 else if(input.equals("add")) {
-        		 System.out.println("Please enter the facility code(e.g. E1B1, E1B2)");
+        		 System.out.println("\nPlease enter the facility code(e.g. E1B1, E1B2):");
         		 String sportfacility= in.next();
-        		 System.out.println("Please enter time range");
+        		 System.out.println("\nPlease enter time range:");
         		 int time= in.nextInt();
-        		 user.addBooking(sportfacility, time);      		      		 
+        		 user.addBooking(sportfacility, time);
         	 }
         	 
         	 else if(input.equals("print"))
@@ -72,13 +70,15 @@ public class Main {
         	 else if(input.equals("mybooking"))
         		 user.printTodayBookingHistory();
         	 else if(input.equals("delete")){
-        		 System.out.println("Please enter the booking ID you want to delete");
+        		 System.out.println("\nPlease enter the booking ID you want to delete");
         		 user.printTodayBookingHistory();
         		 user.deleteBooking(in.next());
         	 }
         	 else if(input.equals("exit"))
         		 break;
-        	
+        	 else {
+                 System.out.println("\nCommand is not found.");
+             }
          }
          
      }
