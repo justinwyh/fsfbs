@@ -11,7 +11,7 @@ public class Test_deleteBooking {
 	public void test_deleteBooking() throws ExFullBooking, ExBookingNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Audit", "E1", "Facility_Badminton");
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
 		tester.addBooking("E1B2", 1617);
 		int result = tester.getTodayBookingNum();
 		tester.deleteBooking("20181125E1B21617");
