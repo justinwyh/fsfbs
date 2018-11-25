@@ -88,7 +88,7 @@ public class User {
                 System.out.println("Please enter password:");
                 password = in.next();
                 if (password.equals(user.getUserPassword())) {
-                    System.out.println("Login Success.");
+                    System.out.println("Login Success. Loading...");
                     return user;
                 } else
                     System.out.println("Invalid password. Please enter again.");
@@ -316,11 +316,18 @@ public class User {
 
     public void printTodayBookingHistory(){
         UtilTime utilTime = UtilTime.getTimeInstance();
-        System.out.println("----------------------Booking History-----------------------");
-        for (Booking booking: todayBooking.values()){
-            System.out.println("Booking ID: " + booking.getBookingID()+ " Court ID: " + booking.getFacilitiesID() +" Time:" + utilTime.getTimeWithFormat(booking.getBookingTime()));
+        System.out.println("----------------------------Booking History--------------------------");
+        if (todayBooking.size() == 0){
+            System.out.println();
+            System.out.println("               There is no bookings currently.");
+            System.out.println();
         }
-        System.out.println("----------------------------End-----------------------------");
+        else {
+            for (Booking booking : todayBooking.values()) {
+                System.out.println("  Booking ID: " + booking.getBookingID() + " Court ID: " + booking.getFacilitiesID() + " Time: " + utilTime.getTimeWithFormat(booking.getBookingTime()));
+            }
+        }
+        System.out.println("---------------------------------End---------------------------------");
 
     }
 

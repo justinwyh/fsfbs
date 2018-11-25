@@ -63,7 +63,7 @@ public class UtilTime {
     public String getTimeWithFormat(int timeslot){
         String sTime = Integer.toString(timeslot);
         String startTime = sTime.substring(0,2) + ":00";
-        String endTime = sTime.substring(0,2) + ":00";
+        String endTime = sTime.substring(2,4) + ":00";
         return (startTime +" - " + endTime);
     }
     
