@@ -21,4 +21,4 @@ public static String getConfig(String key) throws IOException {
 	//return 
 	return prop.getProperty(key);
 }
-}
+} 
