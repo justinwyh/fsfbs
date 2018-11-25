@@ -316,7 +316,7 @@ public class User {
 
     public void printTodayBookingHistory(){
         UtilTime utilTime = UtilTime.getTimeInstance();
-        System.out.println("----------------------------Booking History----------------------------");
+        System.out.println("----------------------------Booking History--------------------------");
         if (todayBooking.size() == 0){
             System.out.println();
             System.out.println("               There is no bookings currently.");
@@ -327,7 +327,7 @@ public class User {
                 System.out.println("  Booking ID: " + booking.getBookingID() + " Court ID: " + booking.getFacilitiesID() + " Time: " + utilTime.getTimeWithFormat(booking.getBookingTime()));
             }
         }
-        System.out.println("---------------------------------End-----------------------------------");
+        System.out.println("---------------------------------End---------------------------------");
 
     }
 
