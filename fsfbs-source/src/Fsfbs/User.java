@@ -298,6 +298,7 @@ public class User {
                 todayBooking.remove(bookingId);
                 facility = controller.searchFacility(booking.getFacilitiesID());
                 facility.removeFromTimeTable(booking.getBookingTime());
+                System.out.println();
                 System.out.println("-------------------Delete Confirmation-------------------");
                 System.out.println("User ID: " + booking.getuserName());
                 System.out.println("Booking ID: " + booking.getBookingID());
@@ -305,6 +306,7 @@ public class User {
                 System.out.println("Facility ID: " + booking.getFacilitiesID());
                 System.out.println("Booking with id: " + bookingId + " has been deleted.");
                 System.out.println("--------------------------End----------------------------");
+                System.out.println();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
