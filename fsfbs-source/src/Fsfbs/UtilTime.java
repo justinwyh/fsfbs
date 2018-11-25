@@ -1,6 +1,7 @@
 package Fsfbs;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -19,13 +20,15 @@ public class UtilTime {
         return (dtf.format(localDate));
     }
 
-    public String getCurrentTime(){
+    public String getCurrentTime() throws IOException{
+    	if(SimulationMode.getSimulationMdoe())
+    		return "15:00:00";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return (dtf.format(now));
     }
 
-    public boolean isTimeLaterThanCurrentTime(String inputTime) {
+    public boolean isTimeLaterThanCurrentTime(String inputTime) throws IOException {
         int currentHour;
         int inputHour;
         String currentTime = getCurrentTime();
