@@ -74,16 +74,18 @@ public class Main {
         	 }
 
         	 else if(input.equals("add")) {
-        		 int time = 0;
+        	     UtilValidation utilValidation = UtilValidation.getValidationInstance();
+        		 String time;
         		 System.out.println("Please enter the facility code(e.g. E1B1, E1B2)");
         		 String sportfacility= in.next();
         		 System.out.println("Please enter time range");
-        		 time= in.nextInt();
-        		 if(time==0) {
-        			 System.out.println("Time in wrong format");
+        		 time= in.next();
+        		 int iTime = utilValidation.validateTimeFormat(time);
+        		 if(iTime == 0) {
+        			 System.out.println("Time in wrong format!");
         		 }
         		 else
-        			 user.addBooking(sportfacility, time);
+        			 user.addBooking(sportfacility, iTime);
         	 }
 
         	 else if(input.equals("print"))
