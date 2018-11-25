@@ -31,7 +31,7 @@ public class Main {
              System.out.println("|                   Add booking: please enter 'add'                 |");
              System.out.println("|                Delete booking: please enter 'delete'              |");
              System.out.println("|           Print all sport centre: please enter 'print'            |");
-             System.out.println("|             Search vancancies: please enter 'vacancy'             |");
+             System.out.println("|             Search vacancies: please enter 'vacancy'             |");
              System.out.println("|             Print my booking: please enter 'mybooking'            |");
              System.out.println("|                     exit: please enter 'exit'                     |");
              System.out.println("+-------------------------------------------------------------------+");
