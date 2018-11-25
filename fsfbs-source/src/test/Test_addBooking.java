@@ -40,6 +40,7 @@ class Test_addBooking {
 		assertEquals(3, result);
 	}
 	
+	@Test
 	public void test_addBooking_twoPerson() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		controller.importData();
