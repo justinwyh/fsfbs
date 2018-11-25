@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 
 class Test_addBooking {
 
-//	@Test
-//	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking  {
-//		Controller controller = Controller.getInstance();
-//		controller.importData();
-//		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-//		tester.addBooking("E1B2", 1617);
-//		int result = tester.getTodayBookingNum();
-//		assertEquals(1, result);
-//	}
+	@Test
+	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking  {
+		Controller controller = Controller.getInstance();
+		controller.importData();
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
+		tester.addBooking("E1B2", 1617);
+		int result = tester.getTodayBookingNum();
+		assertEquals(1, result);
+	}
 
 //	@Test
 //	public void test_addBooking2s() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
