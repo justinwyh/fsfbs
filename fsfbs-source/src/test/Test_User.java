@@ -56,7 +56,7 @@ class Test_User {
 		Controller controller = Controller.getInstance();
 		controller.importData();
 		User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		//tester.searchVacancies("E1", "Badminton");
+		tester.searchVacancies("E1", "badminton");
 		
 	}
 	
