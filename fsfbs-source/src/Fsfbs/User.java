@@ -2,7 +2,6 @@ package Fsfbs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.util.HashMap;
@@ -272,6 +271,12 @@ public class User {
                     Booking booking = new Booking(userName, time, facility.getFacilityId());
                     facility.addToTimeTable(time, booking.getBookingID());
                     todayBooking.putIfAbsent(booking.getBookingID(), booking);
+                    System.out.println("----------------------Confirmation-----------------------");
+                    System.out.println("Booking ID: " + booking.getBookingID());
+                    System.out.println("Sport Centre: " + sc.getScName());
+                    System.out.println("Facility Type: " + facility.getFacilityType());
+                    System.out.println("Facility ID: " + booking.getFacilitiesID());
+                    System.out.println("Price: " + getPriceByMembership(facility.getPrice()));
                 } else {
                     throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
                 }
@@ -312,12 +317,16 @@ public class User {
             ArrayList<Facility> facilityList =controller.searchFacilitiesByType(scId,sfType);
             for (Facility fac: facilityList){
                 System.out.println("Facility Code: " + fac.getFacilityId());
-                fac.showVaccancies();
+                fac.showVacancies();
             }
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public double getPriceByMembership(double price){
+        return membership.getDiscount() * price;
     }
 
     public void exportBooking() throws IOException {

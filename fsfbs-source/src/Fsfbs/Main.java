@@ -23,6 +23,7 @@ public class Main {
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
+         user.addBooking("E1B2", 2223);
          user.searchVacancies("E1","badminton");
      }
      catch (Exception e){
