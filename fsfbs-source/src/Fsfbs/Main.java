@@ -1,12 +1,15 @@
 package Fsfbs;
+import java.io.IOException;
 import java.util.Scanner;
 public class Main {
- public static void main(String[] args) throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist
+ public static void main(String[] args) throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException
  {
      try {
          Controller controller = Controller.getInstance();
          //Step 1: Import Data
          controller.importData();
+         
+         //welcome message
          System.out.println("+-------------------------------------------------------------------+");
          System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
          System.out.println("||  |      | |      |      |       |     |  | +--+ |  |        ||  ||");
@@ -26,7 +29,11 @@ public class Main {
          System.out.println(e.getMessage());
      }
      finally {
+    	 Controller controller = Controller.getInstance();
          //Last Step: export to txt file and end the program.
+    	 if(!SimulationMode.getSimulationMdoe())
+    		 controller.exportAllSchedule();
+ 
      }
 
 	 //Controller.getInstance().importData();

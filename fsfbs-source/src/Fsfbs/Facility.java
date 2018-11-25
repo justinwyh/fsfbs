@@ -1,5 +1,6 @@
 package Fsfbs;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -51,7 +52,7 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour {
+    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
         UtilTime utilTime = UtilTime.getTimeInstance();
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
             switch (timeRangeResult) {
@@ -76,7 +77,7 @@ public abstract class Facility {
         }
     }
 
-    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour {
+    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
         UtilTime utilTime = UtilTime.getTimeInstance();
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {

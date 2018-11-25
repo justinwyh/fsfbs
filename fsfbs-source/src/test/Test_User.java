@@ -26,7 +26,7 @@ class Test_User {
 		int result = tester.getTodayBookingNum();
 		assertEquals(1, result);
 	}
-	
+	/*
 	@Test
 	public void test_addBooking2() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
@@ -36,6 +36,7 @@ class Test_User {
 		int result = tester.getTodayBookingNum();
 		assertEquals(0, result);
 	}
+	*/
 	/*
 	@Test
 	public void test_addBooking3() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
