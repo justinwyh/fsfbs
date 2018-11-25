@@ -9,52 +9,25 @@ public class Main {
  {
      try {
          Controller controller = Controller.getInstance();
+         Scanner in = new Scanner(System.in);
+         
          //Step 1: Import Data
          if(SimulationMode.getSimulationMdoe())
          {
-        	System.out.println("+---------------------------------------------------+");
-        	System.out.println("+------------------Simulation Mode------------------+");
-        	System.out.println("|Notice:                                            |");
-        	System.out.println("|In this simulation mode, all user output will not  |");
-        	System.out.println("|affect the data. If you want change to production  |");
-            System.out.println("|mode, please change the RunConfigurationMode in the|");
-        	System.out.println("|configuration file to 1.                           |");
-        	System.out.println("|Sorry for causing any inconvenient        Thank you|");
-            System.out.println("+---------------------------------------------------+");
+        	simwelcome();
             System.out.println("+----------------Debug Message Start----------------+");
-
          }
          controller.importData();
          if(SimulationMode.getSimulationMdoe())
          System.out.println("+-------------------Debug Message End----------------+");
-         Scanner in = new Scanner(System.in);
-
-         //welcome message
-         System.out.println("+-------------------------------------------------------------------+");
-         System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
-         System.out.println("||  |      | |      |      |       |     |  | +--+ |  |        ||  ||");
-         System.out.println("||  |  +   | +---+  |      |       |     |  |  ++  |  +---+    ++  ||");
-         System.out.println("||  |  |   | |      |      |       |     |  |      |  |            ||");
-         System.out.println("||  +--+---+ +----+ +----+ +-----+ +-----+  +      +  +----+   ++  ||");
-         System.out.println("||        Welcome to Fast Sports Facility Booking System!          ||");
-         System.out.println("+-------------------------------------------------------------------+");
-         System.out.println("=================Do you have an User Account? (Y/N)==================");
-
+         welcome();
+         
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
          while(true)
          {
-             TimeUnit.SECONDS.sleep(5);
-             System.out.println("+-------------------------------------------------------------------+");
-             System.out.println("|---------------------------User Guide------------------------------|");
-             System.out.println("|                   Add booking: please enter 'add'                 |");
-             System.out.println("|                Delete booking: please enter 'delete'              |");
-             System.out.println("|           Print all sport centre: please enter 'print'            |");
-             System.out.println("|             Search vacancies: please enter 'vacancy'              |");
-             System.out.println("|             Print my booking: please enter 'mybooking'            |");
-             System.out.println("|                     exit: please enter 'exit'                     |");
-             System.out.println("+-------------------------------------------------------------------+");
+             userguide();
              String input = in.next();
 
         	 if(input.equals("vacancy")) {
@@ -133,4 +106,42 @@ public class Main {
          }
      }
  }
+
+ public static void welcome() {
+	//welcome message
+     System.out.println("+-------------------------------------------------------------------+");
+     System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
+     System.out.println("||  |      | |      |      |       |     |  | +--+ |  |        ||  ||");
+     System.out.println("||  |  +   | +---+  |      |       |     |  |  ++  |  +---+    ++  ||");
+     System.out.println("||  |  |   | |      |      |       |     |  |      |  |            ||");
+     System.out.println("||  +--+---+ +----+ +----+ +-----+ +-----+  +      +  +----+   ++  ||");
+     System.out.println("||        Welcome to Fast Sports Facility Booking System!          ||");
+     System.out.println("+-------------------------------------------------------------------+");
+     System.out.println("=================Do you have an User Account? (Y/N)==================");
+ }
+ public static void simwelcome() {
+ 	System.out.println("+---------------------------------------------------+");
+ 	System.out.println("+------------------Simulation Mode------------------+");
+ 	System.out.println("|Notice:                                            |");
+ 	System.out.println("|In this simulation mode, all user output will not  |");
+ 	System.out.println("|affect the data. If you want change to production  |");
+     System.out.println("|mode, please change the RunConfigurationMode in the|");
+ 	System.out.println("|configuration file to 1.                           |");
+ 	System.out.println("|Sorry for causing any inconvenient        Thank you|");
+     System.out.println("+---------------------------------------------------+");
+
+ }
+ public static void userguide() throws InterruptedException {
+	 TimeUnit.SECONDS.sleep(3);
+     System.out.println("+-------------------------------------------------------------------+");
+     System.out.println("|---------------------------User Guide------------------------------|");
+     System.out.println("|                   Add booking: please enter 'add'                 |");
+     System.out.println("|                Delete booking: please enter 'delete'              |");
+     System.out.println("|           Print all sport centre: please enter 'print'            |");
+     System.out.println("|             Search vacancies: please enter 'vacancy'              |");
+     System.out.println("|             Print my booking: please enter 'mybooking'            |");
+     System.out.println("|                     exit: please enter 'exit'                     |");
+     System.out.println("+-------------------------------------------------------------------+");
+ }
+ 
 }
