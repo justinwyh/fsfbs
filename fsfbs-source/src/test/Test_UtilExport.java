@@ -10,7 +10,7 @@ class Test_UtilExport {
 
 	//success printToFile[]
 	@Test
-	public void testUtilWrite_1() {
+	public void testUtilWrite_1() throws IOException {
        boolean result = true;
        File f = new File("./Data/Membership/paragraph.txt");
        if(f.exists())
@@ -43,7 +43,7 @@ class Test_UtilExport {
 
     //file not found printToFile[]
     @Test
-    public void testUtilWrite_2() {
+    public void testUtilWrite_2() throws IOException {
         boolean result = true;
         File f = new File("./Data/Membership/paragraph.txt");
         if(f.exists())
@@ -77,7 +77,7 @@ class Test_UtilExport {
 
     //success printToFile
     @Test
-    public void testUtilWrite_3() {
+    public void testUtilWrite_3() throws IOException {
         File f = new File("./Data/Membership/word.txt");
         if(f.exists())
             f.delete();
@@ -105,7 +105,7 @@ class Test_UtilExport {
 
     //file not found printToFile
     @Test
-    public void testUtilWrite_4() {
+    public void testUtilWrite_4() throws IOException {
         File f = new File("./Data/Membership/word.txt");
         if(f.exists())
             f.delete();
@@ -133,7 +133,7 @@ class Test_UtilExport {
 
     //success appendToFile
     @Test
-    public void testUtilWrite_5() {
+    public void testUtilWrite_5() throws IOException {
         boolean result = true;
         File f = new File("./Data/Membership/append.txt");
         if(f.exists())
@@ -171,7 +171,7 @@ class Test_UtilExport {
 
     //fail appendToFile
     @Test
-    public void testUtilWrite_6() {
+    public void testUtilWrite_6() throws IOException {
         boolean result = true;
         File f = new File("./Data/Membership/append.txt");
         if(f.exists())

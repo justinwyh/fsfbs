@@ -9,8 +9,10 @@ import java.io.UnsupportedEncodingException;
 
 public class UtilsExport {
 
-public static void printToFile(String filepath, String input[]){
+public static void printToFile(String filepath, String input[]) throws IOException{
 		//
+	if(!SimulationMode.getSimulationMdoe())
+	{
 		try {
 			PrintWriter writer;
 			writer = new PrintWriter(filepath, "UTF-8");
@@ -23,9 +25,12 @@ public static void printToFile(String filepath, String input[]){
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+	}
+
 }
-public static void printToFile(String filepath, String input) {
+public static void printToFile(String filepath, String input) throws IOException {
 	//
+	if(!SimulationMode.getSimulationMdoe()) {
 	try {
 		PrintWriter writer;
 		writer = new PrintWriter(filepath, "UTF-8");
@@ -35,8 +40,10 @@ public static void printToFile(String filepath, String input) {
 	} catch (UnsupportedEncodingException e) {
 		e.printStackTrace();
 	}
+	}
 }
-	public static void appendToFile(String filepath, String input){
+	public static void appendToFile(String filepath, String input) throws IOException{
+		if(!SimulationMode.getSimulationMdoe()) {
 		 File file = new File(filepath);
 		 try {
              FileWriter fr = new FileWriter(file, true);
@@ -45,6 +52,7 @@ public static void printToFile(String filepath, String input) {
          }catch (IOException e){
 		     e.printStackTrace();
          }
+		}
 	}
 
 
