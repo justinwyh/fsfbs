@@ -21,7 +21,7 @@ public class UtilTime {
     }
 
     public String getCurrentTime() throws IOException{
-    	if(UtilsLoadconfig.getConfig("runSimulationMode").equals("1"))
+    	if(SimulationMode.getSimulationMdoe())
     		return "15:00:00";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
