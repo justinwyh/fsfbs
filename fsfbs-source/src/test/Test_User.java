@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class Test_User {
 	
-	@Before
+/*	@Before
 	public void setupCurrentTime() {
 		class UtilTime_stub extends UtilTime {
 			public String getCurrentTime() {
@@ -15,7 +15,7 @@ class Test_User {
 			}
 		}
 		
-	}
+	}*/
 	
 	@Test
 	public void test_addBooking() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
@@ -27,7 +27,7 @@ class Test_User {
 		assertEquals(1, result);
 	}
 	
-	@Test
+/*	@Test
 	public void test_addBooking2() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		controller.importData();
@@ -35,7 +35,7 @@ class Test_User {
 		tester.addBooking("E1B2", 2211);
 		int result = tester.getTodayBookingNum();
 		assertEquals(0, result);
-	}
+	}*/
 	/*
 	@Test
 	public void test_addBooking3() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {

@@ -113,7 +113,7 @@ public abstract class Facility {
     }
 
 
-    public void showVaccancies(){
+    public void showVacancies(){
         TreeMap<Integer,String> vaccanciesMap = new TreeMap<>();
         int [] timeRange = {1011,1112,1213,1314,1415,1516,1617,1718,1819,1920,2021,2122,2223,2324};
         for (int i = 0; i < 14; i++){
