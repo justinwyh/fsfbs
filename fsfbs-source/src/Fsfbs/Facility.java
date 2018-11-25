@@ -109,7 +109,7 @@ public abstract class Facility {
             return "Available";
         }
         else {
-            return "Booked Booking ID: " + bookingID;
+            return "Booked, Booking ID: " + bookingID;
         }
     }
 

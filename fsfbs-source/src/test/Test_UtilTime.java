@@ -36,7 +36,7 @@ class Test_UtilTime {
 		boolean result = time.isTimeLaterThanCurrentTime("14:00:00");
 		assertEquals(true, result);
 	}
-	
+
 	@Test
 	public void UtilTime_min() throws IOException {
 		class UtilTime_Stub extends UtilTime {
@@ -49,7 +49,7 @@ class Test_UtilTime {
 		boolean result = time.isTimeLaterThanCurrentTime("15:29:00");
 		assertEquals(false, result);
 	}
-	
+
 	@Test
 	public void UtilTime_min2() throws IOException {
 		class UtilTime_Stub extends UtilTime {
@@ -62,7 +62,7 @@ class Test_UtilTime {
 		boolean result = time.isTimeLaterThanCurrentTime("15:31:00");
 		assertEquals(true, result);
 	}
-	
+
 	@Test
 	public void UtilTime_second() throws IOException {
 		class UtilTime_Stub extends UtilTime {
@@ -75,7 +75,7 @@ class Test_UtilTime {
 		boolean result = time.isTimeLaterThanCurrentTime("20:00:29");
 		assertEquals(false, result);
 	}
-	
+
 	@Test
 	public void UtilTime_second2() throws IOException {
 		class UtilTime_Stub extends UtilTime {
