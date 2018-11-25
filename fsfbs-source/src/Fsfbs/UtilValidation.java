@@ -19,5 +19,16 @@ public class UtilValidation {
          }
     	return false;
     	}
-
+	public int validateTimeFormat(String inputTimeFormat) {
+        try {
+            int number = Integer.parseInt(inputTimeFormat);
+            if (inputTimeFormat.length() == 4) {
+                return number;
+            }
+        }
+        catch(Exception e) {
+           return 0;
+        }
+        return 0;
+    }
 }
