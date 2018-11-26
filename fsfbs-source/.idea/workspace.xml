@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2dc3fec1-77f7-4808-b244-629f90aef580" name="Default Changelist" comment="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
+    <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -10,19 +10,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilLoadConfig.ic" NAME="Test_UtilLoadConfig Coverage Results" MODIFIED="1543112881231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/fsfbs_source$Test_addBooking.ic" NAME="Test_addBooking Coverage Results" MODIFIED="1543123568278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilTime.ic" NAME="Test_UtilTime Coverage Results" MODIFIED="1543112915446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilExport.ic" NAME="Test_UtilExport Coverage Results" MODIFIED="1543057765051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/fsfbs_source$Test_User_test_addBooking.ic" NAME="Test_User.test_addBooking Coverage Results" MODIFIED="1543113220178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/fsfbs_source$Test_User.ic" NAME="Test_User Coverage Results" MODIFIED="1543113071351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilExport.ic" NAME="Test_UtilExport Coverage Results" MODIFIED="1543112871951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/fsfbs_source$Test_deleteBooking.ic" NAME="Test_deleteBooking Coverage Results" MODIFIED="1543124732184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
     </SUITE>
   </component>
@@ -44,7 +38,7 @@
     <select />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-475032769">
+    <session id="1592872706">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="30" />
@@ -212,6 +206,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/User.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/CurrentTime.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Court.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/BadmintonFacilities.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/BadmintonCourt.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/TableTennisCourt.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/ActivityRoom.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/UtilsConversion.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/District.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Facilities.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/UtilsExport.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_UtilExport.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_addBooking.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Controller.java" />
         <option value="$PROJECT_DIR$/src/test/Test_User.java" />
@@ -231,20 +240,15 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,7 +259,17 @@
             <path>
               <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
               <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
-              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
@@ -274,21 +288,124 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Bo&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/Data/Booking/Bob.txt" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543151436762" />
-    <property name="settings.editor.selected.configurable" value="coverage" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543124730823" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/Test_deleteBooking.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -302,21 +419,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Fsfbs.Main" />
-      <module name="fsfbs-source" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Fsfbs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_User" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Test_deleteBooking">
+    <configuration name="Test_addBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage">
         <pattern>
@@ -325,12 +429,12 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_User" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_addBooking" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_User.test_addBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_deleteBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage">
         <pattern>
@@ -339,57 +443,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_User" />
-      <option name="METHOD_NAME" value="test_addBooking" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_User.test_searchVacancies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="fsfbs-source" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_User" />
-      <option name="METHOD_NAME" value="test_searchVacancies" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_UtilTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="fsfbs-source" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_UtilTime" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_deleteBooking" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Test_User" />
-      <item itemvalue="JUnit.Test_UtilTime" />
-      <item itemvalue="JUnit.Test_User.test_addBooking" />
-      <item itemvalue="JUnit.Test_User.test_searchVacancies" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.Test_deleteBooking" />
+      <item itemvalue="JUnit.Test_addBooking" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.Test_User.test_searchVacancies" />
-        <item itemvalue="JUnit.Test_User.test_addBooking" />
-        <item itemvalue="JUnit.Test_User" />
-        <item itemvalue="JUnit.Test_UtilTime" />
+        <item itemvalue="JUnit.Test_deleteBooking" />
+        <item itemvalue="JUnit.Test_addBooking" />
       </list>
     </recent_temporary>
   </component>
@@ -411,6 +477,7 @@
       <workItem from="1542429112305" duration="40000" />
       <workItem from="1543036492387" duration="87000" />
       <workItem from="1543036620328" duration="6515000" />
+      <workItem from="1543121831913" duration="2335000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -433,38 +500,48 @@
       <option name="project" value="LOCAL" />
       <updated>1543038021018</updated>
     </task>
+    <task id="LOCAL-00004" summary="added test utils test case">
+      <created>1543052155526</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543052155526</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added test utils test case">
+      <created>1543054603094</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543054603094</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added test utils test case">
+      <created>1543054654179</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1543054654179</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added test utils test case">
+      <created>1543057806560</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543057806560</updated>
+    </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_User - 2018.11.25 at 10h 30m 28s.xml">
-      <configuration name="Test_User" configurationId="JUnit" />
+    <history-entry file="Test_deleteBooking - 2018.11.25 at 13h 17m 17s.xml">
+      <configuration name="Test_deleteBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_User - 2018.11.25 at 10h 31m 09s.xml">
-      <configuration name="Test_User" configurationId="JUnit" />
+    <history-entry file="Test_addBooking - 2018.11.25 at 13h 26m 11s.xml">
+      <configuration name="Test_addBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_User - 2018.11.25 at 10h 31m 13s.xml">
-      <configuration name="Test_User" configurationId="JUnit" />
+    <history-entry file="Test_deleteBooking - 2018.11.25 at 13h 43m 34s.xml">
+      <configuration name="Test_deleteBooking" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_User_test_addBooking - 2018.11.25 at 10h 31m 46s.xml">
-      <configuration name="Test_User.test_addBooking" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_addBooking - 2018.11.25 at 10h 32m 23s.xml">
-      <configuration name="Test_User.test_addBooking" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_searchVacancies - 2018.11.25 at 10h 32m 50s.xml">
-      <configuration name="Test_User.test_searchVacancies" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_addBooking - 2018.11.25 at 10h 33m 42s.xml">
-      <configuration name="Test_User.test_addBooking" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_addBooking - 2018.11.25 at 10h 51m 52s.xml">
-      <configuration name="Test_User.test_addBooking" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_searchVacancies - 2018.11.25 at 10h 52m 08s.xml">
-      <configuration name="Test_User.test_searchVacancies" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_User_test_searchVacancies - 2018.11.25 at 10h 54m 09s.xml">
-      <configuration name="Test_User.test_searchVacancies" configurationId="JUnit" />
+    <history-entry file="Test_deleteBooking - 2018.11.25 at 13h 45m 10s.xml">
+      <configuration name="Test_deleteBooking" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -473,8 +550,8 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49748743" weight="0.33888888" />
-      <window_info id="Structure" order="1" sideWeight="0.5025126" side_tool="true" weight="0.26729107" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.32546496" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -488,8 +565,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292232" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028818" side_tool="true" weight="0.50924784" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32923833" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50429183" side_tool="true" weight="0.2113022" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49570817" weight="0.2113022" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.38590202" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.63611114" />
@@ -500,11 +577,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3299712" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3299712" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" weight="0.1988555" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26729107" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21530758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -513,15 +591,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292232" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3292232" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3292232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292232" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50429183" side_tool="true" weight="0.2113022" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49570817" weight="0.2113022" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50429183" side_tool="true" visible="true" weight="0.2113022" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.49570817" visible="true" weight="0.2113022" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3859433" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -530,8 +608,8 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3299712" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3299712" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
@@ -552,8 +630,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/ExFullBooking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        <state relative-caret-position="2472">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
@@ -689,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/Membership.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="1272">
+          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -772,7 +850,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
