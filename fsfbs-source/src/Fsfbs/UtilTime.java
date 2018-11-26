@@ -36,11 +36,7 @@ public class UtilTime {
         inputHour = Integer.parseInt(inputTime.substring(0, 2));
 
         //checking
-        if (currentHour > inputHour) {
-            return false;
-        } else {
-            return true;
-        }
+        return currentHour <= inputHour;
     }
 
     public int isTimeRangeExceed(int timeslot){
@@ -66,5 +62,5 @@ public class UtilTime {
         String endTime = sTime.substring(2,4) + ":00";
         return (startTime +" - " + endTime);
     }
-    
+
 }

@@ -8,13 +8,10 @@ import java.util.Set;
 
 public abstract class Facility {
         private String facilityId; //court num can be consist of district, sport centre and facility number
-        private int facilityNum;
-        private String facilityType;
         private Map<Integer, String> timetableMap; // time, bookingID
 
         public Facility(String facilityId) {
             this.facilityId = facilityId;
-            this.facilityNum = Integer.parseInt(facilityId.substring(3));
             timetableMap = new HashMap<>();
         }
 
@@ -32,13 +29,6 @@ public abstract class Facility {
 		return timetableMap;
 	}
 
-	public void setTimetableMap(Map<Integer, String> timetableMap) {
-		this.timetableMap = timetableMap;
-	}
-
-	public int getFacilityNum() {
-        return facilityNum;
-    }
 
     public void addToTimeTable(int time, String bookingID) {   	
     	timetableMap.putIfAbsent(time, bookingID);
@@ -60,7 +50,9 @@ public abstract class Facility {
                     throw new ExTimeRangeNotCurrent();
                 case -2:
                     throw new ExAllowToBookOneHourOnly();
-                case 0:
+                case -3:
+                    throw new ExTimeSlotNotInOpeningHour();
+                default:
                     break;
             }
 
@@ -77,7 +69,7 @@ public abstract class Facility {
         }
     }
 
-    public boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
+    public static boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
         UtilTime utilTime = UtilTime.getTimeInstance();
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {
@@ -87,20 +79,15 @@ public abstract class Facility {
                 throw new ExAllowToDeleteOneHourOnly();
             case -3:
                 throw new ExTimeSlotNotInOpeningHour();
-
-        } 
-
-        String startTime = Integer.toString(timeslot).substring(0,2) + ":00:00";
-        if (utilTime.isTimeLaterThanCurrentTime(startTime)) {
-            for (Integer key : timetableMap.keySet()) {
-                if (key == timeslot)
-                    return false;
-            }
-            return true;
+            default:
+                break;
         }
-        else{
-            throw new ExInputTimeEarlierThanCurrentTime();
+
+        String startTime = Integer.toString(timeslot).substring(0, 2) + ":00:00";
+        if (!utilTime.isTimeLaterThanCurrentTime(startTime)) {
+            throw new ExBookingHasPassed();
         }
+        return true;
     }
 
     public String getBookingStatus(int timeslot){
@@ -116,7 +103,7 @@ public abstract class Facility {
 
     public void showVacancies(){
         TreeMap<Integer,String> vaccanciesMap = new TreeMap<>();
-        int [] timeRange = {1011,1112,1213,1314,1415,1516,1617,1718,1819,1920,2021,2122,2223,2324};
+        final int [] timeRange = {1011,1112,1213,1314,1415,1516,1617,1718,1819,1920,2021,2122,2223,2324};
         for (int i = 0; i < 14; i++){
                 vaccanciesMap.putIfAbsent(timeRange[i],getBookingStatus(timeRange[i]));
         }

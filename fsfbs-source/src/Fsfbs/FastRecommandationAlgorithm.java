@@ -6,7 +6,8 @@ public class FastRecommandationAlgorithm {
     public static FastRecommandationAlgorithm getInstance() {
         return instance;
     }
-    public void fastRcommandation(){
-
+    public void fastRcommandation(String preferedSC, String preferedFacility){
+        Controller controller =  Controller.getInstance();
+        //priority: SportCentre,
     }
 }

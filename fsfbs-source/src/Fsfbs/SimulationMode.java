@@ -11,10 +11,7 @@ import java.util.Scanner;
 
 public class SimulationMode {
 	public static boolean getSimulationMdoe() throws IOException {
-	    	if(UtilsLoadconfig.getConfig("runSimulationMode").equals("0"))
-	    		return false;
-	    	else 
-	    		return true;
+		return !UtilsLoadconfig.getConfig("runSimulationMode").equals("0");
 	    }
 }
 

@@ -67,9 +67,9 @@ public class Controller {
     }
 
     public User searchUserById (String userId) throws ExUserIdNotExist{
-	    User user = getUserbyID(userId);
-	    if(user == null){
-	        throw new ExUserIdNotExist(userId);
+        User user = getUserbyID(userId);
+        if(user == null){
+            throw new ExUserIdNotExist(userId);
         }
         return user;
     }
@@ -78,9 +78,6 @@ public class Controller {
 	    userList.putIfAbsent(newuser.getUserName(),newuser);
     }
 
-    public void addSC(SportCentre newSC){
-        sportCentreList.putIfAbsent(newSC.getScId(),newSC);
-    }
 
     public ArrayList<Facility> searchFacilitiesByType(String scId, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
         ArrayList<Facility> facilitiesList = new ArrayList<>();
@@ -112,16 +109,10 @@ public class Controller {
 	public void importAllMember() throws ExMemberShipFilePathNotExist,ExIOErrorinGetConfig {
 	    try {
             File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
-            File[] files = file.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return !name.equals(".DS_Store");
-                }
-            });
+            File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
                 userList.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
-                ;
                 if(SimulationMode.getSimulationMdoe())
                 System.out.println(f.getName() + "...created");
             }
@@ -138,12 +129,7 @@ public class Controller {
 	public void importAllSportFacility() throws ExSCFilesNotExist,ExIOErrorinGetConfig {
 	    try {
             File file = new File(UtilsLoadconfig.getConfig("sportCentreFilePath"));
-            File[] files = file.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return !name.equals(".DS_Store");
-                }
-            });
+            File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
                 SportCentre temp = new SportCentre(inFile.nextLine(), inFile.nextLine(), inFile.nextLine(), inFile.nextLine());
@@ -201,12 +187,7 @@ public class Controller {
 	public void importAllSchedule() throws ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		try {
 		File file = new File(UtilsLoadconfig.getConfig("timeScheduleFilePath"));
-        File[] files = file.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return !name.equals(".DS_Store");
-            }
-        });
+        File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
         for (File f : files) {
             Scanner inFile = new Scanner(f);
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));

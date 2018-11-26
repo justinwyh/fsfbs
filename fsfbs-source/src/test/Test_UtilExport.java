@@ -32,8 +32,6 @@ class Test_UtilExport {
                 }
                 line = reader.readLine();
             }
-        } catch (FileNotFoundException e) {
-            result = false;
         } catch (IOException e) {
             result = false;
         }
@@ -66,8 +64,6 @@ class Test_UtilExport {
                 }
                 line = reader.readLine();
             }
-        } catch (FileNotFoundException e){
-            result = false;
         } catch (IOException e){
             result = false;
         }
@@ -94,8 +90,6 @@ class Test_UtilExport {
                     result = false;
                 }
             }
-        } catch (FileNotFoundException e){
-            result = false;
         } catch (IOException e){
             result = false;
         }
@@ -122,8 +116,6 @@ class Test_UtilExport {
                     result = false;
                 }
             }
-        } catch (FileNotFoundException e){
-            result = false;
         } catch (IOException e){
             result = false;
         }
@@ -160,8 +152,6 @@ class Test_UtilExport {
             if(i!=6){
                 result = false;
             }
-        } catch (FileNotFoundException e) {
-            result = false;
         } catch (IOException e) {
             result = false;
         }
@@ -198,8 +188,6 @@ class Test_UtilExport {
             if(i!=6){
                 result = false;
             }
-        } catch (FileNotFoundException e) {
-            result = false;
         } catch (IOException e) {
             result = false;
         }

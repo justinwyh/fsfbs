@@ -56,8 +56,4 @@ public class SportCentre {
 	public void addFacilitytoSC(String facilitiesId, Facility facility) {
 		facilitiesMap.putIfAbsent(facilitiesId, facility);
 	}
-
-	public void removeFacilityFromSC(String facilityId){
-		facilitiesMap.remove(facilityId);
-	}
 }

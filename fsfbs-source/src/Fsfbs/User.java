@@ -194,26 +194,6 @@ public class User {
         return userPassword;
     }
 
-    private void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getPreferSportCentre() {
-        return preferSportCentre;
-    }
-
-    public void setPreferSportCentre(String preferSportCentre) {
-        this.preferSportCentre = preferSportCentre;
-    }
-
-    public String getPreferFacilities() {
-        return preferFacilities;
-    }
-
-    public void setPreferFacilities(String preferFacilities) {
-        this.preferFacilities = preferFacilities;
-    }
-    
     public int getTodayBookingNum() {
 		return todayBooking.size();
 	}
@@ -294,8 +274,9 @@ public class User {
         try {
             Controller controller = Controller.getInstance();
             Booking booking = searchBookingById(bookingId);
+            int bookedTimeSlot = booking.getBookingTime();
             Facility facility;
-            if (booking != null) {
+            if (booking != null && Facility.canDelete(bookedTimeSlot)){
                 todayBooking.remove(bookingId);
                 facility = controller.searchFacility(booking.getFacilitiesID());
                 facility.removeFromTimeTable(booking.getBookingTime());
@@ -330,6 +311,13 @@ public class User {
         System.out.println("---------------------------------End---------------------------------");
 
     }
+
+    public void getFastRecommandation(){
+        FastRecommandationAlgorithm fra = FastRecommandationAlgorithm.getInstance();
+        fra.fastRcommandation(preferSportCentre,preferFacilities);
+    }
+
+
 
     public Booking searchBookingById(String bookingId) throws ExBookingNotExist {
         Booking booking = todayBooking.get(bookingId);
