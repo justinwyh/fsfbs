@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Fsfbs.*;
@@ -11,11 +12,15 @@ import java.io.PrintStream;
 
 class Test_searchVacancy {
 
-	@Test
-	public void test_searchVacancy() throws Exception  {
-		setOutput();
+	@BeforeEach
+	public void setUp() throws Exception {
 		Controller controller = Controller.getInstance();
 		controller.importData();
+	}
+
+	@Test
+	public void test_searchVacancy()  {
+		setOutput();
 		User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
 		tester.searchVacancies("E1", "badminton");
 		String output = "\n" + "Sport Centre: Java Road Sports Centre\n" + 
@@ -59,7 +64,7 @@ class Test_searchVacancy {
 	PrintStream oldPrintStream;
 	ByteArrayOutputStream bos;
 
-	private void setOutput() throws Exception {
+	private void setOutput()  {
 		oldPrintStream = System.out;
 		bos = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(bos));
