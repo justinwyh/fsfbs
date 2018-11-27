@@ -1,5 +1,6 @@
 package Fsfbs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -43,7 +44,9 @@ public class SportCentre {
         facilitiesMap = new HashMap<>();
     }
 
-
+/*    public ArrayList<Facility> searchVacanciesInSC(UtilTime utilTime){
+        String time = utilTime.getCurrentTime();
+    }*/
 
     public Facility findFacilityByID(String facilityId) throws ExFacilityIdNotExist{
         Facility facility = facilitiesMap.get(facilityId);
@@ -53,7 +56,7 @@ public class SportCentre {
         return facility;
     }
 
-	public void addFacilitytoSC(String facilitiesId, Facility facility) {
+	public void addfacilitytosc(String facilitiesId, Facility facility) {
 		facilitiesMap.putIfAbsent(facilitiesId, facility);
 	}
 }

@@ -6,15 +6,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Test_deleteBooking {
-	
+
+	class UtilTime_stub extends UtilTime {
+		public String getCurrentTime() {
+			return "15:00:00";
+		}
+	}
+
 	@Test
 	public void test_deleteBooking() throws ExFullBooking, ExBookingNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
+		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1617);
+		tester.addBooking("E1B2", 1617,utilTime_stub);
 		int result = tester.getTodayBookingNum();
-		tester.deleteBooking("20181125E1B21617");
+		tester.deleteBooking("20181125E1B21617",utilTime_stub);
 		assertEquals(0, result-1);
 	}
 	

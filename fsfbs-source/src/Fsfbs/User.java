@@ -2,7 +2,6 @@ package Fsfbs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.util.HashMap;
@@ -235,7 +234,7 @@ public class User {
     }
 
 
-    public void addBooking(String inputFacilitiesId, int time) throws ExFullBooking {
+    public void addBooking(String inputFacilitiesId, int time, UtilTime utilTime) throws ExFullBooking {
         try {
             Controller controller = Controller.getInstance();
             //Step 1: Validate Input
@@ -247,7 +246,7 @@ public class User {
             boolean todayBkBelow3 = todayBooking.size() < 3;
             //Step 3:
             if (todayBkBelow3) {
-                boolean canBook = facility.canBook(time);
+                boolean canBook = facility.canBook(time,utilTime);
                 if (canBook) {
                     Booking booking = new Booking(userName, time, facility.getFacilityId());
                     facility.addToTimeTable(time, booking.getBookingID());
@@ -270,13 +269,13 @@ public class User {
         }
     }
 
-    public void deleteBooking(String bookingId) {
+    public void deleteBooking(String bookingId, UtilTime utilTime) {
         try {
             Controller controller = Controller.getInstance();
             Booking booking = searchBookingById(bookingId);
             int bookedTimeSlot = booking.getBookingTime();
             Facility facility;
-            if (booking != null && Facility.canDelete(bookedTimeSlot)){
+            if (booking != null && Facility.canDelete(bookedTimeSlot,utilTime)){
                 todayBooking.remove(bookingId);
                 facility = controller.searchFacility(booking.getFacilitiesID());
                 facility.removeFromTimeTable(booking.getBookingTime());
@@ -295,8 +294,7 @@ public class User {
         }
     }
 
-    public void printTodayBookingHistory(){
-        UtilTime utilTime = UtilTime.getTimeInstance();
+    public void printTodayBookingHistory(UtilTime utilTime){
         System.out.println("----------------------------Booking History--------------------------");
         if (todayBooking.size() == 0){
             System.out.println();
@@ -313,7 +311,7 @@ public class User {
     }
 
     public void getFastRecommandation(){
-        FastRecommandationAlgorithm fra = FastRecommandationAlgorithm.getInstance();
+        FastRecommendationAlgorithm fra = FastRecommendationAlgorithm.getInstance();
         fra.fastRcommandation(preferSportCentre,preferFacilities);
     }
 

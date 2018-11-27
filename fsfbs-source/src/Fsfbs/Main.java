@@ -10,6 +10,7 @@ public class Main {
      try {
          Controller controller = Controller.getInstance();
          Scanner in = new Scanner(System.in);
+         UtilTime utilTime = UtilTime.getTimeInstance();
          
          //Step 1: Import Data
          if(SimulationMode.getSimulationMdoe())
@@ -58,17 +59,17 @@ public class Main {
         			 System.out.println("Time in wrong format!");
         		 }
         		 else
-        			 user.addBooking(sportfacility, iTime);
+        			 user.addBooking(sportfacility, iTime,utilTime);
         	 }
 
         	 else if(input.equals("print"))
         		 controller.printAllFacilities();
         	 else if(input.equals("mybooking"))
-        		 user.printTodayBookingHistory();
+        		 user.printTodayBookingHistory(utilTime);
         	 else if(input.equals("delete")){
         		 System.out.println("\nPlease enter the booking ID you want to delete");
-        		 user.printTodayBookingHistory();
-        		 user.deleteBooking(in.next());
+        		 user.printTodayBookingHistory(utilTime);
+        		 user.deleteBooking(in.next(),utilTime);
         	 }
         	 else if(input.equals("exit"))
         		 break;

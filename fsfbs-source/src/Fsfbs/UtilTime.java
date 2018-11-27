@@ -20,15 +20,13 @@ public class UtilTime {
         return (dtf.format(localDate));
     }
 
-    public String getCurrentTime() throws IOException{
-    	if(SimulationMode.getSimulationMdoe())
-    		return "15:00:00";
+    public String getCurrentTime(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return (dtf.format(now));
     }
 
-    public boolean isTimeLaterThanCurrentTime(String inputTime) throws IOException {
+    public boolean isTimeLaterThanCurrentTime(String inputTime) {
         int currentHour;
         int inputHour;
         String currentTime = getCurrentTime();

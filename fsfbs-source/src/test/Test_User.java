@@ -7,22 +7,19 @@ import org.junit.jupiter.api.Test;
 
 class Test_User {
 
-//	@Before
-//	public void setupCurrentTime() {
-//		class UtilTime_stub extends UtilTime {
-//			public String getCurrentTime() {
-//				return "11:00:00";
-//			}
-//		}
-//
-//	}
+		class UtilTime_stub extends UtilTime {
+			public String getCurrentTime() {
+				return "15:00:00";
+			}
+		}
 
 	@Test
 	public void test_addBooking() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
+		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1213);
+		tester.addBooking("E1B2", 1213,utilTime_stub);
 		int result = tester.getTodayBookingNum();
 		assertEquals(1, result);
 	}
@@ -30,9 +27,10 @@ class Test_User {
 	@Test
 	public void test_addBooking4() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
+		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
 		User tester = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1213);
+		tester.addBooking("E1B2", 1213,utilTime_stub);
 		int result = tester.getTodayBookingNum();
 		assertEquals(0, result);
 	}

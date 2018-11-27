@@ -2,7 +2,6 @@ package Fsfbs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,13 +9,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Controller {
-	private static Map<String, User> userList;
-	private static Map<String, SportCentre> sportCentreList;
+	private static Map<String, User> userMap;
+	private static Map<String, SportCentre> sportCentreMap;
 	private static Controller instance=null;
 
 	private Controller() {
-	    userList = new HashMap<>();
-	    sportCentreList = new HashMap<>();
+	    userMap = new HashMap<>();
+	    sportCentreMap = new HashMap<>();
 	}
 
 	public void importData() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
@@ -33,19 +32,19 @@ public class Controller {
     }
 
 	public User getUserbyID(String userName) {
-		return userList.get(userName);
+		return userMap.get(userName);
 	}
 
 	public SportCentre getSportCentrebyID(String scid) {
-		return sportCentreList.get(scid);
+		return sportCentreMap.get(scid);
 	}
 	public void printAllFacilities() {
 		System.out.println("Please enter the key for selecting Sport Centre");
-		for (String key: sportCentreList.keySet()) {
+		for (String key: sportCentreMap.keySet()) {
 		    System.out.println("key : " + key);
-		    System.out.println("Name : " + sportCentreList.get(key).getScName());
-		    System.out.println("Address : " + sportCentreList.get(key).getScAddress());
-		    System.out.println("Tel : "+sportCentreList.get(key).getScTel());
+		    System.out.println("Name : " + sportCentreMap.get(key).getScName());
+		    System.out.println("Address : " + sportCentreMap.get(key).getScAddress());
+		    System.out.println("Tel : "+ sportCentreMap.get(key).getScTel());
 		}
 	}
 
@@ -75,9 +74,28 @@ public class Controller {
     }
 
     public void addUser(User newuser){
-	    userList.putIfAbsent(newuser.getUserName(),newuser);
+	    userMap.putIfAbsent(newuser.getUserName(),newuser);
     }
 
+    public ArrayList<SportCentre> searchSCByDistrict (String preferredSC, boolean isSameDistrict){
+	    ArrayList<SportCentre> sportCentreList = new ArrayList<>();
+	    String scType = preferredSC.substring(0,1);
+	    if(isSameDistrict) {
+            for (String key : sportCentreMap.keySet()) {
+                if (key.substring(0, 1).equals(scType)) {
+                    sportCentreList.add(sportCentreMap.get(key));
+                }
+            }
+        }
+        else{
+            for (String key : sportCentreMap.keySet()) {
+                if (!(key.substring(0, 1).equals(scType))){
+                    sportCentreList.add(sportCentreMap.get(key));
+                }
+            }
+        }
+        return sportCentreList;
+    }
 
     public ArrayList<Facility> searchFacilitiesByType(String scId, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
         ArrayList<Facility> facilitiesList = new ArrayList<>();
@@ -105,6 +123,7 @@ public class Controller {
         return facilitiesList;
     }
 
+
 	//import Membership
 	public void importAllMember() throws ExMemberShipFilePathNotExist,ExIOErrorinGetConfig {
 	    try {
@@ -112,7 +131,7 @@ public class Controller {
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
-                userList.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
+                userMap.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
                 if(SimulationMode.getSimulationMdoe())
                 System.out.println(f.getName() + "...created");
             }
@@ -138,13 +157,13 @@ public class Controller {
                     if(SimulationMode.getSimulationMdoe())
                     System.out.println(fid + "...created and added to " + temp.getScId());
                     if (fid.charAt(2) == 'B')
-                        temp.addFacilitytoSC(fid, new Facility_Badminton(fid));
+                        temp.addfacilitytosc(fid, new Facility_Badminton(fid));
                     else if (fid.charAt(2) == 'A')
-                        temp.addFacilitytoSC(fid, new Facility_ActivityRoom(fid));
+                        temp.addfacilitytosc(fid, new Facility_ActivityRoom(fid));
                     else if (fid.charAt(2) == 'T')
-                        temp.addFacilitytoSC(fid, new Facility_TableTennis(fid));
+                        temp.addfacilitytosc(fid, new Facility_TableTennis(fid));
                 }
-                sportCentreList.put(temp.getScId(), temp);
+                sportCentreMap.put(temp.getScId(), temp);
                 if(SimulationMode.getSimulationMdoe())
                 System.out.println("Added " + temp.getScId());
             }
@@ -161,8 +180,8 @@ public class Controller {
 		String tsfp;
 		try {
 			tsfp = UtilsLoadconfig.getConfig("timeScheduleFilePath");
-			for(String sckey: sportCentreList.keySet()) {			//loop each Sport Centre in Sport Centre list
-			SportCentre tempsc=sportCentreList.get(sckey);
+			for(String sckey: sportCentreMap.keySet()) {			//loop each Sport Centre in Sport Centre list
+			SportCentre tempsc= sportCentreMap.get(sckey);
 			UtilsExport.printToFile(tsfp+tempsc.getScId()+".txt","");
 
 			for(String fackey:tempsc.getKeySet()) {							//loop each Facilities in Facility list

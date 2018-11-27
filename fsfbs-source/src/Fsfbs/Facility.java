@@ -42,8 +42,7 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
-        UtilTime utilTime = UtilTime.getTimeInstance();
+    public boolean canBook(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
             switch (timeRangeResult) {
                 case -1:
@@ -69,8 +68,7 @@ public abstract class Facility {
         }
     }
 
-    public static boolean canDelete(int timeslot) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
-        UtilTime utilTime = UtilTime.getTimeInstance();
+    public static boolean canDelete(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {
             case -1:
@@ -112,6 +110,4 @@ public abstract class Facility {
         }
         System.out.println();
     }
-
-
 }
