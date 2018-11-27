@@ -51,6 +51,11 @@ public class UtilTime {
         }
     }
 
+    public int convertTimeToInt (String time){
+        int hour = Integer.parseInt(time.substring(0,2));
+        return hour;
+    }
+
     public String getTimeWithFormat(int timeslot){
         String sTime = Integer.toString(timeslot);
         String startTime = sTime.substring(0,2) + ":00";
@@ -58,4 +63,19 @@ public class UtilTime {
         return (startTime +" - " + endTime);
     }
 
+    public String getNextAvailableTimeSlot(int hour){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:00:00");
+        LocalDateTime now = LocalDateTime.now().plusHours(hour);
+        return (dtf.format(now));
+    }
+
+
+    public int getTimeSlot(String startTime, String endTime){
+        int startTimeHour = convertTimeToInt(startTime);
+        int endTimeHour = convertTimeToInt(endTime);
+        if (endTimeHour == 0) {
+            endTimeHour = 24;
+        }
+        return startTimeHour * 100 + endTimeHour;
+    }
 }

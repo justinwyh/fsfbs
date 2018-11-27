@@ -3,10 +3,7 @@ package Fsfbs;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Controller {
 	private static Map<String, User> userMap;
@@ -77,30 +74,29 @@ public class Controller {
 	    userMap.putIfAbsent(newuser.getUserName(),newuser);
     }
 
-    public ArrayList<SportCentre> searchSCByDistrict (String preferredSC, boolean isSameDistrict){
-	    ArrayList<SportCentre> sportCentreList = new ArrayList<>();
+    public Set<SportCentre> searchSCByDistrict (String preferredSC, boolean isSameDistrict){
+	    Set<SportCentre> sportCentreSet = new HashSet<>();
 	    String scType = preferredSC.substring(0,1);
 	    if(isSameDistrict) {
+            sportCentreSet.add(sportCentreMap.get(preferredSC)); //added prefer sport centre first
             for (String key : sportCentreMap.keySet()) {
                 if (key.substring(0, 1).equals(scType)) {
-                    sportCentreList.add(sportCentreMap.get(key));
+                    sportCentreSet.add(sportCentreMap.get(key));
                 }
             }
         }
         else{
             for (String key : sportCentreMap.keySet()) {
                 if (!(key.substring(0, 1).equals(scType))){
-                    sportCentreList.add(sportCentreMap.get(key));
+                    sportCentreSet.add(sportCentreMap.get(key));
                 }
             }
         }
-        return sportCentreList;
+        return sportCentreSet;
     }
 
-    public ArrayList<Facility> searchFacilitiesByType(String scId, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
+    public ArrayList<Facility> searchFacilitiesByType(SportCentre sc, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
         ArrayList<Facility> facilitiesList = new ArrayList<>();
-	    SportCentre sc = searchSportCentre(scId);
-	    System.out.println("\nSport Centre: " + sc.getScName()+ "\n");
 	    String type = null;
         switch (sfType) {
             case "badminton":
@@ -116,7 +112,7 @@ public class Controller {
                 throw new ExFacilityNameNotExist();
         }
         for (String key : sc.getKeySet()){
-            if(key.contains(scId + type)){
+            if(key.contains(sc.getScId() + type)){
                 facilitiesList.add(sc.findFacilityByID(key));
             }
         }

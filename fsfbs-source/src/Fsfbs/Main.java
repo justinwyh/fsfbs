@@ -26,6 +26,7 @@ public class Main {
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
+         user.getFastRecommandation(utilTime);
          while(true)
          {
              userguide();

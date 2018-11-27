@@ -152,11 +152,11 @@ public class User {
                 type = in.next();
             }
             if (type.equals("B")) {
-                type_fullName = "Facilities_Badminton";
+                type_fullName = "badminton";
             } else if (type.equals("A")) {
-                type_fullName = ("Facilities_ActivityRoom");
+                type_fullName = ("tableTennis");
             } else if (type.equals("T")) {
-                type_fullName = ("Facilities_TableTennis");
+                type_fullName = ("activityRoom");
             }
 
             //User Profile setup
@@ -310,9 +310,9 @@ public class User {
 
     }
 
-    public void getFastRecommandation(){
+    public void getFastRecommandation(UtilTime utilTime){
         FastRecommendationAlgorithm fra = FastRecommendationAlgorithm.getInstance();
-        fra.fastRcommandation(preferSportCentre,preferFacilities);
+        fra.fastRecommendation(preferSportCentre,preferFacilities,utilTime);
     }
 
 
@@ -328,7 +328,9 @@ public class User {
     public void searchVacancies(String scId, String sfType){
         try {
             Controller controller = Controller.getInstance();
-            ArrayList<Facility> facilityList =controller.searchFacilitiesByType(scId,sfType);
+            SportCentre sc = controller.searchSportCentre(scId);
+            System.out.println("\nSport Centre: " + sc.getScName()+ "\n");
+            ArrayList<Facility> facilityList =controller.searchFacilitiesByType(sc,sfType);
             for (Facility fac: facilityList){
                 System.out.println("Facility Code: " + fac.getFacilityId());
                 fac.showVacancies();

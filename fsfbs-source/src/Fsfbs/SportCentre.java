@@ -1,5 +1,7 @@
 package Fsfbs;
 
+import javax.rmi.CORBA.Util;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,9 +46,21 @@ public class SportCentre {
         facilitiesMap = new HashMap<>();
     }
 
-/*    public ArrayList<Facility> searchVacanciesInSC(UtilTime utilTime){
-        String time = utilTime.getCurrentTime();
-    }*/
+    public ArrayList<String> searchVacanciesInSC(int timeSlot, String facType, UtilTime utilTime) throws ExFacilityIdNotExist, ExFacilityNameNotExist, ExSportCentreNotExist, ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExInputTimeEarlierThanCurrentTime {
+        Controller controller = Controller.getInstance();
+        SportCentre sc = controller.searchSportCentre(scId);
+        ArrayList<Facility> facilities = controller.searchFacilitiesByType(sc,facType);
+        ArrayList<String> vacancyList = new ArrayList<>();
+        for (Facility fac: facilities){
+            if(fac.canBook(timeSlot,utilTime)) {
+                String status = fac.getBookingStatus(timeSlot);
+                if(status.equals("Available")) {
+                    vacancyList.add(fac.getFacilityId());
+                }
+            }
+        }
+        return vacancyList;
+    }
 
     public Facility findFacilityByID(String facilityId) throws ExFacilityIdNotExist{
         Facility facility = facilitiesMap.get(facilityId);
