@@ -2,4 +2,4 @@ Alice
 123
 Membership_Adult
 E1
-Facilities_Badminton
+badminton
