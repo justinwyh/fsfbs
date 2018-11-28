@@ -144,10 +144,8 @@ public class Controller {
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
-                User temp = new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next());
-                temp.importBooking();
-                userMap.put(f.getName().substring(0, f.getName().length() - 4), temp);
-                if(SimulationMode.getSimulationMdoe())
+                userMap.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
+                if(SimulationMode.getSimulationMode())
                 System.out.println(f.getName() + "...created");
             }
         }
@@ -173,7 +171,7 @@ public class Controller {
                 SportCentre temp = new SportCentre(inFile.nextLine(), inFile.nextLine(), inFile.nextLine(), inFile.nextLine());
                 while (inFile.hasNext()) {
                     String fid = inFile.next();
-                    if(SimulationMode.getSimulationMdoe())
+                    if(SimulationMode.getSimulationMode())
                     System.out.println(fid + "...created and added to " + temp.getScId());
                     if (fid.charAt(2) == 'B')
                         temp.addfacilitytosc(fid, new Facility_Badminton(fid));
@@ -183,7 +181,7 @@ public class Controller {
                         temp.addfacilitytosc(fid, new Facility_TableTennis(fid));
                 }
                 sportCentreMap.put(temp.getScId(), temp);
-                if(SimulationMode.getSimulationMdoe())
+                if(SimulationMode.getSimulationMode())
                 System.out.println("Added " + temp.getScId());
             }
         }
@@ -230,16 +228,16 @@ public class Controller {
             Scanner inFile = new Scanner(f);
             System.out.println(f.getAbsolutePath()); //debug
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
-            if(SimulationMode.getSimulationMdoe())            
-            	System.out.println("Inside "+f.getName().substring(0,2));
+            if(SimulationMode.getSimulationMode())
+            System.out.println("Inside "+f.getName().substring(0,2));
             String fcid = inFile.next();
-            if(SimulationMode.getSimulationMdoe())
+            if(SimulationMode.getSimulationMode())
             System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
             while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
-            if(SimulationMode.getSimulationMdoe())
+            if(SimulationMode.getSimulationMode())
             System.out.println("time = "+time+", bkid: "+bkid);
             fc.addToTimeTable(time,bkid);
         }
