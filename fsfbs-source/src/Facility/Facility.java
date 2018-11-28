@@ -1,6 +1,5 @@
 package Facility;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -51,7 +50,7 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
+    public boolean canBook(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
             switch (timeRangeResult) {
                 case -1:
@@ -77,7 +76,7 @@ public abstract class Facility {
         }
     }
 
-    public static boolean canDelete(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
+    public static boolean canDelete(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {
             case -1:

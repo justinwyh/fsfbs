@@ -2,10 +2,8 @@ package test;
 import Fsfbs.*;
 import Util.UtilTime;
 
-import org.junit.*;
 import org.junit.jupiter.api.Test;
 
-import Exception.ExBookingNotExist;
 import Exception.ExFacilityIdNotExist;
 import Exception.ExFullBooking;
 import Exception.ExIOErrorinGetConfig;
@@ -23,7 +21,7 @@ public class Test_deleteBooking {
 	}
 
 	@Test
-	public void test_deleteBooking() throws ExFullBooking, ExBookingNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_deleteBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();

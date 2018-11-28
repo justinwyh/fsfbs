@@ -23,7 +23,6 @@ public class FastRecommendationAlgorithm {
     public void fastRecommendation(String preferredSC, String preferredFacility, UtilTime utilTime){
         try {
             String currentTime = utilTime.getCurrentTime();
-            String facilityType = preferredFacility;
             System.out.println("\n+--------------------Fast Recommendation System----------------------+");
             System.out.println("Current Time: " + currentTime);
             Controller controller = Controller.getInstance();
@@ -31,10 +30,10 @@ public class FastRecommendationAlgorithm {
             //priority: SportCentre, District
             Set<SportCentre> sportCentreSet = controller.searchSCByDistrict(preferredSC, true);
             Set<SportCentre> scNotInSameDistrictSet = controller.searchSCByDistrict(preferredSC, false);
-            count = showVacancy(sportCentreSet,utilTime,facilityType, count);
+            count = showVacancy(sportCentreSet,utilTime, preferredFacility, count);
             if (count < 10){
                 System.out.println("\nSport Centres in other districts:");
-                showVacancy(scNotInSameDistrictSet,utilTime,facilityType,count);
+                showVacancy(scNotInSameDistrictSet,utilTime, preferredFacility,count);
             }
         }
         catch (Exception e){

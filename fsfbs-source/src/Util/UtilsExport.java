@@ -20,8 +20,7 @@ public static void printToFile(String filepath, String input[]) throws IOExcepti
 			writer = new PrintWriter(filepath, "UTF-8");
 			for(String s: input)
 				writer.println(s);
-			if(writer!=null)
-				writer.close();
+			writer.close();
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
