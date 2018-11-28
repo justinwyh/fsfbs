@@ -208,8 +208,8 @@ public class Controller {
 					if(!tempfac.getTimetableMap().isEmpty())
 					{
 					for(Integer timekey: tempfac.getkeyset()) {								//loop each timeslot
-						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",timekey.toString());
-						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",tempfac.getBookingIdbyTime(timekey));
+						UtilsExport.appendToFile(tsfp+tempfac.getFacilityId()+".txt",timekey.toString());
+						UtilsExport.appendToFile(tsfp+tempfac.getFacilityId()+".txt",tempfac.getBookingIdbyTime(timekey));
 					}
 			}
 				}

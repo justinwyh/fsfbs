@@ -362,8 +362,8 @@ public class User {
     }
 
     public void exportBooking() throws IOException {
+    	UtilsExport.printToFile(UtilsLoadconfig.getConfig("bookingFilePath") + this.getUserName() + ".txt", "");
         for (String key : todayBooking.keySet()) {
-        	UtilsExport.printToFile(UtilsLoadconfig.getConfig("bookingFilePath") + this.getUserName() + ".txt", "");
             UtilsExport.appendToFile(UtilsLoadconfig.getConfig("bookingFilePath") + this.getUserName() + ".txt", todayBooking.get(key).getBookingID());
         }
     }
