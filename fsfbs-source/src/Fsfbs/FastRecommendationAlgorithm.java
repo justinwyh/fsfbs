@@ -23,7 +23,7 @@ public class FastRecommendationAlgorithm {
     public void fastRecommendation(String preferredSC, String preferredFacility, UtilTime utilTime){
         try {
             String currentTime = utilTime.getCurrentTime();
-            System.out.println("\n+--------------------Fast Recommendation System----------------------+");
+            System.out.println("\n+--------------------Fast Recommendation System---------------------+");
             System.out.println("Current Time: " + currentTime);
             Controller controller = Controller.getInstance();
             int count = 0;
@@ -39,7 +39,6 @@ public class FastRecommendationAlgorithm {
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println("+-------------------------------End----------------------------------+\n");
     }
 
     private static int showVacancy(Set<SportCentre> scSet, UtilTime utilTime, String facilityType, int count) throws ExFacilityIdNotExist, ExTimeRangeNotCurrent, IOException, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExFacilityNameNotExist, ExSportCentreNotExist {

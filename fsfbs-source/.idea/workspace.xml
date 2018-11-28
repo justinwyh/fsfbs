@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Exception/ExBookingNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exception/ExBookingNotExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facility/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facility/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Fsfbs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/SportCentre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/SportCentre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Util/UtilTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/UtilTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Util/UtilsExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/UtilsExport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Util/UtilsLoadconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/UtilsLoadconfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_UtilExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_UtilExport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_UtilTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_UtilTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_addBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_addBooking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_deleteBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_deleteBooking.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,26 +80,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4702" />
+          <entry key="java" value="4740" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4702" />
+          <entry key="JAVA" value="4740" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="SportCentre" value="1" />
-          <entry key="java" value="84" />
+          <entry key="java" value="85" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="84" />
+          <entry key="JAVA" value="85" />
           <entry key="Properties" value="1" />
           <entry key="UML" value="1" />
         </counts>
@@ -123,14 +108,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-143">
-              <caret line="285" column="40" selection-start-line="285" selection-start-column="40" selection-end-line="285" selection-end-column="40" />
+            <state relative-caret-position="1219">
+              <caret line="273" column="29" lean-forward="true" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
               <folding>
                 <element signature="method#importBooking#0;class#User#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -156,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+            <state relative-caret-position="-1383">
+              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,15 +179,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Exception/ExBookingNotExist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -291,17 +276,17 @@
         <option value="$PROJECT_DIR$/src/Fsfbs/UtilsExport.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" />
         <option value="$PROJECT_DIR$/src/test/Test_UtilExport.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Util/UtilTime.java" />
         <option value="$PROJECT_DIR$/src/Exception/ExBookingNotExist.java" />
         <option value="$PROJECT_DIR$/src/Util/UtilsExport.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Controller.java" />
         <option value="$PROJECT_DIR$/src/Util/UtilsLoadconfig.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/User.java" />
         <option value="$PROJECT_DIR$/src/Facility/Facility.java" />
         <option value="$PROJECT_DIR$/src/test/Test_deleteBooking.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" />
       </list>
     </option>
   </component>
@@ -372,7 +357,7 @@
     <property name="SearchEverywhereHistoryKey" value="UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543418607593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543420227817" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -496,7 +481,7 @@
       <workItem from="1543036620328" duration="6515000" />
       <workItem from="1543121831913" duration="2335000" />
       <workItem from="1543207071480" duration="20693000" />
-      <workItem from="1543335317892" duration="6269000" />
+      <workItem from="1543335317892" duration="6819000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -582,7 +567,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40841000" />
+    <option name="totallyTimeSpent" value="41391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -598,7 +583,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.4516129" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32855436" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49711815" weight="0.2747909" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49711815" visible="true" weight="0.6690562" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39823008" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -945,13 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/UtilTime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1008,16 +986,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -1050,11 +1018,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143">
-          <caret line="285" column="40" selection-start-line="285" selection-start-column="40" selection-end-line="285" selection-end-column="40" />
+        <state relative-caret-position="1219">
+          <caret line="273" column="29" lean-forward="true" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
           <folding>
             <element signature="method#importBooking#0;class#User#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1383">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
         </state>
       </provider>
     </entry>

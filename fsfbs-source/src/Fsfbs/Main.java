@@ -29,12 +29,12 @@ public class Main {
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
-         user.getFastRecommandation(utilTime);
          label:
          while (true) {
+             TimeUnit.SECONDS.sleep(3);
+             user.getFastRecommandation(utilTime);
              userguide();
              String input = in.next();
-
              switch (input) {
                  case "vacancy":
                      controller.printAllFacilities();
@@ -144,7 +144,6 @@ public class Main {
 
  }
  private static void userguide() throws InterruptedException {
-	 TimeUnit.SECONDS.sleep(3);
      System.out.println("+-------------------------------------------------------------------+");
      System.out.println("|---------------------------User Guide------------------------------|");
      System.out.println("|                   Add booking: please enter 'add'                 |");
