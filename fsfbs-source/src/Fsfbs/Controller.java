@@ -144,11 +144,13 @@ public class Controller {
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
+                if(SimulationMode.getSimulationMode())
+                	System.out.println(f.getAbsolutePath());
                 User temp = new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next());
                 temp.importBooking();
                 userMap.put(f.getName().substring(0, f.getName().length() - 4), temp);
-                if(SimulationMode.getSimulationMode())
-                System.out.println(f.getName() + "...created");
+                
+
             }
         }
         catch(FileNotFoundException fe){
@@ -174,7 +176,7 @@ public class Controller {
                 while (inFile.hasNext()) {
                     String fid = inFile.next();
                     if(SimulationMode.getSimulationMode())
-                    System.out.println(fid + "...created and added to " + temp.getScId());
+                    	System.out.println(fid + "...created and added to " + temp.getScId());
                     if (fid.charAt(2) == 'B')
                         temp.addfacilitytosc(fid, new Facility_Badminton(fid));
                     else if (fid.charAt(2) == 'A')
@@ -184,7 +186,7 @@ public class Controller {
                 }
                 sportCentreMap.put(temp.getScId(), temp);
                 if(SimulationMode.getSimulationMode())
-                System.out.println("Added " + temp.getScId());
+                System.out.println("Added " + temp.getScId() +" to Sport Centre List");
             }
         }
         catch (FileNotFoundException fe){
@@ -228,19 +230,20 @@ public class Controller {
         File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
         for (File f : files) {
             Scanner inFile = new Scanner(f);
-            System.out.println(f.getAbsolutePath()); //debug
+            if(SimulationMode.getSimulationMode())
+            	System.out.println(f.getAbsolutePath()); //debug
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
             if(SimulationMode.getSimulationMode())
-            System.out.println("Inside "+f.getName().substring(0,2));
+            	System.out.println("Inside "+f.getName().substring(0,2));
             String fcid = inFile.next();
             if(SimulationMode.getSimulationMode())
-            System.out.println("Adding "+fcid);
+            	System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
             while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
             if(SimulationMode.getSimulationMode())
-            System.out.println("time = "+time+", bkid: "+bkid);
+            System.out.println("Time = "+time+", bookingid: "+bkid);
             fc.addToTimeTable(time,bkid);
         }
         }
