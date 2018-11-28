@@ -5,6 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+import Exception.ExFacilityIdNotExist;
+import Exception.ExFacilityNameNotExist;
+import Exception.ExIOErrorinGetConfig;
+import Exception.ExMemberShipFilePathNotExist;
+import Exception.ExSCFilesNotExist;
+import Exception.ExSportCentreNotExist;
+import Exception.ExUserIdNotExist;
+import Facility.Facility;
+import Facility.Facility_ActivityRoom;
+import Facility.Facility_Badminton;
+import Facility.Facility_TableTennis;
+import Util.UtilsExport;
+import Util.UtilsLoadconfig;
+
 public class Controller {
 	private static Map<String, User> userMap;
 	private static Map<String, SportCentre> sportCentreMap;
@@ -17,8 +31,11 @@ public class Controller {
 
 	public void importData() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
         //import membership
+		System.out.println("importing Member..");
         this.importAllMember();
+        System.out.println("importing Sport Facility..");
         this.importAllSportFacility();
+        System.out.println("importing Schedule..");
         this.importAllSchedule();
     }
 
@@ -127,7 +144,9 @@ public class Controller {
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
-                userMap.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
+                User temp = new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next());
+                temp.importBooking();
+                userMap.put(f.getName().substring(0, f.getName().length() - 4), temp);
                 if(SimulationMode.getSimulationMdoe())
                 System.out.println(f.getName() + "...created");
             }
@@ -139,7 +158,11 @@ public class Controller {
             throw new ExIOErrorinGetConfig();
         }
 	}
-
+	public void exportAllMembeer() throws IOException {
+		for(String key:userMap.keySet()) {
+			userMap.get(key).exportBooking();
+		}
+	}
 	//import SportFacility
 	public void importAllSportFacility() throws ExSCFilesNotExist,ExIOErrorinGetConfig {
 	    try {
@@ -178,14 +201,13 @@ public class Controller {
 			tsfp = UtilsLoadconfig.getConfig("timeScheduleFilePath");
 			for(String sckey: sportCentreMap.keySet()) {			//loop each Sport Centre in Sport Centre list
 			SportCentre tempsc= sportCentreMap.get(sckey);
-			UtilsExport.printToFile(tsfp+tempsc.getScId()+".txt","");
 
 			for(String fackey:tempsc.getKeySet()) {							//loop each Facilities in Facility list
 					Facility tempfac = tempsc.getFacilitiesMap().get(fackey);
+					UtilsExport.printToFile(tsfp+tempfac.getFacilityId()+".txt","");
+					UtilsExport.appendToFile(tsfp+tempfac.getFacilityId()+".txt", tempfac.getFacilityId());
 					if(!tempfac.getTimetableMap().isEmpty())
 					{
-					UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt", tempfac.getFacilityId());
-
 					for(Integer timekey: tempfac.getkeyset()) {								//loop each timeslot
 						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",timekey.toString());
 						UtilsExport.appendToFile(tsfp+tempsc.getScId()+".txt",tempfac.getBookingIdbyTime(timekey));
@@ -205,14 +227,15 @@ public class Controller {
         File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
         for (File f : files) {
             Scanner inFile = new Scanner(f);
+            System.out.println(f.getAbsolutePath()); //debug
+            UtilsExport.printToFile(f.getAbsolutePath(), "");
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
-            if(SimulationMode.getSimulationMdoe())
-            System.out.println("Inside "+f.getName().substring(0,2));
+            if(SimulationMode.getSimulationMdoe())            
+            	System.out.println("Inside "+f.getName().substring(0,2));
             String fcid = inFile.next();
             if(SimulationMode.getSimulationMdoe())
             System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
-            System.out.println(fcid);
             while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
