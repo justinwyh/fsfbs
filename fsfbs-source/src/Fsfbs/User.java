@@ -378,7 +378,6 @@ public class User {
                 System.out.println(Integer.parseInt(input.substring(12, 16)));
                 System.out.println(input.substring(8, 12));
                 Booking temp = new Booking(this.getUserName(), Integer.parseInt(input.substring(12, 16)), input.substring(8, 12));
-                System.out.println("Booking Time: " + temp.getBookingTime());
                 todayBooking.put(temp.getBookingID(), temp);
             }
         }

@@ -144,7 +144,9 @@ public class Controller {
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
             for (File f : files) {
                 Scanner inFile = new Scanner(f);
-                userMap.put(f.getName().substring(0, f.getName().length() - 4), new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next()));
+                User temp = new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next());
+                temp.importBooking();
+                userMap.put(f.getName().substring(0, f.getName().length() - 4), temp);
                 if(SimulationMode.getSimulationMode())
                 System.out.println(f.getName() + "...created");
             }
