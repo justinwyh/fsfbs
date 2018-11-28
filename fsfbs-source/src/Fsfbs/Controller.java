@@ -204,6 +204,7 @@ public class Controller {
 
 			for(String fackey:tempsc.getKeySet()) {							//loop each Facilities in Facility list
 					Facility tempfac = tempsc.getFacilitiesMap().get(fackey);
+		            UtilsExport.printToFile(tsfp+tempfac.getFacilityId()+".txt", "");
 					UtilsExport.printToFile(tsfp+tempfac.getFacilityId()+".txt","");
 					UtilsExport.appendToFile(tsfp+tempfac.getFacilityId()+".txt", tempfac.getFacilityId());
 					if(!tempfac.getTimetableMap().isEmpty())
@@ -228,7 +229,6 @@ public class Controller {
         for (File f : files) {
             Scanner inFile = new Scanner(f);
             System.out.println(f.getAbsolutePath()); //debug
-            UtilsExport.printToFile(f.getAbsolutePath(), "");
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
             if(SimulationMode.getSimulationMdoe())            
             	System.out.println("Inside "+f.getName().substring(0,2));
