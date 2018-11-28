@@ -6,10 +6,26 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import Exception.ExBookingNotExist;
+import Exception.ExFullBooking;
+import Exception.ExIOErrorinGetConfig;
+import Exception.ExMaxFailLogin;
+import Exception.ExMemberShipFilePathNotExist;
+import Facility.Facility;
+import Membership.Membership;
+import Membership.Membership_Adult;
+import Membership.Membership_Senior;
+import Membership.Membership_Student;
+import Util.UtilTime;
+import Util.UtilValidation;
+import Util.UtilsExport;
+import Util.UtilsLoadconfig;
+
 import java.util.Map;
 
 public class User {
-    private String userName;
+	private String userName;
     private String userPassword;
     private Membership membership = null;
     private String preferSportCentre = null;
@@ -347,6 +363,7 @@ public class User {
 
     public void exportBooking() throws IOException {
         for (String key : todayBooking.keySet()) {
+        	UtilsExport.printToFile(UtilsLoadconfig.getConfig("bookingFilePath") + this.getUserName() + ".txt", "");
             UtilsExport.appendToFile(UtilsLoadconfig.getConfig("bookingFilePath") + this.getUserName() + ".txt", todayBooking.get(key).getBookingID());
         }
     }
@@ -361,7 +378,6 @@ public class User {
                 System.out.println(Integer.parseInt(input.substring(12, 16)));
                 System.out.println(input.substring(8, 12));
                 Booking temp = new Booking(this.getUserName(), Integer.parseInt(input.substring(12, 16)), input.substring(8, 12));
-                System.out.println("Booking ID " + temp.getBookingID());
                 System.out.println("Booking Time: " + temp.getBookingTime());
                 todayBooking.put(temp.getBookingID(), temp);
             }

@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import Exception.ExIOErrorinGetConfig;
+import Util.UtilTime;
+import Util.UtilValidation;
+
 public class Main {
  public static void main(String[] args) throws IOException, ExIOErrorinGetConfig
  {
@@ -10,7 +14,7 @@ public class Main {
          Controller controller = Controller.getInstance();
          Scanner in = new Scanner(System.in);
          UtilTime utilTime = UtilTime.getTimeInstance();
-         
+
          //Step 1: Import Data
          if(SimulationMode.getSimulationMode())
          {
@@ -21,7 +25,7 @@ public class Main {
          if(SimulationMode.getSimulationMode())
          System.out.println("+-------------------Debug Message End----------------+");
          welcome();
-         
+
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
@@ -84,9 +88,12 @@ public class Main {
      }
      finally {
     	 Controller controller = Controller.getInstance();
+    	 System.out.println("Program end");
          //Last Step: export to txt file and end the program.
     	 if(!SimulationMode.getSimulationMode())
     		 controller.exportAllSchedule();
+    		 controller.exportAllMembeer();
+    		 }
 
      }
  }
@@ -144,5 +151,5 @@ public class Main {
      System.out.println("|                     exit: please enter 'exit'                     |");
      System.out.println("+-------------------------------------------------------------------+");
  }
- 
+
 }

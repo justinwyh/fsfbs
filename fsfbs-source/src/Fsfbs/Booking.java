@@ -1,5 +1,7 @@
 package Fsfbs;
 
+import Util.UtilTime;
+
 public class Booking {
 
 	private String userName;

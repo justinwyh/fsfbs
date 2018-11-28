@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import Fsfbs.UtilValidation;
+import Util.UtilValidation;
 
 public class Test_UtilValidation {
 	@Test
