@@ -11,7 +11,7 @@ public class UtilsExport {
 
 public static void printToFile(String filepath, String input[]) throws IOException{
 		//
-	if(!SimulationMode.getSimulationMdoe())
+	if(!SimulationMode.getSimulationMode())
 	{
 		try {
 			PrintWriter writer;
@@ -28,7 +28,9 @@ public static void printToFile(String filepath, String input[]) throws IOExcepti
 }
 public static void printToFile(String filepath, String input) throws IOException {
 	//
-	if(!SimulationMode.getSimulationMdoe()) {
+	File file = new File(filepath);
+	file.createNewFile();
+	if(!SimulationMode.getSimulationMode()) {
 	try {
 		PrintWriter writer;
 		writer = new PrintWriter(filepath, "UTF-8");
@@ -39,7 +41,7 @@ public static void printToFile(String filepath, String input) throws IOException
     }
 }
 	public static void appendToFile(String filepath, String input) throws IOException{
-		if(!SimulationMode.getSimulationMdoe()) {
+		if(!SimulationMode.getSimulationMode()) {
 		 File file = new File(filepath);
 		 try {
              FileWriter fr = new FileWriter(file, true);

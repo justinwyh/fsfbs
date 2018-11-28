@@ -1,5 +1,4 @@
 package Fsfbs;
-import java.awt.*;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -13,13 +12,13 @@ public class Main {
          UtilTime utilTime = UtilTime.getTimeInstance();
          
          //Step 1: Import Data
-         if(SimulationMode.getSimulationMdoe())
+         if(SimulationMode.getSimulationMode())
          {
         	simwelcome();
             System.out.println("+----------------Debug Message Start----------------+");
          }
          controller.importData();
-         if(SimulationMode.getSimulationMdoe())
+         if(SimulationMode.getSimulationMode())
          System.out.println("+-------------------Debug Message End----------------+");
          welcome();
          
@@ -86,7 +85,7 @@ public class Main {
      finally {
     	 Controller controller = Controller.getInstance();
          //Last Step: export to txt file and end the program.
-    	 if(!SimulationMode.getSimulationMdoe())
+    	 if(!SimulationMode.getSimulationMode())
     		 controller.exportAllSchedule();
 
      }
