@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_FSFBS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_FSFBS.java" afterDir="false" />
-    </list>
+    <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +30,7 @@
     </SUITE>
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="281" />
+    <option name="myElementSize" value="362" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -124,10 +121,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="258" column="66" lean-forward="true" selection-start-line="258" selection-start-column="66" selection-end-line="258" selection-end-column="66" />
+            <state relative-caret-position="576">
+              <caret line="277" lean-forward="true" selection-start-line="277" selection-end-line="277" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#10728#10737#0" expanded="true" />
+                <element signature="e#11212#11228#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,10 +136,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/Test_Facility.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -265,7 +261,7 @@
     <property name="SearchEverywhereHistoryKey" value="UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543505797157" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543510851981" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -418,7 +414,7 @@
       <workItem from="1543448113491" duration="449000" />
       <workItem from="1543466552287" duration="1387000" />
       <workItem from="1543499870121" duration="94000" />
-      <workItem from="1543500563185" duration="3754000" />
+      <workItem from="1543500563185" duration="4061000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -472,12 +468,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 39m 57s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 40m 51s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 55m 55s.xml">
       <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
     </history-entry>
@@ -502,15 +492,21 @@
     <history-entry file="Test_addBooking_(2) - 2018.11.29 at 23h 23m 09s.xml">
       <configuration name="Test_addBooking (2)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Test_FSFBS_test_Facility6 - 2018.11.29 at 23h 36m 29s.xml">
+      <configuration name="Test_FSFBS.test_Facility6" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test_FSFBS_test_facility_getFacilityId - 2018.11.29 at 23h 36m 39s.xml">
+      <configuration name="Test_FSFBS.test_facility_getFacilityId" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47075000" />
+    <option name="totallyTimeSpent" value="47382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-82" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.246875" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.246875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -520,8 +516,8 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.4516129" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32855436" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49711815" weight="0.33824974" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.39823008" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49711815" visible="true" weight="0.33824974" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39823008" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3292232" />
@@ -539,7 +535,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" weight="0.60052085" />
+      <window_info anchor="right" id="Coverage" order="9" weight="0.5338542" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -849,19 +845,18 @@
     <entry file="file://$PROJECT_DIR$/src/test/Test_Facility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="258" column="66" lean-forward="true" selection-start-line="258" selection-start-column="66" selection-end-line="258" selection-end-column="66" />
+        <state relative-caret-position="576">
+          <caret line="277" lean-forward="true" selection-start-line="277" selection-end-line="277" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#10728#10737#0" expanded="true" />
+            <element signature="e#11212#11228#0" expanded="true" />
           </folding>
         </state>
       </provider>
