@@ -29,7 +29,7 @@ public class UtilTime {
     public boolean isTimeLaterThanCurrentTime(String inputTime) throws IOException {
         int currentHour;
         int inputHour;
-        String currentTime = getCurrentTime();
+        String currentTime = getNextAvailableTimeSlot(1);
         currentHour = Integer.parseInt(currentTime.substring(0, 2));
         inputHour = Integer.parseInt(inputTime.substring(0, 2));
 
