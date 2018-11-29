@@ -2,18 +2,14 @@ package test;
 import Fsfbs.*;
 import Util.UtilTime;
 
-import org.powermock.api.easymock.annotation.Mock;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.*;
 
 import Exception.ExFacilityIdNotExist;
 import Exception.ExIOErrorinGetConfig;
@@ -21,30 +17,23 @@ import Exception.ExMemberShipFilePathNotExist;
 import Exception.ExSCFilesNotExist;
 
 
+
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({UtilTime.class})
 class Test_addBooking {
-	
+    
 	@Mock
-	private UtilTime mockUtilTime;
-	
-	@Before
-	  public void setup(){
-	      // initialize all the @Mock objects
-	      MockitoAnnotations.initMocks(this);
-	      // mock all the statics
-	      PowerMockito.mockStatic(UtilTime.class);
-	  }
+	private UtilTime mockUtilTimeInstance;
 	
 	@Test
+	@PrepareForTest({UtilTime.class})
 	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
-		
-		Mockito.when(UtilTime.getTimeInstance()).thenReturn(mockUtilTime);
-		PowerMockito.when(mockUtilTime.getCurrentTime()).thenReturn("15:00:00");
+        MockitoAnnotations.initMocks(this);
+		//Mockito.when(UtilTime.getTimeInstance()).thenReturn(mockUtilTimeInstance);
+		Mockito.when(mockUtilTimeInstance.getCurrentTime()).thenReturn("15:00:00");
 		Controller controller = Controller.getInstance();
 		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1415,mockUtilTime);
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "adminton");
+		tester.addBooking("E1B2", 1415,mockUtilTimeInstance);
 		int result = tester.getTodayBookingNum();
 		assertEquals(1, result);
 	}
