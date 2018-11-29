@@ -177,15 +177,31 @@ public class Test_FSFBS {
 			for(String txt:list)
 				System.out.println(txt);
 		}
-		
+		@Test
+		public void test_SportFacilities6() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
+			Controller controller = Controller.getInstance();
+			SportCentre temp = controller.searchSportCentre("E1");
+			
+		}
+		@Test
+		public void test_SportFacilities7() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
+			Controller controller = Controller.getInstance();
+			SportCentre temp = controller.searchSportCentre("E1");
+			try {
+			temp.findFacilityByID("F1B2");
+			}
+			catch(Exception e) {
+				assertEquals("Your inputted facility id does not exist!",e.getMessage());
+			}
+		}
 		@Test
 		public void test_searchVacancy()  {
 			setOutput();
-			User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
-			tester.searchVacancies("E1", "badminton");
-			String output = "\n" + "Sport Centre: Java Road Sports Centre\n" + 
+			User tester = new User("Mr C", "password", "Membership_Adult", "S1", "Facility_Badminton");
+			tester.searchVacancies("S1", "badminton");
+			String output = "\n" + "Sport Centre: Aberdeen Sports Centre\n" + 
 					"\n" + 
-					"Facility Code: E1B1\n" + 
+					"Facility Code: S1B2\n" + 
 					"1011 : Available\n" + 
 					"1112 : Available\n" + 
 					"1213 : Available\n" + 
@@ -201,13 +217,13 @@ public class Test_FSFBS {
 					"2223 : Available\n" + 
 					"2324 : Available\n" + 
 					"\n" + 
-					"Facility Code: E1B2\n" + 
+					"Facility Code: S1B1\n" + 
 					"1011 : Available\n" + 
 					"1112 : Available\n" + 
 					"1213 : Available\n" + 
 					"1314 : Available\n" + 
 					"1415 : Available\n" + 
-					"1516 : Available\n" + 
+					"1516 : Booked, Booking ID: 20181128S1B11516\n" + 
 					"1617 : Available\n" + 
 					"1718 : Available\n" + 
 					"1819 : Available\n" + 

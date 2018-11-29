@@ -17,13 +17,29 @@ public class UtilTime {
     public String getCurrentDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate localDate = LocalDate.now();
-        return (dtf.format(localDate));
+        try {
+        if(SimulationMode.getSimulationMode())
+        	return "20180505";        	
+        else return (dtf.format(localDate));
+        }
+        catch(Exception e){
+        	
+        }
+        return null;
     }
 
     public String getCurrentTime(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return (dtf.format(now));
+        try {
+            if(SimulationMode.getSimulationMode())
+            	return "15:00:00"; 
+            else return (dtf.format(now));
+            }
+        catch(Exception e) {
+        	
+        }
+        return null;
     }
 
     public boolean isTimeLaterThanCurrentTime(String inputTime) {
