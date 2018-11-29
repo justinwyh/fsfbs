@@ -2,7 +2,6 @@ package test;
 import Fsfbs.*;
 import Util.UtilTime;
 
-import org.junit.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ class Test_User {
 		}
 
 	@Test
-	public void test_addBooking() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
@@ -33,7 +32,7 @@ class Test_User {
 	}
 
 	@Test
-	public void test_addBooking4() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_addBooking4() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();

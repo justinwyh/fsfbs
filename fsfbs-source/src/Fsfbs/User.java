@@ -28,20 +28,25 @@ public class User {
 	private String userName;
     private String userPassword;
     private Membership membership = null;
-    private String preferSportCentre = null;
-    private String preferFacilities = null;
+    private String preferSportCentre;
+    private String preferFacilities;
     private Map<String, Booking> todayBooking;
 
     public User(String userName, String userPassword, String mem, String preferSportCentre, String preferFacilities) {
         this.userName = userName;
         this.userPassword = userPassword;
 
-        if (mem.equals("Membership_Adult"))
-            this.membership = Membership_Adult.getInstance();
-        else if (mem.equals("Membership_Student"))
-            this.membership = Membership_Student.getInstance();
-        else if (mem.equals("Membership_Senior"))
-            this.membership = Membership_Senior.getInstance();
+        switch (mem) {
+            case "Membership_Adult":
+                this.membership = Membership_Adult.getInstance();
+                break;
+            case "Membership_Student":
+                this.membership = Membership_Student.getInstance();
+                break;
+            case "Membership_Senior":
+                this.membership = Membership_Senior.getInstance();
+                break;
+        }
 
         this.preferSportCentre = preferSportCentre;
         this.preferFacilities = preferFacilities;
@@ -122,7 +127,7 @@ public class User {
     }
 
     //Setup Account ----------------------------------------------------------------------------------------
-    public static boolean setUpAC() {
+    public static void setUpAC() {
         try {
             Scanner in = new Scanner(System.in);
             String[] temp = new String[5];
@@ -167,12 +172,16 @@ public class User {
                 System.out.println("Your input facility does not exist. Please input again.");
                 type = in.next();
             }
-            if (type.equals("B")) {
-                type_fullName = "badminton";
-            } else if (type.equals("A")) {
-                type_fullName = ("tableTennis");
-            } else if (type.equals("T")) {
-                type_fullName = ("activityRoom");
+            switch (type) {
+                case "B":
+                    type_fullName = "badminton";
+                    break;
+                case "A":
+                    type_fullName = ("tableTennis");
+                    break;
+                case "T":
+                    type_fullName = ("activityRoom");
+                    break;
             }
 
             //User Profile setup
@@ -189,11 +198,9 @@ public class User {
 
             UtilsExport.printToFile(UtilsLoadconfig.getConfig("membershipFilePath") + inputAc + ".txt", temp);
             System.out.println("Create User Success!");
-            return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return false;
     }
 
     //getter and setter...-----------------------------------------------------------------------------------
@@ -242,15 +249,14 @@ public class User {
                     return (Membership_Student.getInstance());
                 else if (age <= 60)
                     return (Membership_Adult.getInstance());
-                else if (age > 60)
-                    return (Membership_Senior.getInstance());
+                else return (Membership_Senior.getInstance());
             } else
                 System.out.println("Invalid input entered. Please enter a number.");
         }
     }
 
 
-    public void addBooking(String inputFacilitiesId, int time, UtilTime utilTime) throws ExFullBooking {
+    public void addBooking(String inputFacilitiesId, int time, UtilTime utilTime) {
         try {
             Controller controller = Controller.getInstance();
             //Step 1: Validate Input
@@ -291,7 +297,7 @@ public class User {
             Booking booking = searchBookingById(bookingId);
             int bookedTimeSlot = booking.getBookingTime();
             Facility facility;
-            if (booking != null && Facility.canDelete(bookedTimeSlot,utilTime)){
+            if (Facility.canDelete(bookedTimeSlot,utilTime)){
                 todayBooking.remove(bookingId);
                 facility = controller.searchFacility(booking.getFacilitiesID());
                 facility.removeFromTimeTable(booking.getBookingTime());
@@ -333,7 +339,7 @@ public class User {
 
 
 
-    public Booking searchBookingById(String bookingId) throws ExBookingNotExist {
+    private Booking searchBookingById(String bookingId) throws ExBookingNotExist {
         Booking booking = todayBooking.get(bookingId);
         if (booking == null) {
             throw new ExBookingNotExist();
@@ -357,7 +363,7 @@ public class User {
         }
     }
 
-    public double getPriceByMembership(double price){
+    private double getPriceByMembership(double price){
         return membership.getDiscount() * price;
     }
 

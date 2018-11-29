@@ -12,7 +12,7 @@ private static final String configPath= "./Config/config.properties";
 public static String getConfig(String key) throws IOException {
 	//initialize
 	Properties prop = new Properties();
-	InputStream input = null;
+	InputStream input;
 	input = new FileInputStream(configPath);
 	
 	//load a properties file

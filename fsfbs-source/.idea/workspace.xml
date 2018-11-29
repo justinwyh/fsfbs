@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Fsfbs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/UtilsExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/UtilsExport.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,26 +80,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4681" />
+          <entry key="java" value="4740" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4681" />
+          <entry key="JAVA" value="4740" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="SportCentre" value="1" />
-          <entry key="java" value="53" />
+          <entry key="java" value="85" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="53" />
+          <entry key="JAVA" value="85" />
           <entry key="Properties" value="1" />
           <entry key="UML" value="1" />
         </counts>
@@ -109,110 +107,122 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43680555">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
-                  <caret line="180" column="32" selection-start-line="180" selection-start-column="32" selection-end-line="180" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/SimulationMode.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsExport.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="736">
-                  <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="330" column="20" selection-start-line="330" selection-start-column="20" selection-end-line="330" selection-end-column="20" />
-                  <folding>
-                    <element signature="method#User#0;class#User#0" />
-                    <element signature="method#Login#0;class#User#0" />
-                    <element signature="e#7490#7491#0" expanded="true" />
-                    <element signature="e#7523#7524#0" expanded="true" />
-                    <element signature="method#validatePassword#0;class#User#0" />
-                    <element signature="method#getMembershipbyAge#0;class#User#0" />
-                    <element signature="method#addBooking#0;class#User#0" />
-                    <element signature="method#deleteBooking#0;class#User#0" />
-                    <element signature="method#printTodayBookingHistory#0;class#User#0" />
-                    <element signature="method#searchBookingById#0;class#User#0" />
-                    <element signature="method#exportBooking#0;class#User#0" />
-                    <element signature="method#importBooking#0;class#User#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/SportCentre.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="350">
-                  <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#198#199#0" expanded="true" />
-                    <element signature="e#216#217#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilTime.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1196">
-                  <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facility.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="226">
-                  <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1219">
+              <caret line="273" column="29" lean-forward="true" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
+              <folding>
+                <element signature="method#importBooking#0;class#User#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#1508#1509#0" expanded="true" />
+                <element signature="e#1563#1564#0" expanded="true" />
+                <element signature="e#1601#1602#0" expanded="true" />
+                <element signature="e#2903#2904#0" expanded="true" />
+                <element signature="e#2966#2967#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1383">
+              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Facility/Facility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="694">
+              <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util/UtilsExport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util/UtilValidation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util/UtilsLoadconfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -252,26 +262,31 @@
         <option value="$PROJECT_DIR$/src/Fsfbs/Facilities.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/Fsfbs/UtilValidation.java" />
-        <option value="$PROJECT_DIR$/src/test/Test_UtilExport.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/ExInputTimeEarlierThanCurrentTime.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/ExBookingHasPassed.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommandationAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Facility.java" />
         <option value="$PROJECT_DIR$/src/test/Test_User.java" />
         <option value="$PROJECT_DIR$/src/test/Test_addBooking.java" />
-        <option value="$PROJECT_DIR$/src/test/Test_deleteBooking.java" />
         <option value="$PROJECT_DIR$/src/test/Test_searchVacancy.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
         <option value="$PROJECT_DIR$/Config/config.properties" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/User.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/ExTimeSlotNotInOpeningHour.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/UtilTime.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/SportCentre.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/Controller.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/UtilsExport.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/SimulationMode.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_UtilExport.java" />
+        <option value="$PROJECT_DIR$/src/Util/UtilTime.java" />
+        <option value="$PROJECT_DIR$/src/Exception/ExBookingNotExist.java" />
+        <option value="$PROJECT_DIR$/src/Util/UtilsExport.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Util/UtilsLoadconfig.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/User.java" />
+        <option value="$PROJECT_DIR$/src/Facility/Facility.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_deleteBooking.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" />
       </list>
     </option>
   </component>
@@ -290,13 +305,59 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Fsfbs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543383922841" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543420227817" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -420,7 +481,7 @@
       <workItem from="1543036620328" duration="6515000" />
       <workItem from="1543121831913" duration="2335000" />
       <workItem from="1543207071480" duration="20693000" />
-      <workItem from="1543335317892" duration="2444000" />
+      <workItem from="1543335317892" duration="6819000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -506,23 +567,23 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37016000" />
+    <option name="totallyTimeSpent" value="41391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24739583" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24722221" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.10872162" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.4516129" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32855436" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49711815" visible="true" weight="0.2747909" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49711815" visible="true" weight="0.6690562" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39823008" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -531,7 +592,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32923833" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50429183" side_tool="true" weight="0.2113022" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49570817" weight="0.2113022" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.38544738" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3847073" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -553,6 +614,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom." />
     <option name="LAST_COMMIT_MESSAGE" value="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Fsfbs/Controller.java</url>
+          <line>199</line>
+          <properties class="Fsfbs.Controller" method="exportAllSchedule">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -577,13 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="861" selection-start-line="861" selection-end-line="861" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
@@ -668,20 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/ExBookingHasPassed.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -689,33 +743,6 @@
           <folding>
             <element signature="e#99#100#0" expanded="true" />
             <element signature="e#157#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_searchVacancy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -734,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/ExTimeRangeNotCurrent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -750,28 +770,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
+        <state relative-caret-position="509">
           <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -789,62 +792,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="330" column="20" selection-start-line="330" selection-start-column="20" selection-end-line="330" selection-end-column="20" />
-          <folding>
-            <element signature="method#User#0;class#User#0" />
-            <element signature="method#Login#0;class#User#0" />
-            <element signature="e#7490#7491#0" expanded="true" />
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="method#validatePassword#0;class#User#0" />
-            <element signature="method#getMembershipbyAge#0;class#User#0" />
-            <element signature="method#addBooking#0;class#User#0" />
-            <element signature="method#deleteBooking#0;class#User#0" />
-            <element signature="method#printTodayBookingHistory#0;class#User#0" />
-            <element signature="method#searchBookingById#0;class#User#0" />
-            <element signature="method#exportBooking#0;class#User#0" />
-            <element signature="method#importBooking#0;class#User#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="180" column="32" selection-start-line="180" selection-start-column="32" selection-end-line="180" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/SimulationMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsExport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
           <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/SportCentre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -874,6 +827,219 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_searchVacancy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/UtilsImport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Membership/Membership.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Membership/Membership_Senior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exception/ExUserIdNotExist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Facility/Facility_ActivityRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/SimulationMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/SportCentre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1562">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/UtilTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1628#1629#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exception/ExBookingNotExist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/UtilValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1508#1509#0" expanded="true" />
+            <element signature="e#1563#1564#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#2903#2904#0" expanded="true" />
+            <element signature="e#2966#2967#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/UtilsLoadconfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/UtilsExport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Facility/Facility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1219">
+          <caret line="273" column="29" lean-forward="true" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
+          <folding>
+            <element signature="method#importBooking#0;class#User#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1383">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
         </state>
       </provider>
     </entry>

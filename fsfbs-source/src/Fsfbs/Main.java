@@ -29,56 +29,57 @@ public class Main {
          //Step 2: Choose either login or create user
          loginOrCreateUser();
          User user = User.Login();
-         user.getFastRecommandation(utilTime);
-         while(true)
-         {
+         label:
+         while (true) {
+             TimeUnit.SECONDS.sleep(3);
+             user.getFastRecommandation(utilTime);
              userguide();
              String input = in.next();
-
-        	 if(input.equals("vacancy")) {
-        		 controller.printAllFacilities();
-        		 System.out.println("\nPlease enter the key of Sport Centre:");
-        		 String sportCentre= in.next();
-        		 System.out.println("\nPlease enter the type of court you want to book:");
-        		 System.out.println("e.g. badminton, tableTennis, activityRoom");
-        		 String court=null;
-        		 court = in.next();
-        		 while(!(court.equals("badminton")||court.equals("tableTennis")||court.equals("activityRoom"))) {
-        			 System.out.println("Wrong court information entered.");
-        		 	 System.out.println("\nPlease enter: badminton, tableTennis, activityRoom");
-        		 	 court=in.next();
-        		 }
-        		 user.searchVacancies(sportCentre, court);
-        	 }
-
-        	 else if(input.equals("add")) {
-        	     UtilValidation utilValidation = UtilValidation.getValidationInstance();
-        		 String time;
-        		 System.out.println("Please enter the facility code(e.g. E1B1, E1B2)");
-        		 String sportfacility= in.next();
-        		 System.out.println("Please enter time range");
-        		 time= in.next();
-        		 int iTime = utilValidation.validateTimeFormat(time);
-        		 if(iTime == 0) {
-        			 System.out.println("Time in wrong format!");
-        		 }
-        		 else
-        			 user.addBooking(sportfacility, iTime,utilTime);
-        	 }
-
-        	 else if(input.equals("print"))
-        		 controller.printAllFacilities();
-        	 else if(input.equals("mybooking"))
-        		 user.printTodayBookingHistory(utilTime);
-        	 else if(input.equals("delete")){
-        		 System.out.println("\nPlease enter the booking ID you want to delete");
-        		 user.printTodayBookingHistory(utilTime);
-        		 user.deleteBooking(in.next(),utilTime);
-        	 }
-        	 else if(input.equals("exit"))
-        		 break;
-        	 else {
-                 System.out.println("\nCommand is not found.");
+             switch (input) {
+                 case "vacancy":
+                     controller.printAllFacilities();
+                     System.out.println("\nPlease enter the key of Sport Centre:");
+                     String sportCentre = in.next();
+                     System.out.println("\nPlease enter the type of court you want to book:");
+                     System.out.println("e.g. badminton, tableTennis, activityRoom");
+                     String court;
+                     court = in.next();
+                     while (!(court.equals("badminton") || court.equals("tableTennis") || court.equals("activityRoom"))) {
+                         System.out.println("Wrong court information entered.");
+                         System.out.println("\nPlease enter: badminton, tableTennis, activityRoom");
+                         court = in.next();
+                     }
+                     user.searchVacancies(sportCentre, court);
+                     break;
+                 case "add":
+                     UtilValidation utilValidation = UtilValidation.getValidationInstance();
+                     String time;
+                     System.out.println("Please enter the facility code(e.g. E1B1, E1B2)");
+                     String sportfacility = in.next();
+                     System.out.println("Please enter time range");
+                     time = in.next();
+                     int iTime = utilValidation.validateTimeFormat(time);
+                     if (iTime == 0) {
+                         System.out.println("Time in wrong format!");
+                     } else
+                         user.addBooking(sportfacility, iTime, utilTime);
+                     break;
+                 case "print":
+                     controller.printAllFacilities();
+                     break;
+                 case "mybooking":
+                     user.printTodayBookingHistory(utilTime);
+                     break;
+                 case "delete":
+                     System.out.println("\nPlease enter the booking ID you want to delete");
+                     user.printTodayBookingHistory(utilTime);
+                     user.deleteBooking(in.next(), utilTime);
+                     break;
+                 case "exit":
+                     break label;
+                 default:
+                     System.out.println("\nCommand is not found.");
+                     break;
              }
          }
 
@@ -98,24 +99,27 @@ public class Main {
      }
  
 
- public static void loginOrCreateUser() {
+ private static void loginOrCreateUser() {
      String userinput;
      while (true) {
          Scanner in = new Scanner(System.in);
          userinput = in.next();
          //Step 2: Log In or Create User
-         if (userinput.equals("Y")) {
-             return;
-         } else if (userinput.equals("N")) {
-             User.setUpAC(); //setupAccount
-             return;
-         } else {
-             System.out.println("Invalid input. Input should be Y or N. Please input again.");
+         switch (userinput) {
+             case "Y":
+                 return;
+             case "N":
+                 User.setUpAC(); //setupAccount
+
+                 return;
+             default:
+                 System.out.println("Invalid input. Input should be Y or N. Please input again.");
+                 break;
          }
      }
  }
 
- public static void welcome() {
+ private static void welcome() {
 	//welcome message
      System.out.println("+-------------------------------------------------------------------+");
      System.out.println("||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||");
@@ -127,7 +131,7 @@ public class Main {
      System.out.println("+-------------------------------------------------------------------+");
      System.out.println("=================Do you have an User Account? (Y/N)==================");
  }
- public static void simwelcome() {
+ private static void simwelcome() {
  	System.out.println("+---------------------------------------------------+");
  	System.out.println("+------------------Simulation Mode------------------+");
  	System.out.println("|Notice:                                            |");
@@ -139,8 +143,7 @@ public class Main {
      System.out.println("+---------------------------------------------------+");
 
  }
- public static void userguide() throws InterruptedException {
-	 TimeUnit.SECONDS.sleep(3);
+ private static void userguide() throws InterruptedException {
      System.out.println("+-------------------------------------------------------------------+");
      System.out.println("|---------------------------User Guide------------------------------|");
      System.out.println("|                   Add booking: please enter 'add'                 |");

@@ -7,6 +7,7 @@ import Util.UtilsExport;
 
 import java.io.*;
 
+@SuppressWarnings({"ALL", "Duplicates"})
 class Test_UtilExport {
 
 	//success printToFile[]

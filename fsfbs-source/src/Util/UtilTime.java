@@ -51,9 +51,8 @@ public class UtilTime {
         }
     }
 
-    public int convertTimeToInt (String time){
-        int hour = Integer.parseInt(time.substring(0,2));
-        return hour;
+    private int convertTimeToInt(String time){
+        return Integer.parseInt(time.substring(0,2));
     }
 
     public String getTimeWithFormat(int timeslot){
@@ -68,7 +67,6 @@ public class UtilTime {
         LocalDateTime now = LocalDateTime.now().plusHours(hour);
         return (dtf.format(now));
     }
-
 
     public int getTimeSlot(String startTime, String endTime){
         int startTimeHour = convertTimeToInt(startTime);

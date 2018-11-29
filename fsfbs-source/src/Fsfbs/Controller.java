@@ -49,7 +49,7 @@ public class Controller {
 		return userMap.get(userName);
 	}
 
-	public SportCentre getSportCentrebyID(String scid) {
+	private SportCentre getSportCentrebyID(String scid) {
 		return sportCentreMap.get(scid);
 	}
 	public void printAllFacilities() {
@@ -112,9 +112,9 @@ public class Controller {
         return sportCentreSet;
     }
 
-    public ArrayList<Facility> searchFacilitiesByType(SportCentre sc, String sfType) throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist{
+    public ArrayList<Facility> searchFacilitiesByType(SportCentre sc, String sfType) throws ExFacilityNameNotExist, ExFacilityIdNotExist{
         ArrayList<Facility> facilitiesList = new ArrayList<>();
-	    String type = null;
+	    String type;
         switch (sfType) {
             case "badminton":
                 type = "B";
@@ -138,7 +138,7 @@ public class Controller {
 
 
 	//import Membership
-	public void importAllMember() throws ExMemberShipFilePathNotExist,ExIOErrorinGetConfig {
+    private void importAllMember() throws ExMemberShipFilePathNotExist,ExIOErrorinGetConfig {
 	    try {
             File file = new File(UtilsLoadconfig.getConfig("membershipFilePath"));
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
@@ -166,7 +166,7 @@ public class Controller {
 		}
 	}
 	//import SportFacility
-	public void importAllSportFacility() throws ExSCFilesNotExist,ExIOErrorinGetConfig {
+    private void importAllSportFacility() throws ExSCFilesNotExist,ExIOErrorinGetConfig {
 	    try {
             File file = new File(UtilsLoadconfig.getConfig("sportCentreFilePath"));
             File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
@@ -224,7 +224,7 @@ public class Controller {
 				}
 	}
 
-	public void importAllSchedule() throws ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	private void importAllSchedule() throws ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		try {
 		File file = new File(UtilsLoadconfig.getConfig("timeScheduleFilePath"));
         File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
