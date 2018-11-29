@@ -1,5 +1,7 @@
 package Fsfbs;
 
+import java.io.IOException;
+
 import Util.UtilTime;
 
 public class Booking {
@@ -9,7 +11,7 @@ public class Booking {
 	private int bookingTime;
 	private String facilitiesID;
 
-	public Booking (String userName, int bookingTime, String facilitiesID){
+	public Booking (String userName, int bookingTime, String facilitiesID) throws IOException{
 
 	    this.userName = userName;
 	    this.bookingID = createBookingID(bookingTime,facilitiesID);
@@ -17,7 +19,7 @@ public class Booking {
 	    this.facilitiesID = facilitiesID;
     }
 
-    private String createBookingID(int bookingTime, String facilitiesID){
+    private String createBookingID(int bookingTime, String facilitiesID) throws IOException{
 	    UtilTime utilTime = UtilTime.getTimeInstance();
 	    return (utilTime.getCurrentDate() + facilitiesID + bookingTime);
     }

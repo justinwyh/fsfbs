@@ -55,7 +55,7 @@ public class SportCentre {
         facilitiesMap = new HashMap<>();
     }
 
-    public ArrayList<String> searchVacanciesInSC(int timeSlot, String facType, UtilTime utilTime) throws ExFacilityIdNotExist, ExFacilityNameNotExist, ExSportCentreNotExist, ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExInputTimeEarlierThanCurrentTime {
+    public ArrayList<String> searchVacanciesInSC(int timeSlot, String facType, UtilTime utilTime) throws ExFacilityIdNotExist, ExFacilityNameNotExist, ExSportCentreNotExist, ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExInputTimeEarlierThanCurrentTime, IOException {
         Controller controller = Controller.getInstance();
         SportCentre sc = controller.searchSportCentre(scId);
         ArrayList<Facility> facilities = controller.searchFacilitiesByType(sc,facType);
