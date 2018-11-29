@@ -270,7 +270,7 @@ public class User {
             if (todayBkBelow3) {
                 boolean canBook = facility.canBook(time,utilTime);
                 if (canBook) {
-                    Booking booking = new Booking(userName, time, facility.getFacilityId());
+                    Booking booking = new Booking(userName, time, facility.getFacilityId(),UtilTime.getTimeInstance());
                     facility.addToTimeTable(time, booking.getBookingID());
                     todayBooking.putIfAbsent(booking.getBookingID(), booking);
                     System.out.println();
@@ -381,7 +381,7 @@ public class User {
         if (file.exists()) {
             while (in.hasNext()) {
                 String input = in.next();
-                Booking temp = new Booking(this.getUserName(), Integer.parseInt(input.substring(12, 16)), input.substring(8, 12));
+                Booking temp = new Booking(this.getUserName(), Integer.parseInt(input.substring(12, 16)), input.substring(8, 12),UtilTime.getTimeInstance());
                 todayBooking.put(temp.getBookingID(), temp);
             }
         }
