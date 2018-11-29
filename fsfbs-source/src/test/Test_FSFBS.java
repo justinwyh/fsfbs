@@ -280,16 +280,28 @@ public class Test_FSFBS {
 
 	    @Test
 	    public void test_facility_canBook() {
+	    	Facility testFacility = new Facility_Badminton("A1B1");
+	    	testFacility.addToTimeTable(1112, "20180101A1B11112");
+	    	testFacility.addToTimeTable(1213, "20180101A1B11213");
+	    	UtilTime utiltime = UtilTime.getTimeInstance();
 	    	try {
-				UtilTime mockUtilTime = Whitebox.invokeConstructor(UtilTime.class);
-				PowerMockito.mockStatic(UtilTime.class);
-				Mockito.when(UtilTime.getTimeInstance()).thenReturn(mockUtilTime);
-
-			} catch (Exception e) {
+				boolean result = testFacility.canBook(1112,utiltime);
+			} catch (ExTimeRangeNotCurrent e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExAllowToBookOneHourOnly e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExInputTimeEarlierThanCurrentTime e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExTimeSlotNotInOpeningHour e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 	    }
 
 	    //Exception
@@ -399,6 +411,7 @@ public class Test_FSFBS {
 	        LocalDateTime now = LocalDateTime.now();
 			assertEquals(dtf.format(now),utilTime.getCurrentTime());
 		}
+		
 		@Test
 		public void test_UtilTime2() {
 			UtilTime utilTime = new UtilTime();
