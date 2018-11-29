@@ -26,20 +26,20 @@ class Test_searchVacancy {
 		String output = "\n" + "Sport Centre: Java Road Sports Centre\n" + 
 				"\n" + 
 				"Facility Code: E1B1\n" + 
-				"1011 : Booked, Booking ID: 0001\n" + 
-				"1112 : Booked, Booking ID: 0001\n" + 
-				"1213 : Booked, Booking ID: 0001\n" + 
+				"1011 : Available\n" + 
+				"1112 : Available\n" + 
+				"1213 : Available\n" + 
 				"1314 : Available\n" + 
-				"1415 : Booked, Booking ID: 0001\n" + 
-				"1516 : Booked, Booking ID: 0001\n" + 
-				"1617 : Booked, Booking ID: 0001\n" + 
-				"1718 : Booked, Booking ID: 0002\n" + 
-				"1819 : Booked, Booking ID: 0001\n" + 
-				"1920 : Booked, Booking ID: 0002\n" + 
-				"2021 : Booked, Booking ID: 0002\n" + 
-				"2122 : Booked, Booking ID: 0002\n" + 
-				"2223 : Booked, Booking ID: 0003\n" + 
-				"2324 : Booked, Booking ID: 0004\n" + 
+				"1415 : Available\n" + 
+				"1516 : Available\n" + 
+				"1617 : Available\n" + 
+				"1718 : Available\n" + 
+				"1819 : Available\n" + 
+				"1920 : Available\n" + 
+				"2021 : Available\n" + 
+				"2122 : Available\n" + 
+				"2223 : Available\n" + 
+				"2324 : Available\n" + 
 				"\n" + 
 				"Facility Code: E1B2\n" + 
 				"1011 : Available\n" + 
