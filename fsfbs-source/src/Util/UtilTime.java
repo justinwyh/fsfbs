@@ -33,7 +33,7 @@ public class UtilTime {
         LocalDateTime now = LocalDateTime.now();
         try {
             if(SimulationMode.getSimulationMode())
-            	return "15:00:00"; 
+            	return "15:12:00"; 
             else return (dtf.format(now));
             }
         catch(Exception e) {
@@ -45,12 +45,12 @@ public class UtilTime {
     public boolean isTimeLaterThanCurrentTime(String inputTime) {
         int currentHour;
         int inputHour;
-        String currentTime = getNextAvailableTimeSlot(1);
+        String currentTime = getCurrentTime();
         currentHour = Integer.parseInt(currentTime.substring(0, 2));
         inputHour = Integer.parseInt(inputTime.substring(0, 2));
 
         //checking
-        return currentHour <= inputHour;
+        return currentHour < inputHour;
     }
 
     public int isTimeRangeExceed(int timeslot){
@@ -82,9 +82,22 @@ public class UtilTime {
     }
 
     public String getNextAvailableTimeSlot(int hour){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:00:00");
-        LocalDateTime now = LocalDateTime.now().plusHours(hour);
-        return (dtf.format(now));
+    	try {
+			if(!(SimulationMode.getSimulationMode())){
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:00:00");
+			LocalDateTime now = LocalDateTime.now().plusHours(hour);
+			return (dtf.format(now));
+			}
+			else {
+			int shour = 15;
+			shour = shour + hour;
+			return shour + ":00:00";
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
     }
 
     public int getTimeSlot(String startTime, String endTime){

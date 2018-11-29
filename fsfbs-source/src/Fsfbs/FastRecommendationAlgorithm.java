@@ -10,7 +10,7 @@ import Exception.ExFacilityIdNotExist;
 import Exception.ExFacilityNameNotExist;
 import Exception.ExInputTimeEarlierThanCurrentTime;
 import Exception.ExSportCentreNotExist;
-import Exception.ExTimeRangeNotCurrent;
+import Exception.ExTimeRangeNotCorrect;
 import Exception.ExTimeSlotNotInOpeningHour;
 import Util.UtilTime;
 
@@ -41,7 +41,7 @@ public class FastRecommendationAlgorithm {
         }
     }
 
-    private static int showVacancy(Set<SportCentre> scSet, UtilTime utilTime, String facilityType, int count) throws ExFacilityIdNotExist, ExTimeRangeNotCurrent, IOException, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExFacilityNameNotExist, ExSportCentreNotExist {
+    private static int showVacancy(Set<SportCentre> scSet, UtilTime utilTime, String facilityType, int count) throws ExFacilityIdNotExist, ExTimeRangeNotCorrect, IOException, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExFacilityNameNotExist, ExSportCentreNotExist {
             String availableTime = utilTime.getNextAvailableTimeSlot(1);
             String endTime = utilTime.getNextAvailableTimeSlot(2);
             int timeSlot = utilTime.getTimeSlot(availableTime,endTime);

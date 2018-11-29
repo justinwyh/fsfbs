@@ -9,7 +9,7 @@ import Exception.ExAllowToBookOneHourOnly;
 import Exception.ExAllowToDeleteOneHourOnly;
 import Exception.ExBookingHasPassed;
 import Exception.ExInputTimeEarlierThanCurrentTime;
-import Exception.ExTimeRangeNotCurrent;
+import Exception.ExTimeRangeNotCorrect;
 import Exception.ExTimeSlotNotInOpeningHour;
 import Util.UtilTime;
 
@@ -51,11 +51,11 @@ public abstract class Facility {
 
     public abstract String getFacilityType();
     
-    public boolean canBook(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
+    public boolean canBook(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCorrect, ExAllowToBookOneHourOnly,ExInputTimeEarlierThanCurrentTime, ExTimeSlotNotInOpeningHour, IOException {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
             switch (timeRangeResult) {
                 case -1:
-                    throw new ExTimeRangeNotCurrent();
+                    throw new ExTimeRangeNotCorrect();
                 case -2:
                     throw new ExAllowToBookOneHourOnly();
                 case -3:
@@ -77,11 +77,11 @@ public abstract class Facility {
         }
     }
 
-    public static boolean canDelete(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCurrent, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
+    public static boolean canDelete(int timeslot, UtilTime utilTime) throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly,ExBookingHasPassed, ExTimeSlotNotInOpeningHour, IOException {
         int timeRangeResult = utilTime.isTimeRangeExceed(timeslot);
         switch (timeRangeResult) {
             case -1:
-                throw new ExTimeRangeNotCurrent();
+                throw new ExTimeRangeNotCorrect();
             case -2:
                 throw new ExAllowToDeleteOneHourOnly();
             case -3:
