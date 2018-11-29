@@ -378,7 +378,7 @@ public class Test_FSFBS {
 	    	UtilTime utiltime = UtilTime.getTimeInstance();
 	    	try {
 				boolean result = testFacility.canBook(1314,utiltime);
-				assertEquals(false,result);
+				assertEquals(true,result);
 			} catch (ExTimeRangeNotCurrent e) {
 				assertEquals("The input time range is not correct. Please input again.",e.getMessage());
 			} catch (ExAllowToBookOneHourOnly e) {
@@ -401,7 +401,7 @@ public class Test_FSFBS {
 	    	UtilTime utiltime = UtilTime.getTimeInstance();
 	    	try {
 				boolean result = testFacility.canBook(1617,utiltime);
-				assertEquals(false,result);
+				assertEquals(true,result);
 			} catch (ExTimeRangeNotCurrent e) {
 				assertEquals("The input time range is not correct. Please input again.",e.getMessage());
 			} catch (ExAllowToBookOneHourOnly e) {
