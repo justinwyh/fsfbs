@@ -3,6 +3,8 @@ package test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -286,7 +288,7 @@ public class Test_FSFBS {
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         assertEquals("20180101A1B11112", testFacility.getBookingIdbyTime(1112));
     }
-    
+
     @Test
     public void test_facility_getkeyset() {
     	Facility testFacility = new Facility_Badminton("A1B1");
@@ -298,7 +300,7 @@ public class Test_FSFBS {
     	expectedResult.add(1213);
     	assertEquals(expectedResult,result);
     }
-    
+
     @Test
     public void test_facility_getTimeTableMap() {
     	Facility testFacility = new Facility_Badminton("A1B1");
@@ -310,7 +312,7 @@ public class Test_FSFBS {
     	expectedResult.put(1213,"20180101A1B11213");
     	assertEquals(expectedResult,result);
     }
-    
+
     @Test
     public void test_facility_removeFromTimeTable() {
     	Facility testFacility = new Facility_Badminton("A1B1");
@@ -318,21 +320,21 @@ public class Test_FSFBS {
     	String result = testFacility.removeFromTimeTable(1112);
     	assertEquals("20180101A1B11112",result);
     }
-    
+
     @Test
     public void test_facility_canBook() {
     	try {
 			UtilTime mockUtilTime = Whitebox.invokeConstructor(UtilTime.class);
 			PowerMockito.mockStatic(UtilTime.class);
 			Mockito.when(UtilTime.getTimeInstance()).thenReturn(mockUtilTime);
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
+
     }
-    
+
     //Exception
     @Test
     public void test_Exception1() {
@@ -351,8 +353,8 @@ public class Test_FSFBS {
         ExBookingHasPassed e = new ExBookingHasPassed();
         assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
     }
-    
-    
+
+
 
 
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//

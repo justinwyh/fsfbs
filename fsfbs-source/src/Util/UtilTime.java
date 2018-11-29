@@ -43,7 +43,7 @@ public class UtilTime {
         if (endTime - startTime <= 0 || startTime > 23 || endTime > 24){
             return -1; //incorrect time range
         }
-        else if (startTime - endTime > 1) {
+        else if (endTime - startTime > 1) {
             return -2; //each booking can not bookmore than an hour
         }
         else if(startTime < 10){
