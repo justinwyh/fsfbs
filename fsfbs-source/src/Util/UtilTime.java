@@ -14,19 +14,19 @@ public class UtilTime {
         return timeInstance;
     }
 
-    public String getCurrentDate() throws IOException{
+    public String getCurrentDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate localDate = LocalDate.now();
         return (dtf.format(localDate));
     }
 
-    public String getCurrentTime() throws IOException{
+    public String getCurrentTime(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return (dtf.format(now));
     }
 
-    public boolean isTimeLaterThanCurrentTime(String inputTime) throws IOException {
+    public boolean isTimeLaterThanCurrentTime(String inputTime) {
         int currentHour;
         int inputHour;
         String currentTime = getNextAvailableTimeSlot(1);
