@@ -38,12 +38,12 @@ public abstract class Facility {
 	}
 
 
-    public void addToTimeTable(int time, String bookingID) {   	
-    	timetableMap.putIfAbsent(time, bookingID);
+    public String addToTimeTable(int time, String bookingID) {   	
+    	return timetableMap.putIfAbsent(time, bookingID);
     }
     
-    public void removeFromTimeTable(int time) {
-    	timetableMap.remove(time);
+    public String removeFromTimeTable(int time) {
+    	return timetableMap.remove(time);
     }
 
     public abstract double getPrice();
