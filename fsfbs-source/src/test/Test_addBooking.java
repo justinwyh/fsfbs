@@ -69,10 +69,10 @@ class Test_addBooking {
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1617,utilTime_stub);
+		tester.addBooking("E1B2", 1415,utilTime_stub);
 
 		User tester2 = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester2.addBooking("E1B2", 1617,utilTime_stub);
+		tester2.addBooking("E1B2", 1415,utilTime_stub);
 		int result = tester2.getTodayBookingNum();
 		assertEquals(0, result);
 	}
