@@ -217,6 +217,54 @@ public class Test_FSFBS {
 			assertEquals(output, getOutput());
 		}
 		
+		//Facility Test Stub
+		@Test
+		public void test_Facility1() {
+			Facility_Badminton fb = new Facility_Badminton("E1B3");
+			assertEquals(59,fb.getPrice());
+		}
+		@Test
+		public void test_Facility2() {
+			Facility_Badminton fb = new Facility_Badminton("E1B3");
+			assertEquals("badminton court",fb.getFacilityType());
+		}@Test
+		public void test_Facility3() {
+			Facility_ActivityRoom ar = new Facility_ActivityRoom("E1A3");
+			assertEquals(99,ar.getPrice());
+		}
+		@Test
+		public void test_Facility4() {
+			Facility_ActivityRoom ar = new Facility_ActivityRoom("E1A3");
+			assertEquals("activity room",ar.getFacilityType());
+		}
+		@Test
+		public void test_Facility5() {
+			Facility_TableTennis ar = new Facility_TableTennis("E1T3");
+			assertEquals(29,ar.getPrice());
+		}
+		@Test
+		public void test_Facility6() {
+			Facility_TableTennis fb = new Facility_TableTennis("E1T3");
+			assertEquals("table tennis court",fb.getFacilityType());
+		}
+		
+		//Exception
+		public void test_Exception1() {
+			ExAllowToBookOneHourOnly e = new ExAllowToBookOneHourOnly();
+			assertEquals("You are allowed to book 1 hour only for each booking. Please input again.",e.getMessage());
+		}
+		
+		public void test_Exception2() {
+			ExAllowToDeleteOneHourOnly e = new ExAllowToDeleteOneHourOnly();
+			assertEquals("You are allowed to book 1 hour only for each booking. Please input again.",e.getMessage());
+		}
+		
+		public void test_Exception3() {
+			ExBookingHasPassed e = new ExBookingHasPassed();
+			assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
+		}
+		
+		
 		//*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
 		PrintStream oldPrintStream;
 		ByteArrayOutputStream bos;

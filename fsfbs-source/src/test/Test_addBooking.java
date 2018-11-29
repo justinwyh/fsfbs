@@ -1,7 +1,7 @@
 package test;
 import Fsfbs.*;
 import Util.UtilTime;
-
+/*
 import org.powermock.api.easymock.annotation.Mock;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -89,3 +89,4 @@ class Test_addBooking {
 	}
 
 }
+*/
