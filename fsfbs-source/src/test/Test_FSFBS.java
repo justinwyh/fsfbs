@@ -131,7 +131,7 @@ public class Test_FSFBS {
 		public void test_SportFacilities6() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
 			Controller controller = Controller.getInstance();
 			SportCentre temp = controller.searchSportCentre("E1");
-
+			
 		}
 		@Test
 		public void test_SportFacilities7() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
