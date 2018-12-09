@@ -2,79 +2,51 @@ package test;
 import Fsfbs.*;
 import Util.UtilTime;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
 import Exception.ExFacilityIdNotExist;
 import Exception.ExFullBooking;
 import Exception.ExIOErrorinGetConfig;
+import Exception.ExMaxFailLogin;
 import Exception.ExMemberShipFilePathNotExist;
 import Exception.ExSCFilesNotExist;
 
 class Test_User {
-
-		class UtilTime_stub extends UtilTime {
-			public String getCurrentTime() {
-				return "15:00:00";
-			}
-		}
-
+	private ByteArrayInputStream testIn;
+	
 	@Test
-	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist,ExFullBooking {
-		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1213,utilTime_stub);
-		int result = tester.getTodayBookingNum();
-		assertEquals(1, result);
+	public void test_main() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
+		setOutput();		
+		User user = User.Login();
+		assertEquals("Ken",user.getUserName());
 	}
 
-	@Test
-	public void test_addBooking4() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
-		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		controller.importData();
-		User tester = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1213,utilTime_stub);
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
-	}
-	/*
-	@Test
-	public void test_addBooking2() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
-		Controller controller = Controller.getInstance();
-		controller.importData();
-		User tester = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 2211);
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
-	}
+	   //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
+    PrintStream oldPrintStream;
+    ByteArrayOutputStream bos;
 
-	@Test
-	public void test_addBooking3() throws ExFullBooking, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
-		Controller controller = Controller.getInstance();
-		controller.importData();
-		User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E2B2", 1011);
-		tester.addBooking("E2B2", 1112);
-		tester.addBooking("E2B2", 1213);
-		tester.addBooking("E2B2", 1314);
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
-	}
-	*/
-	/*
-	public void test_searchVacancies() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist  {
-		// user calls each facility to show their vacancy
-		Controller controller = Controller.getInstance();
-		controller.importData();
-		User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.searchVacancies("E1", "badminton");
+    private void setOutput() {
+        oldPrintStream = System.out;
+        bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
+    }
 
-	}
-	*/
+    private void setInput(String input) {
+    	 testIn = new ByteArrayInputStream(input.getBytes());
+         System.setIn(testIn);
+    }
 
-
+    private String getOutput() { // throws Exception
+        System.setOut(oldPrintStream);
+        return bos.toString();
+    }
 }
+
