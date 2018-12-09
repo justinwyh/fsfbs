@@ -152,7 +152,7 @@ public class User {
             password = validatePassword(in);
 
             //set membership
-            membershipName = getMembershipbyAge().getMembershipName();
+            membershipName = getMembershipbyAge(in).getMembershipName();
 
             //set SportCentre
             controller.printAllFacilities();
@@ -237,8 +237,7 @@ public class User {
     }
 //-----------------validate User Age-------------------
 
-    public static Membership getMembershipbyAge() {
-        Scanner in = new Scanner(System.in);
+    public static Membership getMembershipbyAge(Scanner in) {
         int age;
         while (true) {
             System.out.println("Please enter your age:");

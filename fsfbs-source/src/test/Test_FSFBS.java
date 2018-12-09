@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 import Facility.*;
@@ -444,28 +445,32 @@ public class Test_FSFBS {
     @Test
     public void test_getMembershipByAge1() {
     	setInput("10");
-    	Membership result = User.getMembershipbyAge();
+    	Scanner in = new Scanner(System.in);
+    	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Student.getInstance(),result);
     }
     
     @Test
     public void test_getMembershipByAge2() {
     	setInput("70");
-    	Membership result = User.getMembershipbyAge();
+    	Scanner in = new Scanner(System.in);
+    	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Senior.getInstance(),result);
     }
     
     @Test
     public void test_getMembershipByAge3() {
     	setInput("20");
-    	Membership result = User.getMembershipbyAge();
+    	Scanner in = new Scanner(System.in);
+    	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Adult.getInstance(),result);
     }
     
     @Test
     public void test_getMembershipByAge4() {
     	setInput("-10\n10");
-    	Membership result = User.getMembershipbyAge();
+    	Scanner in = new Scanner(System.in);
+    	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Student.getInstance(),result);
     }
     
@@ -892,24 +897,75 @@ public class Test_FSFBS {
 				assertEquals(new ExMaxFailLogin().toString(),e.toString());
 				};
 		}
+
 		@Test
 		public void test_SetUpAC1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"5"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"B"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
+		@Test
+		public void test_SetUpAC2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"16"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"A"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
+		@Test
+		public void test_SetUpAC3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"60"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"T"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
+		@Test
+		public void test_SetUpACError1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Ken"+System.getProperty("line.separator")+
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"1234"+System.getProperty("line.separator")+ //Error
+					"60"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"T"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
+		@Test
+		public void test_SetUpACError2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"60"+System.getProperty("line.separator")+
+					"A9"+System.getProperty("line.separator")+	//Error
+					"T"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
+		@Test
+		public void test_SetUpACError3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
 			setInput(
 					"Ken"+System.getProperty("line.separator")+
 					"Polo"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"ABC"+System.getProperty("line.separator")+
-					"5"+System.getProperty("line.separator")+
-					"E6"+System.getProperty("line.separator")+
+					"60"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
-					"H"+System.getProperty("line.separator")+
-					"B"+System.getProperty("line.separator"));
+					"ABCDEFG"+System.getProperty("line.separator")); //Error
 			User.setUpAC();		
 			}
-
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
     ByteArrayOutputStream bos;
