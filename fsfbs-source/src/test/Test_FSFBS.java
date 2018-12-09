@@ -899,8 +899,13 @@ public class Test_FSFBS {
 					"Polo"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"ABC"+System.getProperty("line.separator")+
 					"5"+System.getProperty("line.separator")+
-					"E2"+System.getProperty("line.separator")+
+					"E6"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"H"+System.getProperty("line.separator")+
 					"B"+System.getProperty("line.separator"));
 			User.setUpAC();		
 			}
