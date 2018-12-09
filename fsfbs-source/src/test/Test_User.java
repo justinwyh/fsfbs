@@ -21,7 +21,7 @@ class Test_User {
 		}
 
 	@Test
-	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_addBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist,ExFullBooking {
 		Controller controller = Controller.getInstance();
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();
@@ -32,7 +32,7 @@ class Test_User {
 	}
 
 	@Test
-	public void test_addBooking4() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
+	public void test_addBooking4() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
 		Controller controller = Controller.getInstance();
 		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
 		controller.importData();

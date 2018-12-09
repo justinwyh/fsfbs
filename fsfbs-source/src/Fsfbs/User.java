@@ -256,7 +256,7 @@ public class User {
     }
 
 
-    public void addBooking(String inputFacilitiesId, int time, UtilTime utilTime) {
+    public boolean addBooking(String inputFacilitiesId, int time, UtilTime utilTime) {
         try {
             Controller controller = Controller.getInstance();
             //Step 1: Validate Input
@@ -282,16 +282,21 @@ public class User {
                     System.out.println("Price: " + getPriceByMembership(facility.getPrice()));
                     System.out.println("--------------------------End----------------------------");
                     System.out.println();
-                } else {
-                    throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
+                    return true;
                 }
             }
-        } catch (Exception e) {
+            else {
+                throw new ExFullBooking(sc.getScName(), facility.getFacilityType(), time);
+            }
+          
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return false;
     }
 
-    public void deleteBooking(String bookingId, UtilTime utilTime) {
+    public boolean deleteBooking(String bookingId, UtilTime utilTime) {
         try {
             Controller controller = Controller.getInstance();
             Booking booking = searchBookingById(bookingId);
@@ -310,10 +315,12 @@ public class User {
                 System.out.println("Booking with id: " + bookingId + " has been deleted.");
                 System.out.println("--------------------------End----------------------------");
                 System.out.println();
+                return true;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return false;
     }
 
     public void printTodayBookingHistory(UtilTime utilTime){
@@ -339,7 +346,7 @@ public class User {
 
 
 
-    private Booking searchBookingById(String bookingId) throws ExBookingNotExist {
+    public Booking searchBookingById(String bookingId) throws ExBookingNotExist {
         Booking booking = todayBooking.get(bookingId);
         if (booking == null) {
             throw new ExBookingNotExist();

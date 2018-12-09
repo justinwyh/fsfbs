@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/TimeSchedule/E1B1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/TimeSchedule/E1B1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/TimeSchedule/E1B2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/TimeSchedule/E1B2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fsfbs/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Test_FSFBS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_FSFBS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Test_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Test_deleteBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_deleteBooking.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +29,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/fsfbs_source$Main.ic" NAME="Main Coverage Results" MODIFIED="1543467706405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Fsfbs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/fsfbs_source$Test_FSFBS.exec" NAME="Test_FSFBS Coverage Results" MODIFIED="1544342555219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/fsfbs_source$Test_UtilExport.ic" NAME="Test_UtilExport Coverage Results" MODIFIED="1543057765051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
@@ -83,20 +92,21 @@
           <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4963" />
+          <entry key="java" value="5325" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4963" />
+          <entry key="JAVA" value="5325" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
@@ -104,14 +114,14 @@
         <counts>
           <entry key="SportCentre" value="1" />
           <entry key="class" value="6" />
-          <entry key="java" value="97" />
+          <entry key="java" value="103" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="6" />
-          <entry key="JAVA" value="97" />
+          <entry key="JAVA" value="103" />
           <entry key="Properties" value="1" />
           <entry key="UML" value="1" />
         </counts>
@@ -120,54 +130,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="284" column="24" selection-start-line="284" selection-start-column="24" selection-end-line="284" selection-end-column="24" />
+            <state relative-caret-position="107">
+              <caret line="655" column="4" selection-start-line="655" selection-start-column="4" selection-end-line="655" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9550#9559#0" expanded="true" />
-                <element signature="e#10045#10061#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1058#1059#0" expanded="true" />
+                <element signature="e#8389#8398#0" expanded="true" />
+                <element signature="e#8900#8917#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Test_Facility.java">
+        <entry file="file://$PROJECT_DIR$/src/test/Test_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="69">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Test_searchVacancy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Test_User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="133">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="276" column="43" selection-start-line="276" selection-start-column="43" selection-end-line="276" selection-end-column="43" />
+              <folding>
+                <element signature="method#importBooking#0;class#User#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#1508#1509#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,7 +218,11 @@
       <find>UtilTIme</find>
       <find>utiltime</find>
       <find>UtilTime</find>
+      <find>Controller controller = Controller.getInstance();</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -217,7 +247,6 @@
         <option value="$PROJECT_DIR$/src/Fsfbs/ExBookingHasPassed.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommandationAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Facility.java" />
-        <option value="$PROJECT_DIR$/src/test/Test_User.java" />
         <option value="$PROJECT_DIR$/src/test/Test_searchVacancy.java" />
         <option value="$PROJECT_DIR$/Config/config.properties" />
         <option value="$PROJECT_DIR$/src/Fsfbs/ExTimeSlotNotInOpeningHour.java" />
@@ -230,14 +259,15 @@
         <option value="$PROJECT_DIR$/src/Util/UtilsExport.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Controller.java" />
         <option value="$PROJECT_DIR$/src/Util/UtilsLoadconfig.java" />
-        <option value="$PROJECT_DIR$/src/Fsfbs/User.java" />
         <option value="$PROJECT_DIR$/src/Facility/Facility.java" />
-        <option value="$PROJECT_DIR$/src/test/Test_deleteBooking.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/Main.java" />
         <option value="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/Util/UtilTime.java" />
         <option value="$PROJECT_DIR$/src/test/Test_addBooking.java" />
+        <option value="$PROJECT_DIR$/src/Fsfbs/User.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_deleteBooking.java" />
+        <option value="$PROJECT_DIR$/src/test/Test_User.java" />
         <option value="$PROJECT_DIR$/src/test/Test_FSFBS.java" />
       </list>
     </option>
@@ -258,6 +288,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,24 +300,33 @@
             <path>
               <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
               <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fsfbs-source" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fsfbs-source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Fsfbs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
+    <property name="SearchEverywhereHistoryKey" value="replace&#9;ACTION&#9;Replace&#10;UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543538410375" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544347542637" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -304,8 +345,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Test_FSFBS.test_facility_getFacilityId">
-    <configuration name="Test_FSFBS.test_Facility6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Fsfbs.Main" />
+      <module name="fsfbs-source" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Fsfbs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test_FSFBS.test_addBooking2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
         <pattern>
@@ -315,14 +369,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
-      <option name="METHOD_NAME" value="test_Facility6" />
+      <option name="METHOD_NAME" value="test_addBooking2" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_FSFBS.test_facility_getFacilityId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_FSFBS.test_addBooking3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
         <pattern>
@@ -332,14 +386,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
-      <option name="METHOD_NAME" value="test_facility_getFacilityId" />
+      <option name="METHOD_NAME" value="test_addBooking3" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_addBooking (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_FSFBS.test_searchBookingById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
         <pattern>
@@ -348,14 +402,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_addBooking" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
+      <option name="METHOD_NAME" value="test_searchBookingById" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_addBooking (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_FSFBS.test_searchBookingById1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
         <pattern>
@@ -364,24 +419,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_addBooking" />
-      <option name="METHOD_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_addBooking.test_addBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="fsfbs-source" />
-      <extension name="coverage" runner="jacoco">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_addBooking" />
-      <option name="METHOD_NAME" value="test_addBooking" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
+      <option name="METHOD_NAME" value="test_searchBookingById1" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <method v="2">
@@ -398,19 +437,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Test_addBooking.test_addBooking" />
-      <item itemvalue="JUnit.Test_addBooking (1)" />
-      <item itemvalue="JUnit.Test_addBooking (2)" />
-      <item itemvalue="JUnit.Test_FSFBS.test_Facility6" />
-      <item itemvalue="JUnit.Test_FSFBS.test_facility_getFacilityId" />
+      <item itemvalue="JUnit.Test_FSFBS.test_searchBookingById" />
+      <item itemvalue="JUnit.Test_FSFBS.test_addBooking3" />
+      <item itemvalue="JUnit.Test_FSFBS.test_addBooking2" />
+      <item itemvalue="JUnit.Test_FSFBS.test_searchBookingById1" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Test_FSFBS.test_facility_getFacilityId" />
-        <item itemvalue="JUnit.Test_FSFBS.test_Facility6" />
-        <item itemvalue="JUnit.Test_addBooking (2)" />
-        <item itemvalue="JUnit.Test_addBooking (1)" />
-        <item itemvalue="JUnit.Test_addBooking.test_addBooking" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Test_FSFBS.test_addBooking3" />
+        <item itemvalue="JUnit.Test_FSFBS.test_addBooking2" />
+        <item itemvalue="JUnit.Test_FSFBS.test_searchBookingById1" />
+        <item itemvalue="JUnit.Test_FSFBS.test_searchBookingById" />
       </list>
     </recent_temporary>
   </component>
@@ -439,6 +478,7 @@
       <workItem from="1543466552287" duration="1387000" />
       <workItem from="1543499870121" duration="94000" />
       <workItem from="1543500563185" duration="4184000" />
+      <workItem from="1544342007660" duration="4396000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -492,44 +532,45 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 55m 55s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_searchBookingById - 2018.12.09 at 16h 30m 13s.xml">
+      <configuration name="Test_FSFBS.test_searchBookingById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 56m 22s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_searchBookingById - 2018.12.09 at 16h 31m 14s.xml">
+      <configuration name="Test_FSFBS.test_searchBookingById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 56m 53s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_searchBookingById - 2018.12.09 at 16h 36m 50s.xml">
+      <configuration name="Test_FSFBS.test_searchBookingById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 22h 59m 26s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking2 - 2018.12.09 at 16h 46m 23s.xml">
+      <configuration name="Test_FSFBS.test_addBooking2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_test_addBooking - 2018.11.29 at 23h 01m 27s.xml">
-      <configuration name="Test_addBooking.test_addBooking" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 46m 28s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_(1) - 2018.11.29 at 23h 05m 23s.xml">
-      <configuration name="Test_addBooking (1)" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 47m 43s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_(1) - 2018.11.29 at 23h 06m 16s.xml">
-      <configuration name="Test_addBooking (1)" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 47m 49s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_addBooking_(2) - 2018.11.29 at 23h 23m 09s.xml">
-      <configuration name="Test_addBooking (2)" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 48m 07s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_FSFBS_test_Facility6 - 2018.11.29 at 23h 36m 29s.xml">
-      <configuration name="Test_FSFBS.test_Facility6" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 54m 07s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Test_FSFBS_test_facility_getFacilityId - 2018.11.29 at 23h 36m 39s.xml">
-      <configuration name="Test_FSFBS.test_facility_getFacilityId" configurationId="JUnit" />
+    <history-entry file="Test_FSFBS_test_addBooking3 - 2018.12.09 at 16h 56m 00s.xml">
+      <configuration name="Test_FSFBS.test_addBooking3" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47505000" />
+    <option name="totallyTimeSpent" value="51901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32916668" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32916668" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -539,8 +580,8 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.4516129" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32855436" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49711815" weight="0.41099164" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39823008" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49711815" visible="true" weight="0.41099164" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39784947" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3292232" />
@@ -548,7 +589,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32923833" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50429183" side_tool="true" weight="0.2113022" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49570817" weight="0.2113022" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.38446411" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.38351256" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -558,7 +599,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" weight="0.5338542" />
+      <window_info anchor="right" id="Coverage" order="9" weight="0.53333336" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,6 +623,14 @@
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/Test_FSFBS.java</url>
+          <line>177</line>
+          <properties class="test.Test_FSFBS" method="test_Facility1">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -590,7 +639,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilsImport.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/Membership.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/ExSportCentreNotExist.java" />
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/UtilValidation.java" />
@@ -630,27 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fsfbs/Facility.java" />
     <entry file="file://$PROJECT_DIR$/src/Util/UtilsImport.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilValidation.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilLoadConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/Membership/Membership.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -700,13 +729,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1562">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilExport.java" />
     <entry file="file://$PROJECT_DIR$/src/Exception/ExBookingNotExist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -746,28 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1426">
           <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="273" column="29" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
-          <folding>
-            <element signature="method#importBooking#0;class#User#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -834,23 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_Facility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_searchVacancy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -858,31 +842,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Test_Facility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="34" />
+        <state relative-caret-position="161">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Test_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="284" column="24" selection-start-line="284" selection-start-column="24" selection-end-line="284" selection-end-column="24" />
+        <state relative-caret-position="69">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9550#9559#0" expanded="true" />
-            <element signature="e#10045#10061#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1508#1509#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_UtilTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_addBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="133">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_deleteBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-497">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fsfbs/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="276" column="43" selection-start-line="276" selection-start-column="43" selection-end-line="276" selection-end-column="43" />
+          <folding>
+            <element signature="method#importBooking#0;class#User#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="655" column="4" selection-start-line="655" selection-start-column="4" selection-end-line="655" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#8389#8398#0" expanded="true" />
+            <element signature="e#8900#8917#0" expanded="true" />
           </folding>
         </state>
       </provider>

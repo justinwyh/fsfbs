@@ -8,6 +8,7 @@ import Exception.ExFacilityIdNotExist;
 import Exception.ExIOErrorinGetConfig;
 import Exception.ExMemberShipFilePathNotExist;
 import Exception.ExSCFilesNotExist;
+import Exception.ExFullBooking;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,17 +20,6 @@ public class Test_deleteBooking {
 		}
 	}
 
-	@Test
-	public void test_deleteBooking() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
-		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1617,utilTime_stub);
-		int result = tester.getTodayBookingNum();
-		tester.deleteBooking("20181125E1B21617",utilTime_stub);
-		assertEquals(0, result-1);
-	}
 	
 //	@Test
 //	public void test_deleteBooking2() throws ExFullBooking, ExBookingNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
