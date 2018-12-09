@@ -449,14 +449,14 @@ public class Test_FSFBS {
         setOutput();
 		User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
 		tester.getFastRecommandation(UtilTime.getTimeInstance());
-		String expected = "\n+--------------------Fast Recommendation System---------------------+\n" +
-                "Current Time: 15:00:00\n" +
-                "List of available courts in Island East Sports Centre on 16:00:00: 2\n" +
-                "1: E2B1\n" +
-                "2: E2B2\n" +
-                "List of available courts in Java Road Sports Centre on 16:00:00: 2\n" +
-                "1: E1B1\n" +
-                "2: E1B2\n";
+		String expected = "\n+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n"+
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n";
 		assertEquals(expected,getOutput());
 	}
 
@@ -488,20 +488,20 @@ public class Test_FSFBS {
                 "--------------------------End----------------------------\n" +
                 "\n" +
                 "\n" +
-                "+--------------------Fast Recommendation System---------------------+\n" +
-                "Current Time: 15:00:00\n" +
-                "List of available courts in Island East Sports Centre on 16:00:00: 2\n" +
-                "1: E2B1\n" +
-                "2: E2B2\n" +
-                "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" +
-                "\n" +
-                "Sport Centres in other districts:\n" +
-                "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" +
-                "1: S2B1\n" +
-                "2: S2B2\n" +
-                "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" +
-                "1: N2B2\n" +
-                "2: N2B1\n";
+               "+--------------------Fast Recommendation System---------------------+\n" + 
+               "Current Time: 15:00:00\n" + 
+               "List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+               "1: E2B1\n" + 
+               "2: E2B2\n" + 
+               "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" + 
+               "\n" + 
+               "Sport Centres in other districts:\n" + 
+               "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" + 
+               "1: N2B2\n" + 
+               "2: N2B1\n" + 
+               "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" + 
+               "1: S2B1\n" + 
+               "2: S2B2\n";
 		assertEquals(expected,getOutput());
 	}
 
@@ -588,22 +588,51 @@ public class Test_FSFBS {
 
 	@Test
 	public void test_addBooking2(){
+        setOutput();
 		UtilTime utilTime_stub = UtilTime.getTimeInstance();
 		User tester = new User("Mr B", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 2211,utilTime_stub);
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
+		assertEquals("The input time range is not correct. Please input again.\n", getOutput());
 	}
 
 	@Test
 	public void test_addBooking3(){
+        setOutput();
             UtilTime utilTime_stub = UtilTime.getTimeInstance();
             User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
             tester.addBooking("E2B2", 1617, utilTime_stub);
             tester.addBooking("E2B2", 1718, utilTime_stub);
             tester.addBooking("E2B2", 1819, utilTime_stub);
-            boolean result = tester.addBooking("E2B2", 1920, utilTime_stub);
-            assertEquals(false,result);
+            tester.addBooking("E2B2", 1920, utilTime_stub);
+            String result = "\n-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21617\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "\n" +
+                    "-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21718\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "\n" +
+                    "-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21819\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "All badminton court has been fulled in the time slot: 1920 in Island East Sports Centre\n" +
+                    "Please choose another time slot or sport centre.\n";
+            assertEquals(result,getOutput());
 	}
 
 	@Test
@@ -612,43 +641,62 @@ public class Test_FSFBS {
 		UtilTime utilTime_stub = UtilTime.getTimeInstance();
 		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
-		tester.addBooking("E1B2", 1415,utilTime_stub);
+		tester.addBooking("E1B2", 1718,utilTime_stub);
 
 		User tester2 = new User("Mr B", "password", "Membership_Adult", "E1",  "badminton");
-		tester2.addBooking("E1B2", 1415,utilTime_stub);
+		tester2.addBooking("E1B2", 1718,utilTime_stub);
 		int result = tester2.getTodayBookingNum();
 		assertEquals(0, result);
 	}
-
-    @Test
-	public void test_addBooking5(){
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
-		tester.addBooking("E1B2", 1112,UtilTime.getTimeInstance());
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
-	}
+	
 
 
 	@Test
 	public void test_deleteBooking1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
-		Controller controller = Controller.getInstance();
+		setOutput();
 		UtilTime utilTime_stub = UtilTime.getTimeInstance();
-		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1617,utilTime_stub);
-		boolean result = tester.deleteBooking("20181105E1B21617",utilTime_stub);
-		assertEquals(false, result);
+		tester.deleteBooking("20181105E1B21617",utilTime_stub);
+		String result = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "Booking ID does not exist! Cannot delete!\n";
+		assertEquals(result, getOutput());
 	}
 
 	@Test
 	public void test_deleteBooking2() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
-		Controller controller = Controller.getInstance();
+		setOutput();
 		UtilTime utilTime_stub = UtilTime.getTimeInstance();
-		controller.importData();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1617,utilTime_stub);
-		boolean result = tester.deleteBooking("20180505E1B21617",utilTime_stub);
-		assertEquals(true, result);
+		tester.deleteBooking("20180505E1B21617",utilTime_stub);
+		String result = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "\n" +
+                "-------------------Delete Confirmation-------------------\n" +
+                "User ID: Mr A\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Booking with id: 20180505E1B21617 has been deleted.\n" +
+                "--------------------------End----------------------------\n" +
+                "\n";
+		assertEquals(result, getOutput());
 	}
 
 
