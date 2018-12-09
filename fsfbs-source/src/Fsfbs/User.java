@@ -149,7 +149,7 @@ public class User {
             }
 
             //User password
-            password = validatePassword();
+            password = validatePassword(in);
 
             //set membership
             membershipName = getMembershipbyAge().getMembershipName();
@@ -222,13 +222,12 @@ public class User {
 
 
     //-----------------validate User Pw-------------------
-    private static String validatePassword() {
-        Scanner in = new Scanner(System.in);
+    private static String validatePassword(Scanner in) {
         String password;
         //User password set up
         while (true) {
             System.out.println("Please enter your password:");
-            password = in.next();
+            password = in.nextLine();
             System.out.println("Please enter your password again.");
             if (password.equals(in.next())) {
                 return password;

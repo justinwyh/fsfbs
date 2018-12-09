@@ -47,7 +47,7 @@ public class Test_FSFBS {
     }
 
     //UtilValidation
-    
+
     @BeforeEach
     public void setUp() throws ExFacilityIdNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         Controller controller = Controller.getInstance();
@@ -99,7 +99,7 @@ public class Test_FSFBS {
     }
 
     //SportCentre
-    
+
     @Test
     public void test_SportFacilities1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
         Controller controller = Controller.getInstance();
@@ -176,7 +176,7 @@ public class Test_FSFBS {
 
 
     //Facility
-    
+
     @Test
     public void test_Facility1() {
     	double delta = 0.0000001d;
@@ -271,7 +271,7 @@ public class Test_FSFBS {
             boolean result = testFacility.canBook(1112, utiltime);
         } catch (ExInputTimeEarlierThanCurrentTime e) {
             assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } 
+        }
     }
 
     @Test
@@ -351,7 +351,7 @@ public class Test_FSFBS {
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canDelete(1317, utiltime);
-           
+
         }  catch (ExAllowToDeleteOneHourOnly e) {
             assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
         }
@@ -367,7 +367,7 @@ public class Test_FSFBS {
             boolean result = Facility.canDelete(910, utiltime);
         } catch (ExTimeSlotNotInOpeningHour e) {
             assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } 
+        }
     }
 
     @Test
@@ -441,9 +441,9 @@ public class Test_FSFBS {
         String result = testFacility.getBookingStatus(1112);
         assertEquals("Booked, Booking ID: 20180101A1B11112", result);
     }
-    
+
     //Fast Recommendation
-    
+
 	@Test
 	public void test_getFastRecommendation1() {
         setOutput();
@@ -459,7 +459,7 @@ public class Test_FSFBS {
                 "2: E1B2\n";
 		assertEquals(expected,getOutput());
 	}
-	
+
 	@Test
 	public void test_getFastRecommendation2() {
         setOutput();
@@ -495,47 +495,47 @@ public class Test_FSFBS {
                 "2: E2B2\n" +
                 "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" +
                 "\n" +
-                "Sport Centres in other districts:\n" + 
-                "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" + 
-                "1: S2B1\n" + 
-                "2: S2B2\n" + 
-                "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" + 
-                "1: N2B2\n" + 
+                "Sport Centres in other districts:\n" +
+                "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" +
+                "1: S2B1\n" +
+                "2: S2B2\n" +
+                "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" +
+                "1: N2B2\n" +
                 "2: N2B1\n";
 		assertEquals(expected,getOutput());
 	}
-    
+
 	//User
-	
+
     @Test
     public void test_getMembershipByAge1() {
     	setInput("10");
     	Membership result = User.getMembershipbyAge();
     	assertEquals(Membership_Student.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge2() {
     	setInput("70");
     	Membership result = User.getMembershipbyAge();
     	assertEquals(Membership_Senior.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge3() {
     	setInput("20");
     	Membership result = User.getMembershipbyAge();
     	assertEquals(Membership_Adult.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge4() {
     	setInput("-10\n10");
     	Membership result = User.getMembershipbyAge();
     	assertEquals(Membership_Student.getInstance(),result);
     }
-    
-    
+
+
     @Test
     public void test_printbookinghistory() {
     	setOutput();
@@ -546,7 +546,7 @@ public class Test_FSFBS {
     	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
     	assertEquals(output,getOutput());
     }
-    
+
     @Test
     public void test_searchVacancies() {
     	    User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
@@ -867,7 +867,7 @@ public class Test_FSFBS {
     }
 
     //Controller
-    
+
 		@Test
 		public void test_controller() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException {
 			Controller controller = Controller.getInstance();
@@ -938,9 +938,43 @@ public class Test_FSFBS {
 				assertEquals(new ExSportCentreNotExist().toString(), e.toString());
 			}
 		}
-		
-	
-	
+
+		@Test
+		public void test_Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
+			setOutput();
+			User user = User.Login();
+			assertEquals("Ken",user.getUserName());
+		}
+		@Test
+		public void test_Login1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			try {
+			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator"));
+			setOutput();
+			User user = User.Login();
+
+			}
+			catch(Exception e) {
+				assertEquals(new ExMaxFailLogin().toString(),e.toString());
+				};
+		}
+		@Test
+		public void test_SetUpAC1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Ken"+System.getProperty("line.separator")+
+					"Polo"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"ABC"+System.getProperty("line.separator")+
+					"5"+System.getProperty("line.separator")+
+					"E6"+System.getProperty("line.separator")+
+					"E1"+System.getProperty("line.separator")+
+					"H"+System.getProperty("line.separator")+
+					"B"+System.getProperty("line.separator"));
+			User.setUpAC();
+			}
 
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
