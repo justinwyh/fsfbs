@@ -46,7 +46,8 @@ public class Test_FSFBS {
         System.setIn(systemIn);
     }
 
-
+    //UtilValidation
+    
     @BeforeEach
     public void setUp() throws ExFacilityIdNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         Controller controller = Controller.getInstance();
@@ -74,7 +75,6 @@ public class Test_FSFBS {
         assertEquals(false, result);
     }
 
-    //UtilValidation
     @Test
     public void test_timevalidation_1() {
         UtilValidation valid = UtilValidation.getValidationInstance();
@@ -99,6 +99,7 @@ public class Test_FSFBS {
     }
 
     //SportCentre
+    
     @Test
     public void test_SportFacilities1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
         Controller controller = Controller.getInstance();
@@ -163,7 +164,6 @@ public class Test_FSFBS {
         assertTrue(expected.equals(testsc.getFacilitiesMap()));
     }
 
-    //S1B vacancy
     @Test
     public void test_SportFacilities5() throws ExFacilityIdNotExist, ExFacilityNameNotExist, ExSportCentreNotExist, ExTimeRangeNotCorrect, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExInputTimeEarlierThanCurrentTime, IOException, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         UtilTime utilTime = UtilTime.getTimeInstance();
@@ -175,24 +175,24 @@ public class Test_FSFBS {
     }
 
 
-
-    //Facility Test Stub
+    //Facility
+    
     @Test
     public void test_Facility1() {
-        Facility_Badminton fb = new Facility_Badminton("E1B3");
-        assertEquals(59, fb.getPrice());
+        Facility fb = new Facility_Badminton("E1B3");
+        assertTrue(fb.getPrice() == 59);
     }
 
     @Test
     public void test_Facility2() {
-        Facility_Badminton fb = new Facility_Badminton("E1B3");
+        Facility fb = new Facility_Badminton("E1B3");
         assertEquals("badminton court", fb.getFacilityType());
     }
 
     @Test
     public void test_Facility3() {
-        Facility_ActivityRoom ar = new Facility_ActivityRoom("E1A3");
-        assertEquals(99, ar.getPrice());
+        Facility ar = new Facility_ActivityRoom("E1A3");
+        assertTrue(ar.getPrice()== 99);
     }
 
     @Test
@@ -204,7 +204,7 @@ public class Test_FSFBS {
     @Test
     public void test_Facility5() {
         Facility_TableTennis ar = new Facility_TableTennis("E1T3");
-        assertEquals(29, ar.getPrice());
+        assertTrue(ar.getPrice() == 29);
     }
 
     @Test
@@ -285,213 +285,115 @@ public class Test_FSFBS {
     }
 
     @Test
-    public void test_facility_canBook_3() {
+    public void test_facility_canBook_3() throws ExTimeSlotNotInOpeningHour,IOException, ExInputTimeEarlierThanCurrentTime, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly {
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1213, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canBook(1312, utiltime);
-            assertEquals(false, result);
         } catch (ExTimeRangeNotCorrect e) {
             assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToBookOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExInputTimeEarlierThanCurrentTime e) {
-            assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
     @Test
-    public void test_facility_canBook_4() {
+    public void test_facility_canBook_4() throws ExTimeRangeNotCorrect,IOException, ExInputTimeEarlierThanCurrentTime, ExInputTimeEarlierThanCurrentTime,ExAllowToBookOneHourOnly {
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1213, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canBook(910, utiltime);
-            assertEquals(false, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToBookOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExInputTimeEarlierThanCurrentTime e) {
-            assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
         } catch (ExTimeSlotNotInOpeningHour e) {
             assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
     @Test
-    public void test_facility_canBook_5() {
+    public void test_facility_canBook_5() throws ExTimeRangeNotCorrect,ExTimeSlotNotInOpeningHour,IOException, ExInputTimeEarlierThanCurrentTime, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1819, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
-        try {
-            boolean result = testFacility.canBook(1819, utiltime);
-            assertEquals(false, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToBookOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExInputTimeEarlierThanCurrentTime e) {
-            assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        boolean result = testFacility.canBook(1819, utiltime);
+        assertEquals(false, result);
     }
 
     @Test
-    public void test_facility_canBook_6() {
+    public void test_facility_canBook_6() throws ExTimeRangeNotCorrect,ExTimeSlotNotInOpeningHour,IOException, ExInputTimeEarlierThanCurrentTime, ExInputTimeEarlierThanCurrentTime, ExAllowToBookOneHourOnly{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1213, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
-        try {
             boolean result = testFacility.canBook(1617, utiltime);
             assertEquals(true, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToBookOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExInputTimeEarlierThanCurrentTime e) {
-            assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
     @Test
-    public void test_facility_canDelete_1() {
+    public void test_facility_canDelete_1() throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExBookingHasPassed{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1617, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
-        try {
-            boolean result = testFacility.canDelete(1617, utiltime);
-            assertEquals(true, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToDeleteOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ExBookingHasPassed e) {
-            assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
-        }
+        boolean result = testFacility.canDelete(1617, utiltime);
+        assertEquals(true, result);
     }
 
     @Test
-    public void test_facility_canDelete_2() {
+    public void test_facility_canDelete_2() throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExBookingHasPassed{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1617, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canDelete(1317, utiltime);
-            assertEquals(true, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToDeleteOneHourOnly e) {
+           
+        }  catch (ExAllowToDeleteOneHourOnly e) {
             assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ExBookingHasPassed e) {
-            assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
         }
     }
 
     @Test
-    public void test_facility_canDelete_3() {
+    public void test_facility_canDelete_3() throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExBookingHasPassed{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1617, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = Facility.canDelete(910, utiltime);
-            assertEquals(true, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToDeleteOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
         } catch (ExTimeSlotNotInOpeningHour e) {
             assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ExBookingHasPassed e) {
-            assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
-        }
+        } 
     }
 
     @Test
-    public void test_facility_canDelete_4() {
+    public void test_facility_canDelete_4() throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExBookingHasPassed{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1617, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = Facility.canDelete(1513, utiltime);
-            assertEquals(true, result);
         } catch (ExTimeRangeNotCorrect e) {
             assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToDeleteOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ExBookingHasPassed e) {
-            assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
         }
     }
 
     @Test
-    public void test_facility_canDelete_5() {
+    public void test_facility_canDelete_5() throws ExTimeRangeNotCorrect, ExAllowToDeleteOneHourOnly, ExTimeSlotNotInOpeningHour, IOException, ExBookingHasPassed{
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1617, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = Facility.canDelete(1112, utiltime);
-            assertEquals(true, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToDeleteOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         } catch (ExBookingHasPassed e) {
             assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
         }
     }
 
-    //Booking Class
+    //Booking
     @Test
     public void test_Booking1() throws IOException {
         UtilTime utilTime = UtilTime_stub.getTimeInstance();
@@ -503,7 +405,7 @@ public class Test_FSFBS {
         UtilTime utilTime = UtilTime_stub.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
         System.out.println(bk.getBookingID());
-        assertEquals("20180101E1B111314", bk.getBookingID());
+        assertEquals("20180505E1B11314", bk.getBookingID());
     }
 
     @Test
@@ -536,8 +438,19 @@ public class Test_FSFBS {
         String result = testFacility.getBookingStatus(1112);
         assertEquals("Booked, Booking ID: 20180101A1B11112", result);
     }
+    
+    //User 
+    @Test
+    public void test_printbookinghistory() {
+    	setOutput();
+    	User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+    	String output = "----------------------------Booking History--------------------------" + "\n\n" +
+    	"               There is no bookings currently."+ "\n\n"
+    	+ "---------------------------------End---------------------------------\n";
+    	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
+    	assertEquals(output,getOutput());
+    }
 
-    //user
     @Test
     public void test_searchBookingById1() throws ExBookingNotExist, IOException, ExFullBooking {
     	User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
@@ -725,9 +638,8 @@ public class Test_FSFBS {
     @Test
     public void test_Exception7() {
         ExFullBooking e = new ExFullBooking("E1", "badminton", 1314);
-        assertEquals("All " + "E1B1" + " has been fulled in the time slot: " + "1314" + " in " + "E1" + "\n"
-                + "Please choose another time slot or sport centre.", e.getMessage());
-    }
+        assertEquals("All " + "badminton" + " has been fulled in the time slot: " + "1314" + " in " + "E1" + "\n"
+                + "Please choose another time slot or sport centre.", e.getMessage());}
 
     @Test
     public void test_Exception8() {
@@ -790,8 +702,6 @@ public class Test_FSFBS {
     }
 
     //UtilTime
- 
-
     @Test
     public void test_UtilTime1() {
         UtilTime utilTime = new UtilTime();
