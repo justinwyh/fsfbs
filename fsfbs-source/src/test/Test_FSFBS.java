@@ -25,6 +25,7 @@ import Util.UtilValidation;
 import Util.UtilsLoadconfig;
 import test.Test_deleteBooking.UtilTime_stub;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.AfterClass;
@@ -36,10 +37,10 @@ import Exception.*;
 
 
 public class Test_FSFBS {
-	
+
     private final InputStream systemIn = System.in;
     private ByteArrayInputStream testIn;
-    
+
     @AfterClass
     public void restoreSystemInput() {
         System.setIn(systemIn);
@@ -555,7 +556,7 @@ public class Test_FSFBS {
         String result = testFacility.getBookingStatus(1112);
         assertEquals("Booked, Booking ID: 20180101A1B11112", result);
     }
-    
+
     //user
     @Test
     public void test_searchBookingById1() throws ExBookingNotExist, IOException, ExFullBooking {
@@ -568,7 +569,7 @@ public class Test_FSFBS {
         assertEquals(expected.getFacilitiesID(),result.getFacilitiesID());
         assertEquals(expected.getuserName(),result.getuserName());
     }
-    
+
     @Test
     public void test_searchBookingById2() {
     	try {
@@ -580,7 +581,7 @@ public class Test_FSFBS {
     		assertEquals("Booking ID does not exist! Cannot delete!", e.getMessage());
     	}
     }
-    
+
     @Test
 	public void test_addBooking(){
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
@@ -605,7 +606,7 @@ public class Test_FSFBS {
             tester.addBooking("E2B2", 1617, utilTime_stub);
             tester.addBooking("E2B2", 1718, utilTime_stub);
             tester.addBooking("E2B2", 1819, utilTime_stub);
-            boolean result = tester.addBooking("E2B2", 1920, utilTime_stub);	
+            boolean result = tester.addBooking("E2B2", 1920, utilTime_stub);
             assertEquals(false,result);
 	}
 
@@ -622,7 +623,7 @@ public class Test_FSFBS {
 		int result = tester2.getTodayBookingNum();
 		assertEquals(0, result);
 	}
-	
+
     @Test
 	public void test_addBooking5(){
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
@@ -630,7 +631,7 @@ public class Test_FSFBS {
 		int result = tester.getTodayBookingNum();
 		assertEquals(0, result);
 	}
-    
+
 
 	@Test
 	public void test_deleteBooking1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
@@ -642,7 +643,7 @@ public class Test_FSFBS {
 		boolean result = tester.deleteBooking("20181105E1B21617",utilTime_stub);
 		assertEquals(false, result);
 	}
-	
+
 	@Test
 	public void test_deleteBooking2() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
 		Controller controller = Controller.getInstance();
@@ -653,8 +654,8 @@ public class Test_FSFBS {
 		boolean result = tester.deleteBooking("20180505E1B21617",utilTime_stub);
 		assertEquals(true, result);
 	}
-	
-    
+
+
     @Test
     public void test_searchVacancy() throws ExFacilityIdNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         setOutput();
@@ -884,11 +885,81 @@ public class Test_FSFBS {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:00:00");
         assertEquals(dtf.format(LocalDateTime.now().plusHours(1)), utilTime.getNextAvailableTimeSlot(1));
     }
-    
-   
 
 
 
+
+
+		@Test
+		public void test_controller() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException {
+			Controller controller = Controller.getInstance();
+			controller.importData();
+			controller.printAllFacilities();
+			controller.exportAllMembeer();
+			controller.exportAllSchedule();
+		}
+
+		//exist
+		@Test
+		public void test_searchUserById() {
+			Controller controller = Controller.getInstance();
+			User user = controller.getUserbyID("Ada");
+			assertEquals(new User("Ada","","","","").getUserName(),user.getUserName());
+		}
+
+		//not exist
+		@Test
+		public void test_searchUserById_False() {
+			try {
+			Controller controller = Controller.getInstance();
+			controller.searchSCByDistrict("E1", true);
+			controller.searchUserById("John");
+			}
+			catch(Exception e) {
+				assertEquals(new ExUserIdNotExist("John").toString(),e.toString());
+			}
+		}
+
+		@Test
+		public void test_SearchSportCentre() throws ExSportCentreNotExist, ExFacilityNameNotExist, ExFacilityIdNotExist {
+			Controller controller = Controller.getInstance();
+			SportCentre sc = controller.searchSportCentre("E1");
+			controller.searchFacilitiesByType(sc, "badminton");
+			controller.searchFacilitiesByType(sc, "tableTennis");
+			controller.searchFacilitiesByType(sc, "activityRoom");
+			assertEquals("E1",sc.getScId());
+		}
+
+		@Test
+		public void test_searchSCByDistrict() {
+			Controller controller = Controller.getInstance();
+
+		}
+
+		@Test
+		public void test_searchSCByDistrict_1() {
+			Controller controller = Controller.getInstance();
+
+		}
+
+		@Test
+		public void test_searchUserbyid() throws ExUserIdNotExist {
+			Controller controller = Controller.getInstance();
+			User user = controller.searchUserById("Ada");
+			Set<SportCentre> set = controller.searchSCByDistrict("V1", false);
+			assertEquals(user.getUserName(),new User("Ada","","","","").getUserName());
+		}
+		//ExSportCentreNotExist();
+
+		@Test
+		public void test_searchSportFacility() throws ExSportCentreNotExist {
+			Controller controller = Controller.getInstance();
+			try{
+			SportCentre sc = controller.searchSportCentre("V1");}
+			catch(Exception e) {
+				assertEquals(new ExSportCentreNotExist().toString(), e.toString());
+			}
+		}
 
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
@@ -899,7 +970,7 @@ public class Test_FSFBS {
         bos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bos));
     }
-    
+
     private void setInput(String input) {
     	 testIn = new ByteArrayInputStream(input.getBytes());
          System.setIn(testIn);
