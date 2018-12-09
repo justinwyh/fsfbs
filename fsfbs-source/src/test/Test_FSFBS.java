@@ -124,8 +124,9 @@ public class Test_FSFBS {
 		public void test_SportFacilities6() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
 			Controller controller = Controller.getInstance();
 			SportCentre temp = controller.searchSportCentre("E1");
+
 		}
-		
+
 		@Test
 		public void test_SportFacilities7() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
 			Controller controller = Controller.getInstance();
@@ -137,7 +138,7 @@ public class Test_FSFBS {
 				assertEquals("Your inputted facility id does not exist!",e.getMessage());
 			}
 		}
-		
+
 	    //S1B vacancy
 	    @Test
 	    public void test_SportFacilities5() throws ExFacilityIdNotExist, ExFacilityNameNotExist, ExSportCentreNotExist, ExTimeRangeNotCorrect, ExAllowToBookOneHourOnly, ExTimeSlotNotInOpeningHour, ExInputTimeEarlierThanCurrentTime, IOException, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
@@ -294,7 +295,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canBook_2() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -317,7 +318,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canBook_3() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -340,7 +341,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canBook_4() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -363,7 +364,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canBook_5() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -386,7 +387,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canBook_6() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -409,7 +410,7 @@ public class Test_FSFBS {
 				e.printStackTrace();
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canDelete_1() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -432,7 +433,7 @@ public class Test_FSFBS {
 				assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canDelete_2() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -455,7 +456,7 @@ public class Test_FSFBS {
 				assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canDelete_3() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -478,7 +479,7 @@ public class Test_FSFBS {
 				assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canDelete_4() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -501,7 +502,7 @@ public class Test_FSFBS {
 				assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
 			}
 	    }
-	    
+
 	    @Test
 	    public void test_facility_canDelete_5() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -524,14 +525,14 @@ public class Test_FSFBS {
 				assertEquals("Your booking has passed. Booking cannot be cancelled.",e.getMessage());
 			}
 	    }
-	    
+
 	    //Booking Class
 	    @Test
 		public void test_Booking1() throws IOException {
 			UtilTime utilTime = UtilTime_stub.getTimeInstance();
 			Booking bk = new Booking("Ada",1314,"E1B1",utilTime);
 		}
-		
+
 		@Test
 		public void test_Booking2() throws IOException {
 		UtilTime utilTime = UtilTime_stub.getTimeInstance();
@@ -539,7 +540,7 @@ public class Test_FSFBS {
 		System.out.println(bk.getBookingID());
 		assertEquals("20180101E1B111314",bk.getBookingID());
 		}
-		
+
 		@Test
 		public void test_Booking3() throws IOException {
 			UtilTime utilTime = UtilTime_stub.getTimeInstance();
@@ -553,14 +554,14 @@ public class Test_FSFBS {
 			Booking bk = new Booking("Ada",1314,"E1B1",utilTime);
 			assertEquals("E1B1",bk.getFacilitiesID());
 		}
-		
+
 		@Test
 		public void test_Booking5() throws IOException {
 			UtilTime utilTime = UtilTime_stub.getTimeInstance();
 			Booking bk = new Booking("Ada",1314,"E1B1",utilTime);
 			assertEquals("Ada",bk.getuserName());
 		}
-	    
+
 	    @Test
 	    public void test_facility_getBookingStatus() {
 	    	Facility testFacility = new Facility_Badminton("A1B1");
@@ -569,8 +570,8 @@ public class Test_FSFBS {
 	    	String result = testFacility.getBookingStatus(1112);
 	    	assertEquals("Booked, Booking ID: 20180101A1B11112",result);
 	    }
-	    
-	    
+
+
 
 	    //Exception
 	    @Test
@@ -591,7 +592,7 @@ public class Test_FSFBS {
 	        assertEquals("Your booking has passed. Booking cannot be cancelled.", e.getMessage());
 	    }
 
-		
+
 		@Test
 		public void test_Exception4() {
 			ExBookingNotExist e = new ExBookingNotExist();
@@ -679,7 +680,7 @@ public class Test_FSFBS {
 	        LocalDateTime now = LocalDateTime.now();
 			assertEquals(dtf.format(now),utilTime.getCurrentTime());
 		}
-		
+
 		@Test
 		public void test_UtilTime2() {
 			UtilTime utilTime = new UtilTime();
@@ -732,7 +733,7 @@ public class Test_FSFBS {
 			UtilTime utilTime = new UtilTime();
 			assertEquals(2324,utilTime.getTimeSlot("23:00","00:00"));
 		}
-	
+
 		@Test
 		public void test_UtilTime9() {
 			UtilTime utilTime = new UtilTime();

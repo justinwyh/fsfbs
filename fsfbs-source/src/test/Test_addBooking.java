@@ -1,8 +1,7 @@
 package test;
 import Fsfbs.*;
 import Util.UtilTime;
-/*
-import org.powermock.api.easymock.annotation.Mock;
+
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -25,7 +24,7 @@ import Exception.ExSCFilesNotExist;
 @PrepareForTest({UtilTime.class})
 class Test_addBooking {
 	
-	@Mock
+	//@Mock
 	private UtilTime mockUtilTime;
 	
 	@Before
@@ -89,4 +88,3 @@ class Test_addBooking {
 	}
 
 }
-*/
