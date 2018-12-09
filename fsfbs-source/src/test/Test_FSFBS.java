@@ -897,8 +897,6 @@ public class Test_FSFBS {
 			setInput(
 					"Ken"+System.getProperty("line.separator")+
 					"Polo"+System.getProperty("line.separator")+
-					"1234"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
 					"123"+System.getProperty("line.separator")+
 					"5"+System.getProperty("line.separator")+
