@@ -10,7 +10,7 @@ import Util.UtilValidation;
 public class Main {
  public static void main(String[] args) throws IOException, ExIOErrorinGetConfig
  {
-/*
+
 	 
      try {
          Controller controller = Controller.getInstance();
@@ -29,27 +29,27 @@ public class Main {
          welcome();
 
          //Step 2: Choose either login or create user
-         loginOrCreateUser();
-         User user = User.Login();
+         loginOrCreateUser(in);
+         User user = User.Login(in);
          label:
          while (true) {
              TimeUnit.SECONDS.sleep(3);
              user.getFastRecommandation(utilTime);
              userguide();
-             String input = in.next();
+             String input = in.nextLine();
              switch (input) {
                  case "vacancy":
                      controller.printAllFacilities();
                      System.out.println("\nPlease enter the key of Sport Centre:");
-                     String sportCentre = in.next();
+                     String sportCentre = in.nextLine();
                      System.out.println("\nPlease enter the type of court you want to book:");
                      System.out.println("e.g. badminton, tableTennis, activityRoom");
                      String court;
-                     court = in.next();
+                     court = in.nextLine();
                      while (!(court.equals("badminton") || court.equals("tableTennis") || court.equals("activityRoom"))) {
                          System.out.println("Wrong court information entered.");
                          System.out.println("\nPlease enter: badminton, tableTennis, activityRoom");
-                         court = in.next();
+                         court = in.nextLine();
                      }
                      user.searchVacancies(sportCentre, court);
                      break;
@@ -101,17 +101,16 @@ public class Main {
      }
  
 
- private static void loginOrCreateUser() {
+ private static void loginOrCreateUser(Scanner in) {
      String userinput;
      while (true) {
-         Scanner in = new Scanner(System.in);
-         userinput = in.next();
+         userinput = in.nextLine();
          //Step 2: Log In or Create User
          switch (userinput) {
              case "Y":
                  return;
              case "N":
-                 User.setUpAC(); //setupAccount
+                 User.setUpAC(in); //setupAccount
 
                  return;
              default:
@@ -155,7 +154,7 @@ public class Main {
      System.out.println("|             Print my booking: please enter 'mybooking'            |");
      System.out.println("|                     exit: please enter 'exit'                     |");
      System.out.println("+-------------------------------------------------------------------+");
-  */
+  
  }
  
 }

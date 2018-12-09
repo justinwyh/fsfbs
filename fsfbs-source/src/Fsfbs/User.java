@@ -54,11 +54,10 @@ public class User {
     }
 
     //login----------------------------------------------------------------------------------------
-    public static User Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+    public static User Login(Scanner in) throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
         try {
             //variable initialization
-            String username, password;
-            Scanner in = new Scanner(System.in); //user input
+            String username, password;//user input
             UtilValidation utilValidation = UtilValidation.getValidationInstance();
             int failureCount = 0;
 
@@ -127,9 +126,8 @@ public class User {
     }
 
     //Setup Account ----------------------------------------------------------------------------------------
-    public static void setUpAC() {
+    public static void setUpAC(Scanner in) {
         try {
-            Scanner in = new Scanner(System.in);
             String[] temp = new String[5];
             String password;
             String inputSc;
@@ -158,9 +156,15 @@ public class User {
             controller.printAllFacilities();
             System.out.println("Please enter your prefer Sport Centre:");
             inputSc = in.next();
-            while (controller.searchSportCentre(inputSc) == null) {
-                System.out.println("Your input sport centre does not exist. Please input again.");
-                inputSc = in.next();
+            while (true) {
+            	try {
+            	controller.searchSportCentre(inputSc);
+                break;
+            	}
+            	catch(Exception e) {
+            		System.out.println("Your input sport centre does not exist. Please input again.");
+                    inputSc = in.nextLine();
+            	}
             }
 
             //set Facilities
@@ -223,13 +227,14 @@ public class User {
 
     //-----------------validate User Pw-------------------
     private static String validatePassword(Scanner in) {
-        String password;
+        String password, confirmpw;
         //User password set up
         while (true) {
             System.out.println("Please enter your password:");
             password = in.nextLine();
             System.out.println("Please enter your password again.");
-            if (password.equals(in.next())) {
+            confirmpw = in.nextLine();
+            if (password.equals(confirmpw)) {
                 return password;
             } else
                 System.out.println("Your password does not match with what you previously entered. Please enter again!");

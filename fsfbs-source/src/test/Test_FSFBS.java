@@ -18,6 +18,7 @@ import Facility.*;
 import Fsfbs.Booking;
 import Fsfbs.Controller;
 import Fsfbs.FastRecommendationAlgorithm;
+import Fsfbs.Main;
 import Fsfbs.SimulationMode;
 import Fsfbs.SportCentre;
 import Fsfbs.User;
@@ -444,7 +445,8 @@ public class Test_FSFBS {
     }
 
     //Fast Recommendation
-
+    //Output sequence can be different in the below two test cases as the code will randomly select sport centres from hashmap.
+    //Therefore, each computations can be different.
 	@Test
 	public void test_getFastRecommendation1() {
         setOutput();
@@ -491,23 +493,1127 @@ public class Test_FSFBS {
                 "\n" +
                "+--------------------Fast Recommendation System---------------------+\n" +
                "Current Time: 15:00:00\n" +
-               "List of available courts in Island East Sports Centre on 16:00:00: 2\n" +
-               "1: E2B1\n" +
-               "2: E2B2\n" +
-               "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" +
-               "\n" +
+              "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" + 
+              "List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+              "1: E2B1\n" + 
+              "2: E2B2\n\n" +
                "Sport Centres in other districts:\n" +
                "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" +
                "1: N2B2\n" +
                "2: N2B1\n" +
-               "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" +
-               "1: S2B1\n" +
-               "2: S2B2\n";
+               "List of available courts in Aberdeen Sports Centre on 16:00:00: 2\n" + 
+               "1: S1B2\n" + 
+               "2: S1B1\n";
 		assertEquals(expected,getOutput());
+	}
+	
+	//Main
+	//Output sequence can be different in the below two test cases as the code will randomly select sport centres from hashmap.
+    //Therefore, each computations can be different.
+	@Test
+	public void test_main1() throws IOException, ExIOErrorinGetConfig {
+		setOutput();
+		setInput("Y" + System.getProperty("line.separator") +
+				"Ken\n" + "123\n" + "add\n" + "E1B1\n" + "1617\n" + "delete\n" +
+				"20180505E1B11617\n"  + "vacancy\n" + "N1\n" + "badminton\n" + "mybooking\n" + "exit\n");
+		String[] args = new String [1];
+		Main.main(args);
+		String result = "+---------------------------------------------------+"+
+				"+------------------Simulation Mode------------------+\n" + 
+				"|Notice:                                            |\n" + 
+				"|In this simulation mode, all user output will not  |\n" + 
+				"|affect the data. If you want change to production  |\n" + 
+				"|mode, please change the RunConfigurationMode in the|\n" + 
+				"|configuration file to 1.                           |\n" + 
+				"|Sorry for causing any inconvenient        Thank you|\n" + 
+				"+---------------------------------------------------+\n" + 
+				"+----------------Debug Message Start----------------+\n" + 
+				"importing Member..\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Alice.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Bob.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justinwong.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Ada.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Ken.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justin.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Jeff.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justinw.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Cat.txt\n" + 
+				"importing Sport Facility..\n" + 
+				"importing Schedule..\n" + 
+				"+-------------------Debug Message End----------------+\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||\n" + 
+				"||  |      | |      |      |       |     |  | +--+ |  |        ||  ||\n" + 
+				"||  |  +   | +---+  |      |       |     |  |  ++  |  +---+    ++  ||\n" + 
+				"||  |  |   | |      |      |       |     |  |      |  |            ||\n" + 
+				"||  +--+---+ +----+ +----+ +-----+ +-----+  +      +  +----+   ++  ||\n" + 
+				"||        Welcome to Fast Sports Facility Booking System!          ||\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"=================Do you have an User Account? (Y/N)==================\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|                            LOG IN FSFBS                           |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter user name:\n" + 
+				"Your username: Ken\n" + 
+				"Please enter password:\n" + 
+				"Login Success. Loading...\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter the facility code(e.g. E1B1, E1B2)\n" + 
+				"Please enter time range\n" + 
+				"\n" + 
+				"-----------------Booking Confirmation--------------------\n" + 
+				"Booking ID: 20180505E1B11617\n" + 
+				"Sport Centre: Java Road Sports Centre\n" + 
+				"Facility Type: badminton court\n" + 
+				"Facility ID: E1B1\n" + 
+				"Price: 29.5\n" + 
+				"--------------------------End----------------------------\n" + 
+				"\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 1\n" + 
+				"1: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"\n" + 
+				"Sport Centres in other districts:\n" + 
+				"List of available courts in Fung Kam Street Sports Centre on 16:00:00: 2\n" + 
+				"1: N1B1\n" + 
+				"2: N1B2\n" + 
+				"List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" + 
+				"1: N2B2\n" + 
+				"2: N2B1\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 1\n" + 
+				"1: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"\n" + 
+				"Sport Centres in other districts:\n" + 
+				"List of available courts in Fung Kam Street Sports Centre on 16:00:00: 2\n" + 
+				"1: N1B1\n" + 
+				"2: N1B2\n" + 
+				"List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" + 
+				"1: N2B2\n" + 
+				"2: N2B1\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Please enter the booking ID you want to delete\n" + 
+				"----------------------------Booking History--------------------------\n" + 
+				"  Booking ID: 20180505E1B11617 Court ID: E1B1 Time: 16:00 - 17:00\n" + 
+				"---------------------------------End---------------------------------\n" + 
+				"\n" + 
+				"-------------------Delete Confirmation-------------------\n" + 
+				"User ID: Ken\n" + 
+				"Booking ID: 20180505E1B11617\n" + 
+				"Facility Type: badminton court\n" + 
+				"Facility ID: E1B1\n" + 
+				"Booking with id: 20180505E1B11617 has been deleted.\n" + 
+				"--------------------------End----------------------------\n" + 
+				"\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter the key for selecting Sport Centre\n" + 
+				"key : N1\n" + 
+				"Name : Fung Kam Street Sports Centre\n" + 
+				"Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" + 
+				"Tel : 24752334\n" + 
+				"key : N2\n" + 
+				"Name : Long Ping Sports Centre\n" + 
+				"Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" + 
+				"Tel : 24752404\n" + 
+				"key : W1\n" + 
+				"Name : Mui Wo Sports Centre\n" + 
+				"Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" + 
+				"Tel : 29842334\n" + 
+				"key : W2\n" + 
+				"Name : Tung Chung Man Tung Road Sports Centre\n" + 
+				"Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" + 
+				"Tel : 21092421\n" + 
+				"key : E1\n" + 
+				"Name : Java Road Sports Centre\n" + 
+				"Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" + 
+				"Tel : 25169415\n" + 
+				"key : E2\n" + 
+				"Name : Island East Sports Centre\n" + 
+				"Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" + 
+				"Tel : 21514070\n" + 
+				"key : S1\n" + 
+				"Name : Aberdeen Sports Centre\n" + 
+				"Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" + 
+				"Tel : 25558909\n" + 
+				"key : S2\n" + 
+				"Name : Stanley Sports Centre\n" + 
+				"Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" + 
+				"Tel : 28135106\n" + 
+				"\n" + 
+				"Please enter the key of Sport Centre:\n" + 
+				"\n" + 
+				"Please enter the type of court you want to book:\n" + 
+				"e.g. badminton, tableTennis, activityRoom\n" + 
+				"\n" + 
+				"Sport Centre: Fung Kam Street Sports Centre\n" + 
+				"\n" + 
+				"Facility Code: N1B1\n" + 
+				"1011 : Available\n" + 
+				"1112 : Available\n" + 
+				"1213 : Available\n" + 
+				"1314 : Available\n" + 
+				"1415 : Available\n" + 
+				"1516 : Available\n" + 
+				"1617 : Available\n" + 
+				"1718 : Available\n" + 
+				"1819 : Available\n" + 
+				"1920 : Available\n" + 
+				"2021 : Available\n" + 
+				"2122 : Available\n" + 
+				"2223 : Available\n" + 
+				"2324 : Available\n" + 
+				"\n" + 
+				"Facility Code: N1B2\n" + 
+				"1011 : Available\n" + 
+				"1112 : Available\n" + 
+				"1213 : Available\n" + 
+				"1314 : Available\n" + 
+				"1415 : Available\n" + 
+				"1516 : Available\n" + 
+				"1617 : Available\n" + 
+				"1718 : Available\n" + 
+				"1819 : Available\n" + 
+				"1920 : Available\n" + 
+				"2021 : Available\n" + 
+				"2122 : Available\n" + 
+				"2223 : Available\n" + 
+				"2324 : Available\n" + 
+				"\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"----------------------------Booking History--------------------------\n" + 
+				"\n" + 
+				"               There is no bookings currently.\n" + 
+				"\n" + 
+				"---------------------------------End---------------------------------\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Program end";
+		assertEquals(result,getOutput());
+	}
+	
+	@Test
+	public void test_main2() throws IOException, ExIOErrorinGetConfig {
+		setOutput();
+		setInput("No" + System.getProperty("line.separator") +
+				"N" + System.getProperty("line.separator") +
+                "Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"5"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"B"+System.getProperty("line.separator") +
+				"Ken\n" + "123\n" + "add\n" + "E1B1\n" + "1816\n" + "1617\n" + "delete\n" +
+				"20180505E1B11617\n"  + "vacancy\n" + "N1\n" + "badmiton\n" + "badminton\n" + "mybooking\n" + "print\n" +"exit\n");
+		String[] args = new String [1];
+		Main.main(args);
+		String result = "+---------------------------------------------------+\n" + 
+				"+------------------Simulation Mode------------------+\n" + 
+				"|Notice:                                            |\n" + 
+				"|In this simulation mode, all user output will not  |\n" + 
+				"|affect the data. If you want change to production  |\n" + 
+				"|mode, please change the RunConfigurationMode in the|\n" + 
+				"|configuration file to 1.                           |\n" + 
+				"|Sorry for causing any inconvenient        Thank you|\n" + 
+				"+---------------------------------------------------+\n" + 
+				"+----------------Debug Message Start----------------+\n" + 
+				"importing Member..\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Alice.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Bob.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justinwong.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Ada.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Ken.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justin.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Jeff.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/justinw.txt\n" + 
+				"/Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/./Data/Membership/Cat.txt\n" + 
+				"importing Sport Facility..\n" + 
+				"importing Schedule..\n" + 
+				"+-------------------Debug Message End----------------+\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"||  +      + +----+ +      +-----+ +-----+  +-+  +-+  +----+   ++  ||\n" + 
+				"||  |      | |      |      |       |     |  | +--+ |  |        ||  ||\n" + 
+				"||  |  +   | +---+  |      |       |     |  |  ++  |  +---+    ++  ||\n" + 
+				"||  |  |   | |      |      |       |     |  |      |  |            ||\n" + 
+				"||  +--+---+ +----+ +----+ +-----+ +-----+  +      +  +----+   ++  ||\n" + 
+				"||        Welcome to Fast Sports Facility Booking System!          ||\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"=================Do you have an User Account? (Y/N)==================\n" + 
+				"Invalid input. Input should be Y or N. Please input again.\n" + 
+				"Please enter your preferred userName:\n" + 
+				"Please enter your password:\n" + 
+				"Please enter your password again.\n" + 
+				"Please enter your age:\n" + 
+				"Please enter the key for selecting Sport Centre\n" + 
+				"key : N1\n" + 
+				"Name : Fung Kam Street Sports Centre\n" + 
+				"Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" + 
+				"Tel : 24752334\n" + 
+				"key : N2\n" + 
+				"Name : Long Ping Sports Centre\n" + 
+				"Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" + 
+				"Tel : 24752404\n" + 
+				"key : W1\n" + 
+				"Name : Mui Wo Sports Centre\n" + 
+				"Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" + 
+				"Tel : 29842334\n" + 
+				"key : W2\n" + 
+				"Name : Tung Chung Man Tung Road Sports Centre\n" + 
+				"Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" + 
+				"Tel : 21092421\n" + 
+				"key : E1\n" + 
+				"Name : Java Road Sports Centre\n" + 
+				"Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" + 
+				"Tel : 25169415\n" + 
+				"key : E2\n" + 
+				"Name : Island East Sports Centre\n" + 
+				"Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" + 
+				"Tel : 21514070\n" + 
+				"key : S1\n" + 
+				"Name : Aberdeen Sports Centre\n" + 
+				"Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" + 
+				"Tel : 25558909\n" + 
+				"key : S2\n" + 
+				"Name : Stanley Sports Centre\n" + 
+				"Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" + 
+				"Tel : 28135106\n" + 
+				"Please enter your prefer Sport Centre:\n" + 
+				"Please enter your prefer Facility:\n" + 
+				"B: Badminton, A: ActivityRoom, T:TableTennis\n" + 
+				"Create User Success!\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|                            LOG IN FSFBS                           |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter user name:\n" + 
+				"Your username: Ken\n" + 
+				"Please enter password:\n" + 
+				"Login Success. Loading...\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter the facility code(e.g. E1B1, E1B2)\n" + 
+				"Please enter time range\n" + 
+				"The input time range is not correct. Please input again.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Please enter the booking ID you want to delete\n" + 
+				"----------------------------Booking History--------------------------\n" + 
+				"\n" + 
+				"               There is no bookings currently.\n" + 
+				"\n" + 
+				"---------------------------------End---------------------------------\n" + 
+				"Booking ID does not exist! Cannot delete!\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"\n" + 
+				"Command is not found.\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter the key for selecting Sport Centre\n" + 
+				"key : N1\n" + 
+				"Name : Fung Kam Street Sports Centre\n" + 
+				"Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" + 
+				"Tel : 24752334\n" + 
+				"key : N2\n" + 
+				"Name : Long Ping Sports Centre\n" + 
+				"Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" + 
+				"Tel : 24752404\n" + 
+				"key : W1\n" + 
+				"Name : Mui Wo Sports Centre\n" + 
+				"Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" + 
+				"Tel : 29842334\n" + 
+				"key : W2\n" + 
+				"Name : Tung Chung Man Tung Road Sports Centre\n" + 
+				"Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" + 
+				"Tel : 21092421\n" + 
+				"key : E1\n" + 
+				"Name : Java Road Sports Centre\n" + 
+				"Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" + 
+				"Tel : 25169415\n" + 
+				"key : E2\n" + 
+				"Name : Island East Sports Centre\n" + 
+				"Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" + 
+				"Tel : 21514070\n" + 
+				"key : S1\n" + 
+				"Name : Aberdeen Sports Centre\n" + 
+				"Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" + 
+				"Tel : 25558909\n" + 
+				"key : S2\n" + 
+				"Name : Stanley Sports Centre\n" + 
+				"Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" + 
+				"Tel : 28135106\n" + 
+				"\n" + 
+				"Please enter the key of Sport Centre:\n" + 
+				"\n" + 
+				"Please enter the type of court you want to book:\n" + 
+				"e.g. badminton, tableTennis, activityRoom\n" + 
+				"Wrong court information entered.\n" + 
+				"\n" + 
+				"Please enter: badminton, tableTennis, activityRoom\n" + 
+				"\n" + 
+				"Sport Centre: Fung Kam Street Sports Centre\n" + 
+				"\n" + 
+				"Facility Code: N1B1\n" + 
+				"1011 : Available\n" + 
+				"1112 : Available\n" + 
+				"1213 : Available\n" + 
+				"1314 : Available\n" + 
+				"1415 : Available\n" + 
+				"1516 : Available\n" + 
+				"1617 : Available\n" + 
+				"1718 : Available\n" + 
+				"1819 : Available\n" + 
+				"1920 : Available\n" + 
+				"2021 : Available\n" + 
+				"2122 : Available\n" + 
+				"2223 : Available\n" + 
+				"2324 : Available\n" + 
+				"\n" + 
+				"Facility Code: N1B2\n" + 
+				"1011 : Available\n" + 
+				"1112 : Available\n" + 
+				"1213 : Available\n" + 
+				"1314 : Available\n" + 
+				"1415 : Available\n" + 
+				"1516 : Available\n" + 
+				"1617 : Available\n" + 
+				"1718 : Available\n" + 
+				"1819 : Available\n" + 
+				"1920 : Available\n" + 
+				"2021 : Available\n" + 
+				"2122 : Available\n" + 
+				"2223 : Available\n" + 
+				"2324 : Available\n" + 
+				"\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"----------------------------Booking History--------------------------\n" + 
+				"\n" + 
+				"               There is no bookings currently.\n" + 
+				"\n" + 
+				"---------------------------------End---------------------------------\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Please enter the key for selecting Sport Centre\n" + 
+				"key : N1\n" + 
+				"Name : Fung Kam Street Sports Centre\n" + 
+				"Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" + 
+				"Tel : 24752334\n" + 
+				"key : N2\n" + 
+				"Name : Long Ping Sports Centre\n" + 
+				"Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" + 
+				"Tel : 24752404\n" + 
+				"key : W1\n" + 
+				"Name : Mui Wo Sports Centre\n" + 
+				"Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" + 
+				"Tel : 29842334\n" + 
+				"key : W2\n" + 
+				"Name : Tung Chung Man Tung Road Sports Centre\n" + 
+				"Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" + 
+				"Tel : 21092421\n" + 
+				"key : E1\n" + 
+				"Name : Java Road Sports Centre\n" + 
+				"Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" + 
+				"Tel : 25169415\n" + 
+				"key : E2\n" + 
+				"Name : Island East Sports Centre\n" + 
+				"Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" + 
+				"Tel : 21514070\n" + 
+				"key : S1\n" + 
+				"Name : Aberdeen Sports Centre\n" + 
+				"Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" + 
+				"Tel : 25558909\n" + 
+				"key : S2\n" + 
+				"Name : Stanley Sports Centre\n" + 
+				"Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" + 
+				"Tel : 28135106\n" + 
+				"\n" + 
+				"+--------------------Fast Recommendation System---------------------+\n" + 
+				"Current Time: 15:00:00\n" + 
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" + 
+				"1: E1B1\n" + 
+				"2: E1B2\n" + 
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" + 
+				"1: E2B1\n" + 
+				"2: E2B2\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"|---------------------------User Guide------------------------------|\n" + 
+				"|                   Add booking: please enter 'add'                 |\n" + 
+				"|                Delete booking: please enter 'delete'              |\n" + 
+				"|           Print all sport centre: please enter 'print'            |\n" + 
+				"|             Search vacancies: please enter 'vacancy'              |\n" + 
+				"|             Print my booking: please enter 'mybooking'            |\n" + 
+				"|                     exit: please enter 'exit'                     |\n" + 
+				"+-------------------------------------------------------------------+\n" + 
+				"Program end\n" + 
+				"";
+				assertEquals(result,getOutput());
+		
 	}
 
 	//User
 
+	@Test
+	public void test_Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
+		setOutput();
+		String result = "+-------------------------------------------------------------------+\n" +
+                "|                            LOG IN FSFBS                           |\n" +
+                "+-------------------------------------------------------------------+\n" +
+                "Please enter user name:\n" +
+                "Invalid username. Please enter again :\n" +
+                "Please enter user name:\n" +
+                "Your username: Ken\n" +
+                "Please enter password:\n" +
+                "Invalid password. Please enter again.\n" +
+                "Your username: Ken\n" +
+                "Please enter password:\n" +
+                "Login Success. Loading...\n";
+		User user = User.Login(new Scanner(System.in));
+		assertEquals(result,getOutput());
+	}
+	@Test
+	public void test_Login1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		try {
+		setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator"));
+		User user = User.Login(new Scanner(System.in));
+		}
+		catch(Exception e) {
+			assertEquals(new ExMaxFailLogin().toString(),e.toString());
+			};
+	}
+
+	@Test
+	public void test_SetUpAC1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setOutput();
+        setInput(
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"5"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"B"+System.getProperty("line.separator"));
+		User.setUpAC(new Scanner(System.in));
+		String result = "Please enter your preferred userName:\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Create User Success!\n";
+		assertEquals(result,getOutput());
+		}
+	@Test
+	public void test_SetUpAC2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setOutput();
+        setInput(
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"16"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"A"+System.getProperty("line.separator"));
+		User.setUpAC(new Scanner(System.in));
+		String result = "Please enter your preferred userName:\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Create User Success!\n";
+		assertEquals(result,getOutput());
+		}
+	@Test
+	public void test_SetUpAC3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setOutput();
+        setInput(
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"60"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"T"+System.getProperty("line.separator"));
+		User.setUpAC(new Scanner(System.in));
+		String result = "Please enter your preferred userName:\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Create User Success!\n";
+		assertEquals(result,getOutput());
+		}
+	@Test
+	public void test_SetUpACError1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+        setOutput();
+        setInput(
+				"Ken"+System.getProperty("line.separator")+
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"1234"+System.getProperty("line.separator")+ //Error
+                "123"+System.getProperty("line.separator")+
+                "123"+System.getProperty("line.separator")+
+				"60"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"T"+System.getProperty("line.separator"));
+		User.setUpAC(new Scanner(System.in));
+		String result = "Please enter your preferred userName:\n" +
+                "Account already exist. Please input again.\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Your password does not match with what you previously entered. Please enter again!\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Create User Success!\n";
+		assertEquals(result,getOutput());
+		}
+	@Test
+	public void test_SetUpACError2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setOutput();
+        setInput(
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"60"+System.getProperty("line.separator")+
+				"A9"+System.getProperty("line.separator")+	//Error
+				"S1"+System.getProperty("line.separator")+
+				"T"+System.getProperty("line.separator"));
+		User.setUpAC(new Scanner(System.in));
+		String result = "Please enter your preferred userName:\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Your input sport centre does not exist. Please input again.\n" +
+                "Your input sport centre does not exist. Please input again.\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Create User Success!\n";
+		assertEquals(result,getOutput());
+		}
+	@Test
+	public void test_SetUpACError3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+		setOutput();
+        setInput(
+				"Ken"+System.getProperty("line.separator")+
+				"Polo"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"123"+System.getProperty("line.separator")+
+				"60"+System.getProperty("line.separator")+
+				"E1"+System.getProperty("line.separator")+
+				"ABCDEFG"+System.getProperty("line.separator")+ //Error
+                "T"+System.getProperty("line.separator"));
+        User.setUpAC(new Scanner(System.in));
+        String result = "Please enter your preferred userName:\n" +
+                "Account already exist. Please input again.\n" +
+                "Please enter your password:\n" +
+                "Please enter your password again.\n" +
+                "Please enter your age:\n" +
+                "Please enter the key for selecting Sport Centre\n" +
+                "key : N1\n" +
+                "Name : Fung Kam Street Sports Centre\n" +
+                "Address : No. 20, Fung Yau Street North, Yuen Long, N.T.\n" +
+                "Tel : 24752334\n" +
+                "key : N2\n" +
+                "Name : Long Ping Sports Centre\n" +
+                "Address : Unit 202, Long Ping Commercial Centre, Long Ping Estate, Yuen Long\n" +
+                "Tel : 24752404\n" +
+                "key : W1\n" +
+                "Name : Mui Wo Sports Centre\n" +
+                "Address : Address: 1/F Mui Wo Municipal Services Building, 9 Ngan Shek Street, Lantau Island\n" +
+                "Tel : 29842334\n" +
+                "key : W2\n" +
+                "Name : Tung Chung Man Tung Road Sports Centre\n" +
+                "Address : Tung Chung Man Tung Road Sports Centre, G/F., Tung Chung Municipal Services Building, 39 Man Tung Road, Tung Chung\n" +
+                "Tel : 21092421\n" +
+                "key : E1\n" +
+                "Name : Java Road Sports Centre\n" +
+                "Address : Java Road Municipal Services Building, 99 Java Road, North Point, Hong Kong\n" +
+                "Tel : 25169415\n" +
+                "key : E2\n" +
+                "Name : Island East Sports Centre\n" +
+                "Address : 52 Lei King Road, Sai Wan Ho, Hong Kong\n" +
+                "Tel : 21514070\n" +
+                "key : S1\n" +
+                "Name : Aberdeen Sports Centre\n" +
+                "Address : 6th Floor, Aberdeen Municipal Services Building, No. 203 Aberdeen Main Road, Aberdeen, Hong Kong\n" +
+                "Tel : 25558909\n" +
+                "key : S2\n" +
+                "Name : Stanley Sports Centre\n" +
+                "Address : UG/F, Stanley Municipal Services Building, No.6 Stanley Market Road, Hong Kong\n" +
+                "Tel : 28135106\n" +
+                "Please enter your prefer Sport Centre:\n" +
+                "Please enter your prefer Facility:\n" +
+                "B: Badminton, A: ActivityRoom, T:TableTennis\n" +
+                "Your input facility does not exist. Please input again.\n" +
+                "Create User Success!\n";
+        assertEquals(result,getOutput());
+		}
+	
     @Test
     public void test_getMembershipByAge1() {
     	setInput("10");
@@ -1025,94 +2131,7 @@ public class Test_FSFBS {
 			}
 		}
 
-		@Test
-		public void test_Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
-			setOutput();
-			User user = User.Login();
-			assertEquals("Ken",user.getUserName());
-		}
-		@Test
-		public void test_Login1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			try {
-			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator"));
-			setOutput();
-			User user = User.Login();
-
-			}
-			catch(Exception e) {
-				assertEquals(new ExMaxFailLogin().toString(),e.toString());
-				};
-		}
-
-		@Test
-		public void test_SetUpAC1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"5"+System.getProperty("line.separator")+
-					"E1"+System.getProperty("line.separator")+
-					"B"+System.getProperty("line.separator"));
-			User.setUpAC();
-			}
-		@Test
-		public void test_SetUpAC2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"16"+System.getProperty("line.separator")+
-					"E1"+System.getProperty("line.separator")+
-					"A"+System.getProperty("line.separator"));
-			User.setUpAC();
-			}
-		@Test
-		public void test_SetUpAC3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"60"+System.getProperty("line.separator")+
-					"E1"+System.getProperty("line.separator")+
-					"T"+System.getProperty("line.separator"));
-			User.setUpAC();
-			}
-		@Test
-		public void test_SetUpACError1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Ken"+System.getProperty("line.separator")+
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"1234"+System.getProperty("line.separator")+ //Error
-					"60"+System.getProperty("line.separator")+
-					"E1"+System.getProperty("line.separator")+
-					"T"+System.getProperty("line.separator"));
-			User.setUpAC();
-			}
-		@Test
-		public void test_SetUpACError2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"60"+System.getProperty("line.separator")+
-					"A9"+System.getProperty("line.separator")+	//Error
-					"T"+System.getProperty("line.separator"));
-			User.setUpAC();
-			}
-		@Test
-		public void test_SetUpACError3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-			setInput(
-					"Ken"+System.getProperty("line.separator")+
-					"Polo"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"123"+System.getProperty("line.separator")+
-					"60"+System.getProperty("line.separator")+
-					"E1"+System.getProperty("line.separator")+
-					"ABCDEFG"+System.getProperty("line.separator")); //Error
-			User.setUpAC();
-			}
+		
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
     ByteArrayOutputStream bos;
