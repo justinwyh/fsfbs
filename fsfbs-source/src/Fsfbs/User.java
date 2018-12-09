@@ -238,7 +238,7 @@ public class User {
     }
 //-----------------validate User Age-------------------
 
-    private static Membership getMembershipbyAge() {
+    public static Membership getMembershipbyAge() {
         Scanner in = new Scanner(System.in);
         int age;
         while (true) {
@@ -354,7 +354,7 @@ public class User {
         return booking;
     }
 
-    public void searchVacancies(String scId, String sfType){
+    public boolean searchVacancies(String scId, String sfType){
         try {
             Controller controller = Controller.getInstance();
             SportCentre sc = controller.searchSportCentre(scId);
@@ -364,10 +364,12 @@ public class User {
                 System.out.println("Facility Code: " + fac.getFacilityId());
                 fac.showVacancies();
             }
+            return true;
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+		return false;
     }
 
     private double getPriceByMembership(double price){

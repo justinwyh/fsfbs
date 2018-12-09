@@ -440,6 +440,36 @@ public class Test_FSFBS {
     }
     
     //User 
+    
+    @Test
+    public void test_getMembershipByAge1() {
+    	setInput("10");
+    	Membership result = User.getMembershipbyAge();
+    	assertEquals(Membership_Student.getInstance(),result);
+    }
+    
+    @Test
+    public void test_getMembershipByAge2() {
+    	setInput("70");
+    	Membership result = User.getMembershipbyAge();
+    	assertEquals(Membership_Senior.getInstance(),result);
+    }
+    
+    @Test
+    public void test_getMembershipByAge3() {
+    	setInput("20");
+    	Membership result = User.getMembershipbyAge();
+    	assertEquals(Membership_Adult.getInstance(),result);
+    }
+    
+    @Test
+    public void test_getMembershipByAge4() {
+    	setInput("-10\n10");
+    	Membership result = User.getMembershipbyAge();
+    	assertEquals(Membership_Student.getInstance(),result);
+    }
+    
+    
     @Test
     public void test_printbookinghistory() {
     	setOutput();
@@ -449,6 +479,13 @@ public class Test_FSFBS {
     	+ "---------------------------------End---------------------------------\n";
     	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
     	assertEquals(output,getOutput());
+    }
+    
+    @Test
+    public void test_searchVacancies() {
+    	    User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+        	boolean result = tester.searchVacancies("A1", "badminton");
+        	assertEquals(false,result);
     }
 
     @Test
