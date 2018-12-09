@@ -21,13 +21,7 @@ import Exception.ExSCFilesNotExist;
 class Test_User {
 	private ByteArrayInputStream testIn;
 	
-	@Test
-	public void test_main() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
-		setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
-		setOutput();		
-		User user = User.Login();
-		assertEquals("Ken",user.getUserName());
-	}
+
 
 	   //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;

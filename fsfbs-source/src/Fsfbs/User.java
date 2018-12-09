@@ -145,7 +145,7 @@ public class User {
             inputAc = in.nextLine();
             while (utilValidation.existedAC(inputAc)) {
                 System.out.println("Account already exist. Please input again.");
-                inputAc = in.nextLine();
+                inputAc = in.next();
             }
 
             //User password

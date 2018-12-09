@@ -873,7 +873,39 @@ public class Test_FSFBS {
 			}
 		}
 		
-	
+		@Test
+		public void test_Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
+			setOutput();		
+			User user = User.Login();
+			assertEquals("Ken",user.getUserName());
+		}
+		@Test
+		public void test_Login1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			try {
+			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator"));
+			setOutput();		
+			User user = User.Login();
+			
+			}
+			catch(Exception e) {
+				assertEquals(new ExMaxFailLogin().toString(),e.toString());
+				};
+		}
+		@Test
+		public void test_SetUpAC1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
+			setInput(
+					"Ken"+System.getProperty("line.separator")+
+					"Polo"+System.getProperty("line.separator")+
+					"1234"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"123"+System.getProperty("line.separator")+
+					"5"+System.getProperty("line.separator")+
+					"E2"+System.getProperty("line.separator")+
+					"B"+System.getProperty("line.separator"));
+			User.setUpAC();		
+			}
 
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
