@@ -230,20 +230,12 @@ public class Controller {
         File[] files = file.listFiles((dir, name) -> !name.equals(".DS_Store"));
         for (File f : files) {
             Scanner inFile = new Scanner(f);
-            if(SimulationMode.getSimulationMode())
-            	System.out.println(f.getAbsolutePath()); //debug
             SportCentre sc = Controller.getInstance().getSportCentrebyID(f.getName().substring(0,2));
-            if(SimulationMode.getSimulationMode())
-            	System.out.println("Inside "+f.getName().substring(0,2));
             String fcid = inFile.next();
-            if(SimulationMode.getSimulationMode())
-            	System.out.println("Adding "+fcid);
             Facility fc = sc.findFacilityByID(fcid);
             while(inFile.hasNext()) {
             int time = inFile.nextInt();
             String bkid = inFile.next();
-            if(SimulationMode.getSimulationMode())
-            System.out.println("Time = "+time+", bookingid: "+bkid);
             fc.addToTimeTable(time,bkid);
         }
         }

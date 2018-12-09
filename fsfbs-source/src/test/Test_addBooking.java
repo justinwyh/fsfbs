@@ -1,4 +1,5 @@
-package test;
+
+/*package test;
 import Fsfbs.*;
 import Util.UtilTime;
 
@@ -88,3 +89,4 @@ class Test_addBooking {
 	}
 
 }
+*/
