@@ -25,24 +25,17 @@ import Util.UtilsLoadconfig;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
-import org.powermock.modules.junit4.PowerMockRunner;
 import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.Test.*;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.reflect.Whitebox;
 
 import Exception.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(UtilTime.class)
 public class Test_FSFBS {
 
 		@Test
@@ -131,8 +124,8 @@ public class Test_FSFBS {
 		public void test_SportFacilities6() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
 			Controller controller = Controller.getInstance();
 			SportCentre temp = controller.searchSportCentre("E1");
-
 		}
+		
 		@Test
 		public void test_SportFacilities7() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
 			Controller controller = Controller.getInstance();
