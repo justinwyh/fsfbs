@@ -763,6 +763,8 @@ public class Test_FSFBS {
         assertEquals(2324, utilTime.getTimeSlot("23:00", "00:00"));
     }
 
+    //Controller
+    
 		@Test
 		public void test_controller() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException {
 			Controller controller = Controller.getInstance();
