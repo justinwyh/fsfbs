@@ -580,10 +580,10 @@ public class Test_FSFBS {
 
     @Test
 	public void test_addBooking(){
+        setOutput();
 		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1415,UtilTime.getTimeInstance());
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
+		assertEquals("Your input time has passed. Please enter a time slot later than the current time.\n", getOutput());
 	}
 
 	@Test

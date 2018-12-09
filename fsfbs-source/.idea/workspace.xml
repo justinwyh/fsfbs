@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8fa2daba-26f7-4f91-99d8-5c5ed0590bcc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/FastRecommendationAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fsfbs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fsfbs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Test_FSFBS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test_FSFBS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_addBooking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test_deleteBooking.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,13 +95,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5440" />
+          <entry key="java" value="5467" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5440" />
+          <entry key="JAVA" value="5467" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
@@ -133,14 +128,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="500" column="26" selection-start-line="500" selection-start-column="26" selection-end-line="500" selection-end-column="26" />
+            <state relative-caret-position="192">
+              <caret line="585" column="119" selection-start-line="585" selection-start-column="119" selection-end-line="585" selection-end-column="119" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1056#1057#0" expanded="true" />
                 <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#8376#8385#0" expanded="true" />
-                <element signature="e#8887#8904#0" expanded="true" />
+                <element signature="e#8488#8497#0" expanded="true" />
+                <element signature="e#8999#9016#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -309,7 +304,7 @@
     <property name="SearchEverywhereHistoryKey" value="replace&#9;ACTION&#9;Replace&#10;UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544361223535" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544361952837" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -328,8 +323,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Test_FSFBS.test_getFastRecommendation">
-    <configuration name="Test_FSFBS" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Test_FSFBS.test_addBooking">
+    <configuration name="Test_FSFBS.test_addBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
         <pattern>
@@ -339,7 +334,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
-      <option name="METHOD_NAME" value="" />
+      <option name="METHOD_NAME" value="test_addBooking" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -423,19 +419,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Test_FSFBS" />
       <item itemvalue="JUnit.Test_FSFBS.test_getMembershipByAge1" />
       <item itemvalue="JUnit.Test_FSFBS.test_getMembershipByAge4" />
       <item itemvalue="JUnit.Test_User.test_main" />
       <item itemvalue="JUnit.Test_FSFBS.test_getFastRecommendation" />
+      <item itemvalue="JUnit.Test_FSFBS.test_addBooking" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Test_FSFBS.test_addBooking" />
         <item itemvalue="JUnit.Test_FSFBS.test_getFastRecommendation" />
         <item itemvalue="JUnit.Test_User.test_main" />
         <item itemvalue="JUnit.Test_FSFBS.test_getMembershipByAge4" />
         <item itemvalue="JUnit.Test_FSFBS.test_getMembershipByAge1" />
-        <item itemvalue="JUnit.Test_FSFBS" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +460,7 @@
       <workItem from="1543466552287" duration="1387000" />
       <workItem from="1543499870121" duration="94000" />
       <workItem from="1543500563185" duration="4184000" />
-      <workItem from="1544342007660" duration="9979000" />
+      <workItem from="1544342007660" duration="10349000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -518,9 +514,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_FSFBS_test_getFastRecommendation - 2018.12.09 at 20h 48m 49s.xml">
-      <configuration name="Test_FSFBS.test_getFastRecommendation" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test_FSFBS_test_getFastRecommendation - 2018.12.09 at 20h 49m 13s.xml">
       <configuration name="Test_FSFBS.test_getFastRecommendation" configurationId="JUnit" />
     </history-entry>
@@ -548,9 +541,12 @@
     <history-entry file="Test_FSFBS_test_getFastRecommendation - 2018.12.09 at 20h 56m 15s.xml">
       <configuration name="Test_FSFBS.test_getFastRecommendation" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Test_FSFBS_test_addBooking - 2018.12.09 at 21h 24m 40s.xml">
+      <configuration name="Test_FSFBS.test_addBooking" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57484000" />
+    <option name="totallyTimeSpent" value="57854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -888,14 +884,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="500" column="26" selection-start-line="500" selection-start-column="26" selection-end-line="500" selection-end-column="26" />
+        <state relative-caret-position="192">
+          <caret line="585" column="119" selection-start-line="585" selection-start-column="119" selection-end-line="585" selection-end-column="119" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1056#1057#0" expanded="true" />
             <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#8376#8385#0" expanded="true" />
-            <element signature="e#8887#8904#0" expanded="true" />
+            <element signature="e#8488#8497#0" expanded="true" />
+            <element signature="e#8999#9016#0" expanded="true" />
           </folding>
         </state>
       </provider>
