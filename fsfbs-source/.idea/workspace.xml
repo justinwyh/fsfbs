@@ -94,13 +94,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5605" />
+          <entry key="java" value="5609" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5605" />
+          <entry key="JAVA" value="5609" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
@@ -127,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="676" column="60" selection-start-line="676" selection-start-column="60" selection-end-line="676" selection-end-column="60" />
+            <state relative-caret-position="751">
+              <caret line="576" column="88" selection-start-line="576" selection-start-column="88" selection-end-line="576" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1056#1057#0" expanded="true" />
@@ -303,7 +303,7 @@
     <property name="SearchEverywhereHistoryKey" value="replace&#9;ACTION&#9;Replace&#10;UtilTime&#9;FILE&#9;file:///Users/wongyuhong/Documents/GitHub/fsfbs/fsfbs-source/src/Fsfbs/UtilTime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544362867980" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544363262652" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -322,24 +322,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Test_FSFBS.test_deleteBooking2">
-    <configuration name="Test_FSFBS.test_addBooking3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="fsfbs-source" />
-      <extension name="coverage" runner="jacoco">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
-      <option name="METHOD_NAME" value="test_addBooking3" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.Test_FSFBS.test_printbookinghistory2">
     <configuration name="Test_FSFBS.test_addBooking5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fsfbs-source" />
       <extension name="coverage" runner="jacoco">
@@ -408,6 +391,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_FSFBS.test_printbookinghistory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="fsfbs-source" />
+      <extension name="coverage" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.Test_FSFBS" />
+      <option name="METHOD_NAME" value="test_printbookinghistory2" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" runner="jacoco" />
       <option name="MAIN_CLASS_NAME" value="" />
@@ -418,19 +418,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Test_FSFBS.test_addBooking3" />
       <item itemvalue="JUnit.Test_FSFBS.test_addBooking_twoPerson" />
       <item itemvalue="JUnit.Test_FSFBS.test_addBooking5" />
       <item itemvalue="JUnit.Test_FSFBS.test_deleteBooking1" />
       <item itemvalue="JUnit.Test_FSFBS.test_deleteBooking2" />
+      <item itemvalue="JUnit.Test_FSFBS.test_printbookinghistory2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Test_FSFBS.test_printbookinghistory2" />
         <item itemvalue="JUnit.Test_FSFBS.test_deleteBooking2" />
         <item itemvalue="JUnit.Test_FSFBS.test_deleteBooking1" />
         <item itemvalue="JUnit.Test_FSFBS.test_addBooking5" />
         <item itemvalue="JUnit.Test_FSFBS.test_addBooking_twoPerson" />
-        <item itemvalue="JUnit.Test_FSFBS.test_addBooking3" />
       </list>
     </recent_temporary>
   </component>
@@ -459,7 +459,7 @@
       <workItem from="1543466552287" duration="1387000" />
       <workItem from="1543499870121" duration="94000" />
       <workItem from="1543500563185" duration="4184000" />
-      <workItem from="1544342007660" duration="11360000" />
+      <workItem from="1544342007660" duration="11514000" />
     </task>
     <task id="LOCAL-00001" summary="Added abstract class Facilities and related subclasses including badmintonCourt, TableTennisCourt and ActivityRoom.">
       <created>1541942194038</created>
@@ -513,9 +513,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_FSFBS_test_addBooking_twoPerson - 2018.12.09 at 21h 31m 28s.xml">
-      <configuration name="Test_FSFBS.test_addBooking_twoPerson" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test_FSFBS_test_addBooking5 - 2018.12.09 at 21h 32m 09s.xml">
       <configuration name="Test_FSFBS.test_addBooking5" configurationId="JUnit" />
     </history-entry>
@@ -543,9 +540,12 @@
     <history-entry file="Test_FSFBS_test_deleteBooking2 - 2018.12.09 at 21h 39m 50s.xml">
       <configuration name="Test_FSFBS.test_deleteBooking2" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Test_FSFBS_test_printbookinghistory2 - 2018.12.09 at 21h 47m 16s.xml">
+      <configuration name="Test_FSFBS.test_printbookinghistory2" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58865000" />
+    <option name="totallyTimeSpent" value="59019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -883,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/Test_FSFBS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="676" column="60" selection-start-line="676" selection-start-column="60" selection-end-line="676" selection-end-column="60" />
+        <state relative-caret-position="751">
+          <caret line="576" column="88" selection-start-line="576" selection-start-column="88" selection-end-line="576" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1056#1057#0" expanded="true" />

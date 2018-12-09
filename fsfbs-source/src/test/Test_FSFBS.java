@@ -537,7 +537,7 @@ public class Test_FSFBS {
 
 
     @Test
-    public void test_printbookinghistory() {
+    public void test_printbookinghistory1() {
     	setOutput();
     	User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
     	String output = "----------------------------Booking History--------------------------" + "\n\n" +
@@ -546,6 +546,39 @@ public class Test_FSFBS {
     	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
     	assertEquals(output,getOutput());
     }
+    
+    @Test
+    public void test_printbookinghistory2() {
+    	setOutput();
+    	User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
+    	tester.addBooking("E1B1", 1718, UtilTime.getTimeInstance());
+    	tester.addBooking("E1B1", 1819, UtilTime.getTimeInstance());
+    	String output = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B11718\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B1\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B11819\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B1\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "----------------------------Booking History--------------------------\n" +
+                "  Booking ID: 20180505E1B11718 Court ID: E1B1 Time: 17:00 - 18:00\n" +
+                "  Booking ID: 20180505E1B11819 Court ID: E1B1 Time: 18:00 - 19:00\n" +
+                "---------------------------------End---------------------------------\n";
+    	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
+    	assertEquals(output,getOutput());
+    }
+
 
     @Test
     public void test_searchVacancies() {
