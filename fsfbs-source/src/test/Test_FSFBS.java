@@ -17,6 +17,7 @@ import java.util.Set;
 import Facility.*;
 import Fsfbs.Booking;
 import Fsfbs.Controller;
+import Fsfbs.FastRecommendationAlgorithm;
 import Fsfbs.SimulationMode;
 import Fsfbs.SportCentre;
 import Fsfbs.User;
@@ -24,7 +25,6 @@ import Membership.*;
 import Util.UtilTime;
 import Util.UtilValidation;
 import Util.UtilsLoadconfig;
-import test.Test_deleteBooking.UtilTime_stub;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,7 +48,7 @@ public class Test_FSFBS {
     }
 
     //UtilValidation
-    
+
     @BeforeEach
     public void setUp() throws ExFacilityIdNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         Controller controller = Controller.getInstance();
@@ -100,7 +100,7 @@ public class Test_FSFBS {
     }
 
     //SportCentre
-    
+
     @Test
     public void test_SportFacilities1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExSportCentreNotExist {
         Controller controller = Controller.getInstance();
@@ -177,11 +177,12 @@ public class Test_FSFBS {
 
 
     //Facility
-    
+
     @Test
     public void test_Facility1() {
+    	double delta = 0.0000001d;
         Facility fb = new Facility_Badminton("E1B3");
-        assertTrue(fb.getPrice() == 59);
+        assertEquals(59,fb.getPrice(),delta);
     }
 
     @Test
@@ -192,8 +193,9 @@ public class Test_FSFBS {
 
     @Test
     public void test_Facility3() {
+    	double delta = 0.0000001d;
         Facility ar = new Facility_ActivityRoom("E1A3");
-        assertTrue(ar.getPrice()== 99);
+        assertEquals(99,ar.getPrice(),delta);
     }
 
     @Test
@@ -204,8 +206,9 @@ public class Test_FSFBS {
 
     @Test
     public void test_Facility5() {
+    	double delta = 0.0000001d;
         Facility_TableTennis ar = new Facility_TableTennis("E1T3");
-        assertTrue(ar.getPrice() == 29);
+        assertEquals(29,ar.getPrice(),delta);
     }
 
     @Test
@@ -269,7 +272,7 @@ public class Test_FSFBS {
             boolean result = testFacility.canBook(1112, utiltime);
         } catch (ExInputTimeEarlierThanCurrentTime e) {
             assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } 
+        }
     }
 
     @Test
@@ -349,7 +352,7 @@ public class Test_FSFBS {
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canDelete(1317, utiltime);
-           
+
         }  catch (ExAllowToDeleteOneHourOnly e) {
             assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
         }
@@ -365,7 +368,7 @@ public class Test_FSFBS {
             boolean result = Facility.canDelete(910, utiltime);
         } catch (ExTimeSlotNotInOpeningHour e) {
             assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } 
+        }
     }
 
     @Test
@@ -397,13 +400,13 @@ public class Test_FSFBS {
     //Booking
     @Test
     public void test_Booking1() throws IOException {
-        UtilTime utilTime = UtilTime_stub.getTimeInstance();
+        UtilTime utilTime = UtilTime.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
     }
 
     @Test
     public void test_Booking2() throws IOException {
-        UtilTime utilTime = UtilTime_stub.getTimeInstance();
+        UtilTime utilTime = UtilTime.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
         System.out.println(bk.getBookingID());
         assertEquals("20180505E1B11314", bk.getBookingID());
@@ -411,7 +414,7 @@ public class Test_FSFBS {
 
     @Test
     public void test_Booking3() throws IOException {
-        UtilTime utilTime = UtilTime_stub.getTimeInstance();
+        UtilTime utilTime = UtilTime.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
         System.out.println(bk.getBookingTime());
         assertEquals(1314, bk.getBookingTime());
@@ -419,14 +422,14 @@ public class Test_FSFBS {
 
     @Test
     public void test_Booking4() throws IOException {
-        UtilTime utilTime = UtilTime_stub.getTimeInstance();
+        UtilTime utilTime = UtilTime.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
         assertEquals("E1B1", bk.getFacilitiesID());
     }
 
     @Test
     public void test_Booking5() throws IOException {
-        UtilTime utilTime = UtilTime_stub.getTimeInstance();
+        UtilTime utilTime = UtilTime.getTimeInstance();
         Booking bk = new Booking("Ada", 1314, "E1B1", utilTime);
         assertEquals("Ada", bk.getuserName());
     }
@@ -439,9 +442,72 @@ public class Test_FSFBS {
         String result = testFacility.getBookingStatus(1112);
         assertEquals("Booked, Booking ID: 20180101A1B11112", result);
     }
-    
-    //User 
-    
+
+    //Fast Recommendation
+
+	@Test
+	public void test_getFastRecommendation1() {
+        setOutput();
+		User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
+		tester.getFastRecommandation(UtilTime.getTimeInstance());
+		String expected = "\n+--------------------Fast Recommendation System---------------------+\n" +
+				"Current Time: 15:00:00\n"+
+				"List of available courts in Java Road Sports Centre on 16:00:00: 2\n" +
+				"1: E1B1\n" +
+				"2: E1B2\n" +
+				"List of available courts in Island East Sports Centre on 16:00:00: 2\n" +
+				"1: E2B1\n" +
+				"2: E2B2\n";
+		assertEquals(expected,getOutput());
+	}
+
+	@Test
+	public void test_getFastRecommendation2() {
+        setOutput();
+		User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
+		User tester2 = new User("Mr B", "password", "Membership_Adult", "E1",  "badminton");
+		User tester3 = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
+		tester2.addBooking("E1B1", 1617, UtilTime.getTimeInstance());
+		tester3.addBooking("E1B2", 1617, UtilTime.getTimeInstance());
+		tester.getFastRecommandation(UtilTime.getTimeInstance());
+		String expected = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B11617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B1\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "\n" +
+               "+--------------------Fast Recommendation System---------------------+\n" +
+               "Current Time: 15:00:00\n" +
+               "List of available courts in Island East Sports Centre on 16:00:00: 2\n" +
+               "1: E2B1\n" +
+               "2: E2B2\n" +
+               "List of available courts in Java Road Sports Centre on 16:00:00: 0\n" +
+               "\n" +
+               "Sport Centres in other districts:\n" +
+               "List of available courts in Long Ping Sports Centre on 16:00:00: 2\n" +
+               "1: N2B2\n" +
+               "2: N2B1\n" +
+               "List of available courts in Stanley Sports Centre on 16:00:00: 2\n" +
+               "1: S2B1\n" +
+               "2: S2B2\n";
+		assertEquals(expected,getOutput());
+	}
+
+	//User
+
     @Test
     public void test_getMembershipByAge1() {
     	setInput("10");
@@ -449,7 +515,7 @@ public class Test_FSFBS {
     	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Student.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge2() {
     	setInput("70");
@@ -457,7 +523,7 @@ public class Test_FSFBS {
     	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Senior.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge3() {
     	setInput("20");
@@ -465,7 +531,7 @@ public class Test_FSFBS {
     	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Adult.getInstance(),result);
     }
-    
+
     @Test
     public void test_getMembershipByAge4() {
     	setInput("-10\n10");
@@ -473,29 +539,29 @@ public class Test_FSFBS {
     	Membership result = User.getMembershipbyAge(in);
     	assertEquals(Membership_Student.getInstance(),result);
     }
-    
-    
+
+
     @Test
     public void test_printbookinghistory() {
     	setOutput();
-    	User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+    	User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
     	String output = "----------------------------Booking History--------------------------" + "\n\n" +
     	"               There is no bookings currently."+ "\n\n"
     	+ "---------------------------------End---------------------------------\n";
     	tester.printTodayBookingHistory(UtilTime.getTimeInstance());
     	assertEquals(output,getOutput());
     }
-    
+
     @Test
     public void test_searchVacancies() {
-    	    User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+    	    User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
         	boolean result = tester.searchVacancies("A1", "badminton");
         	assertEquals(false,result);
     }
 
     @Test
     public void test_searchBookingById1() throws ExBookingNotExist, IOException, ExFullBooking {
-    	User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+    	User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
     	tester.addBooking("E1B1", 1718, UtilTime.getTimeInstance());
     	Booking result = tester.searchBookingById("20180505E1B11718");
     	Booking expected = new Booking("Mr C",1718,"E1B1",UtilTime.getTimeInstance());
@@ -508,7 +574,7 @@ public class Test_FSFBS {
     @Test
     public void test_searchBookingById2() {
     	try {
-    	User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+    	User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
     	tester.addBooking("E1B1", 1718, UtilTime.getTimeInstance());
     	tester.searchBookingById("20180705E1B11718");
     	}
@@ -519,82 +585,130 @@ public class Test_FSFBS {
 
     @Test
 	public void test_addBooking(){
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
+        setOutput();
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1415,UtilTime.getTimeInstance());
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
+		assertEquals("Your input time has passed. Please enter a time slot later than the current time.\n", getOutput());
 	}
 
 	@Test
 	public void test_addBooking2(){
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		User tester = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
+        setOutput();
+		UtilTime utilTime_stub = UtilTime.getTimeInstance();
+		User tester = new User("Mr B", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 2211,utilTime_stub);
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
+		assertEquals("The input time range is not correct. Please input again.\n", getOutput());
 	}
 
 	@Test
 	public void test_addBooking3(){
-            UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-            User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+        setOutput();
+            UtilTime utilTime_stub = UtilTime.getTimeInstance();
+            User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
             tester.addBooking("E2B2", 1617, utilTime_stub);
             tester.addBooking("E2B2", 1718, utilTime_stub);
             tester.addBooking("E2B2", 1819, utilTime_stub);
-            boolean result = tester.addBooking("E2B2", 1920, utilTime_stub);
-            assertEquals(false,result);
+            tester.addBooking("E2B2", 1920, utilTime_stub);
+            String result = "\n-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21617\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "\n" +
+                    "-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21718\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "\n" +
+                    "-----------------Booking Confirmation--------------------\n" +
+                    "Booking ID: 20180505E2B21819\n" +
+                    "Sport Centre: Island East Sports Centre\n" +
+                    "Facility Type: badminton court\n" +
+                    "Facility ID: E2B2\n" +
+                    "Price: 59.0\n" +
+                    "--------------------------End----------------------------\n" +
+                    "\n" +
+                    "All badminton court has been fulled in the time slot: 1920 in Island East Sports Centre\n" +
+                    "Please choose another time slot or sport centre.\n";
+            assertEquals(result,getOutput());
 	}
 
 	@Test
 	public void test_addBooking_twoPerson() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist {
 		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
+		UtilTime utilTime_stub = UtilTime.getTimeInstance();
 		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1415,utilTime_stub);
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
+		tester.addBooking("E1B2", 1718,utilTime_stub);
 
-		User tester2 = new User("Mr B", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester2.addBooking("E1B2", 1415,utilTime_stub);
+		User tester2 = new User("Mr B", "password", "Membership_Adult", "E1",  "badminton");
+		tester2.addBooking("E1B2", 1718,utilTime_stub);
 		int result = tester2.getTodayBookingNum();
 		assertEquals(0, result);
 	}
 
-    @Test
-	public void test_addBooking5(){
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
-		tester.addBooking("E1B2", 1112,UtilTime.getTimeInstance());
-		int result = tester.getTodayBookingNum();
-		assertEquals(0, result);
-	}
 
 
 	@Test
 	public void test_deleteBooking1() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
-		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
+		setOutput();
+		UtilTime utilTime_stub = UtilTime.getTimeInstance();
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1617,utilTime_stub);
-		boolean result = tester.deleteBooking("20181105E1B21617",utilTime_stub);
-		assertEquals(false, result);
+		tester.deleteBooking("20181105E1B21617",utilTime_stub);
+		String result = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "Booking ID does not exist! Cannot delete!\n";
+		assertEquals(result, getOutput());
 	}
 
 	@Test
 	public void test_deleteBooking2() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, ExFullBooking {
-		Controller controller = Controller.getInstance();
-		UtilTime utilTime_stub = UtilTime_stub.getTimeInstance();
-		controller.importData();
-		User tester = new User("Mr A", "password", "Membership_Adult", "E1", "Facility_Badminton");
+		setOutput();
+		UtilTime utilTime_stub = UtilTime.getTimeInstance();
+		User tester = new User("Mr A", "password", "Membership_Adult", "E1",  "badminton");
 		tester.addBooking("E1B2", 1617,utilTime_stub);
-		boolean result = tester.deleteBooking("20180505E1B21617",utilTime_stub);
-		assertEquals(true, result);
+		tester.deleteBooking("20180505E1B21617",utilTime_stub);
+		String result = "\n" +
+                "-----------------Booking Confirmation--------------------\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Sport Centre: Java Road Sports Centre\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Price: 59.0\n" +
+                "--------------------------End----------------------------\n" +
+                "\n" +
+                "\n" +
+                "-------------------Delete Confirmation-------------------\n" +
+                "User ID: Mr A\n" +
+                "Booking ID: 20180505E1B21617\n" +
+                "Facility Type: badminton court\n" +
+                "Facility ID: E1B2\n" +
+                "Booking with id: 20180505E1B21617 has been deleted.\n" +
+                "--------------------------End----------------------------\n" +
+                "\n";
+		assertEquals(result, getOutput());
 	}
 
 
     @Test
     public void test_searchVacancy() throws ExFacilityIdNotExist, ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig {
         setOutput();
-        User tester = new User("Mr C", "password", "Membership_Adult", "E1", "Facility_Badminton");
+        User tester = new User("Mr C", "password", "Membership_Adult", "E1",  "badminton");
         tester.searchVacancies("E1", "badminton");
         String output = "\n" + "Sport Centre: Java Road Sports Centre\n" +
                 "\n" +
@@ -806,7 +920,7 @@ public class Test_FSFBS {
     }
 
     //Controller
-    
+
 		@Test
 		public void test_controller() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException {
 			Controller controller = Controller.getInstance();
@@ -877,11 +991,11 @@ public class Test_FSFBS {
 				assertEquals(new ExSportCentreNotExist().toString(), e.toString());
 			}
 		}
-		
+
 		@Test
 		public void test_Login() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
 			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"123"+System.getProperty("line.separator"));
-			setOutput();		
+			setOutput();
 			User user = User.Login();
 			assertEquals("Ken",user.getUserName());
 		}
@@ -889,9 +1003,9 @@ public class Test_FSFBS {
 		public void test_Login1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
 			try {
 			setInput("Helena"+System.getProperty("line.separator")+"Ken"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator")+"1234"+System.getProperty("line.separator"));
-			setOutput();		
+			setOutput();
 			User user = User.Login();
-			
+
 			}
 			catch(Exception e) {
 				assertEquals(new ExMaxFailLogin().toString(),e.toString());
@@ -907,7 +1021,7 @@ public class Test_FSFBS {
 					"5"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
 					"B"+System.getProperty("line.separator"));
-			User.setUpAC();		
+			User.setUpAC();
 			}
 		@Test
 		public void test_SetUpAC2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
@@ -918,7 +1032,7 @@ public class Test_FSFBS {
 					"16"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
 					"A"+System.getProperty("line.separator"));
-			User.setUpAC();		
+			User.setUpAC();
 			}
 		@Test
 		public void test_SetUpAC3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
@@ -929,7 +1043,7 @@ public class Test_FSFBS {
 					"60"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
 					"T"+System.getProperty("line.separator"));
-			User.setUpAC();		
+			User.setUpAC();
 			}
 		@Test
 		public void test_SetUpACError1() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
@@ -941,7 +1055,7 @@ public class Test_FSFBS {
 					"60"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
 					"T"+System.getProperty("line.separator"));
-			User.setUpAC();		
+			User.setUpAC();
 			}
 		@Test
 		public void test_SetUpACError2() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
@@ -952,7 +1066,7 @@ public class Test_FSFBS {
 					"60"+System.getProperty("line.separator")+
 					"A9"+System.getProperty("line.separator")+	//Error
 					"T"+System.getProperty("line.separator"));
-			User.setUpAC();		
+			User.setUpAC();
 			}
 		@Test
 		public void test_SetUpACError3() throws ExMemberShipFilePathNotExist, ExIOErrorinGetConfig, ExMaxFailLogin {
@@ -964,7 +1078,7 @@ public class Test_FSFBS {
 					"60"+System.getProperty("line.separator")+
 					"E1"+System.getProperty("line.separator")+
 					"ABCDEFG"+System.getProperty("line.separator")); //Error
-			User.setUpAC();		
+			User.setUpAC();
 			}
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;
