@@ -175,8 +175,6 @@ public class Controller {
                 SportCentre temp = new SportCentre(inFile.nextLine(), inFile.nextLine(), inFile.nextLine(), inFile.nextLine());
                 while (inFile.hasNext()) {
                     String fid = inFile.next();
-                    if(SimulationMode.getSimulationMode())
-                    	System.out.println(fid + "...created and added to " + temp.getScId());
                     if (fid.charAt(2) == 'B')
                         temp.addfacilitytosc(fid, new Facility_Badminton(fid));
                     else if (fid.charAt(2) == 'A')
@@ -185,8 +183,6 @@ public class Controller {
                         temp.addfacilitytosc(fid, new Facility_TableTennis(fid));
                 }
                 sportCentreMap.put(temp.getScId(), temp);
-                if(SimulationMode.getSimulationMode())
-                System.out.println("Added " + temp.getScId() +" to Sport Centre List");
             }
         }
         catch (FileNotFoundException fe){

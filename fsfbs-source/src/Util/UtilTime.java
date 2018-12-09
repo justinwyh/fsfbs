@@ -33,7 +33,7 @@ public class UtilTime {
         LocalDateTime now = LocalDateTime.now();
         try {
             if(SimulationMode.getSimulationMode())
-            	return "15:12:00"; 
+            	return "15:00:00"; 
             else return (dtf.format(now));
             }
         catch(Exception e) {
