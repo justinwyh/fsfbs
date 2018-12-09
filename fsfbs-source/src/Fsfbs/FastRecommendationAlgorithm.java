@@ -31,7 +31,7 @@ public class FastRecommendationAlgorithm {
             Set<SportCentre> sportCentreSet = controller.searchSCByDistrict(preferredSC, true);
             Set<SportCentre> scNotInSameDistrictSet = controller.searchSCByDistrict(preferredSC, false);
             count = showVacancy(sportCentreSet,utilTime, preferredFacility, count);
-            if (count < 10){
+            if (count < 4){
                 System.out.println("\nSport Centres in other districts:");
                 showVacancy(scNotInSameDistrictSet,utilTime, preferredFacility,count);
             }
@@ -53,7 +53,7 @@ public class FastRecommendationAlgorithm {
                     System.out.println((i + 1) + ": " + vacancyList.get(i));
                 }
                 count += vacancyList.size();
-                if (count >= 10){
+                if (count >= 6){
                     return count;
                 }
             }

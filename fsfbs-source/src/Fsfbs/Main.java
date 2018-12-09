@@ -10,6 +10,7 @@ import Util.UtilValidation;
 public class Main {
  public static void main(String[] args) throws IOException, ExIOErrorinGetConfig
  {
+/*
 	 
      try {
          Controller controller = Controller.getInstance();
@@ -154,5 +155,6 @@ public class Main {
      System.out.println("|             Print my booking: please enter 'mybooking'            |");
      System.out.println("|                     exit: please enter 'exit'                     |");
      System.out.println("+-------------------------------------------------------------------+");
+  */
  }
 }
