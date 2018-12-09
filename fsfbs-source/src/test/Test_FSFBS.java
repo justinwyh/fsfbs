@@ -259,48 +259,28 @@ public class Test_FSFBS {
     }
 
     @Test
-    public void test_facility_canBook_1() {
+    public void test_facility_canBook_1() throws ExTimeRangeNotCorrect,ExAllowToBookOneHourOnly,ExTimeSlotNotInOpeningHour,IOException, ExInputTimeEarlierThanCurrentTime {
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1213, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canBook(1112, utiltime);
-            assertEquals(false, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
-        } catch (ExAllowToBookOneHourOnly e) {
-            assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
         } catch (ExInputTimeEarlierThanCurrentTime e) {
             assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        } 
     }
 
     @Test
-    public void test_facility_canBook_2() {
+    public void test_facility_canBook_2()throws ExTimeRangeNotCorrect,ExTimeSlotNotInOpeningHour,IOException, ExInputTimeEarlierThanCurrentTime, ExInputTimeEarlierThanCurrentTime {
         Facility testFacility = new Facility_Badminton("A1B1");
         testFacility.addToTimeTable(1112, "20180101A1B11112");
         testFacility.addToTimeTable(1213, "20180101A1B11213");
         UtilTime utiltime = UtilTime.getTimeInstance();
         try {
             boolean result = testFacility.canBook(1113, utiltime);
-            assertEquals(false, result);
-        } catch (ExTimeRangeNotCorrect e) {
-            assertEquals("The input time range is not correct. Please input again.", e.getMessage());
         } catch (ExAllowToBookOneHourOnly e) {
             assertEquals("You are allowed to book 1 hour only for each booking. Please input again.", e.getMessage());
-        } catch (ExInputTimeEarlierThanCurrentTime e) {
-            assertEquals("Your input time has passed. Please enter a time slot later than the current time.", e.getMessage());
-        } catch (ExTimeSlotNotInOpeningHour e) {
-            assertEquals("\nThe opening hour is from 10am to 12am. Please enter another time slot.", e.getMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
@@ -810,22 +790,16 @@ public class Test_FSFBS {
     }
 
     //UtilTime
-    @Test
-    public void test_UtilTime1() {
-        UtilTime utilTime = new UtilTime();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        assertEquals(dtf.format(now), utilTime.getCurrentTime());
-    }
+ 
 
     @Test
-    public void test_UtilTime2() {
+    public void test_UtilTime1() {
         UtilTime utilTime = new UtilTime();
         assertEquals(true, utilTime.isTimeLaterThanCurrentTime("24:00:00"));
     }
 
     @Test
-    public void test_UtilTime22() {
+    public void test_UtilTime2() {
         UtilTime utilTime = new UtilTime();
         assertEquals(false, utilTime.isTimeLaterThanCurrentTime("00:00:00"));
     }
@@ -878,17 +852,6 @@ public class Test_FSFBS {
         UtilTime utilTime = new UtilTime();
         assertEquals(2324, utilTime.getTimeSlot("23:00", "00:00"));
     }
-
-    @Test
-    public void test_UtilTime9() {
-        UtilTime utilTime = new UtilTime();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:00:00");
-        assertEquals(dtf.format(LocalDateTime.now().plusHours(1)), utilTime.getNextAvailableTimeSlot(1));
-    }
-
-
-
-
 
 		@Test
 		public void test_controller() throws ExMemberShipFilePathNotExist, ExSCFilesNotExist, ExIOErrorinGetConfig, ExFacilityIdNotExist, IOException {
@@ -960,6 +923,8 @@ public class Test_FSFBS {
 				assertEquals(new ExSportCentreNotExist().toString(), e.toString());
 			}
 		}
+		
+		
 
     //*******************PLEASE DO NOT DELETE BELOW CODE AND ADD TEST CASE UNDER IT*******************//
     PrintStream oldPrintStream;

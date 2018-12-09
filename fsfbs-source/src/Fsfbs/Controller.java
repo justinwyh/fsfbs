@@ -149,7 +149,6 @@ public class Controller {
                 User temp = new User(inFile.next(), inFile.next(), inFile.next(), inFile.next(), inFile.next());
                 temp.importBooking();
                 userMap.put(f.getName().substring(0, f.getName().length() - 4), temp);
-                
 
             }
         }
