@@ -17,13 +17,29 @@ public class UtilTime {
     public String getCurrentDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate localDate = LocalDate.now();
-        return (dtf.format(localDate));
+        try {
+        if(SimulationMode.getSimulationMode())
+        	return "20180505";        	
+        else return (dtf.format(localDate));
+        }
+        catch(Exception e){
+        	
+        }
+        return null;
     }
 
     public String getCurrentTime(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return (dtf.format(now));
+        try {
+            if(SimulationMode.getSimulationMode())
+            	return "15:00:00"; 
+            else return (dtf.format(now));
+            }
+        catch(Exception e) {
+        	
+        }
+        return null;
     }
 
     public boolean isTimeLaterThanCurrentTime(String inputTime) {
@@ -43,7 +59,7 @@ public class UtilTime {
         if (endTime - startTime <= 0 || startTime > 23 || endTime > 24){
             return -1; //incorrect time range
         }
-        else if (startTime - endTime > 1) {
+        else if (endTime - startTime > 1) {
             return -2; //each booking can not bookmore than an hour
         }
         else if(startTime < 10){
