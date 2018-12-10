@@ -518,7 +518,7 @@ public class Test_FSFBS {
 				"20180505E1B11617\n"  + "vacancy\n" + "N1\n" + "badminton\n" + "mybooking\n" + "exit\n");
 		String[] args = new String [1];
 		Main.main(args);
-		String result = "+---------------------------------------------------+"+
+		String result = "\n+---------------------------------------------------+"+
 				"+------------------Simulation Mode------------------+\n" + 
 				"|Notice:                                            |\n" + 
 				"|In this simulation mode, all user output will not  |\n" + 
